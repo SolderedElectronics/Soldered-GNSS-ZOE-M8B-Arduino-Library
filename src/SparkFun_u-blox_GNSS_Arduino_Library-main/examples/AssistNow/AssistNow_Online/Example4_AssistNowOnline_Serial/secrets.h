@@ -1,6 +1,6 @@
-//Your WiFi credentials
+// Your WiFi credentials
 const char ssid[] = "TRex";
-const char password[] =  "hasBigTeeth";
+const char password[] = "hasBigTeeth";
 
-//Your AssistNow token
+// Your AssistNow token
 const char myAssistNowToken[] = "58XXXXXXXXXXXXXXXXXXYQ";

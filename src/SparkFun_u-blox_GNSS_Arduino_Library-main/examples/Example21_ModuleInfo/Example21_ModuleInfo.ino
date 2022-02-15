@@ -31,8 +31,8 @@
 
   Hardware Connections:
   Plug a Qwiic cable into the GNSS and a BlackBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
+  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper
+  (https://www.sparkfun.com/products/14425) Open the serial monitor at 115200 baud to see the output
 */
 
 #include <Wire.h> //Needed for I2C to GNSS
@@ -44,8 +44,8 @@
 // Extend the class for getModuleInfo
 class SFE_UBLOX_GPS_ADD : public SFE_UBLOX_GNSS
 {
-public:
-    bool getModuleInfo(uint16_t maxWait = 1100); //Queries module, texts
+  public:
+    bool getModuleInfo(uint16_t maxWait = 1100); // Queries module, texts
 
     struct minfoStructure // Structure to hold the module info (uses 341 bytes of RAM)
     {
@@ -62,28 +62,29 @@ void setup()
 {
     Serial.begin(115200); // You may need to increase this for high navigation rates!
     while (!Serial)
-        ; //Wait for user to open terminal
+        ; // Wait for user to open terminal
     Serial.println(F("SparkFun u-blox Example"));
 
     Wire.begin();
 
-    //myGNSS.enableDebugging(); // Uncomment this line to enable debug messages
+    // myGNSS.enableDebugging(); // Uncomment this line to enable debug messages
 
     // setPacketCfgPayloadSize tells the library how many bytes our customPayload can hold.
     // If we call it after the .begin, the library will attempt to resize the existing 256 byte payload buffer
     // by creating a new buffer, copying across the contents of the old buffer, and then delete the old buffer.
-    // This uses a lot of RAM and causes the code to fail on the ATmega328P. (We are also allocating another 341 bytes for minfo.)
-    // To keep the code ATmega328P compliant - don't call setPacketCfgPayloadSize after .begin. Call it here instead.    
+    // This uses a lot of RAM and causes the code to fail on the ATmega328P. (We are also allocating another 341 bytes
+    // for minfo.) To keep the code ATmega328P compliant - don't call setPacketCfgPayloadSize after .begin. Call it here
+    // instead.
     myGNSS.setPacketCfgPayloadSize(MAX_PAYLOAD_SIZE);
 
-    if (myGNSS.begin() == false) //Connect to the u-blox module using Wire port
+    if (myGNSS.begin() == false) // Connect to the u-blox module using Wire port
     {
         Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
         while (1)
             ;
     }
 
-    myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
+    myGNSS.setI2COutput(COM_TYPE_UBX); // Set the I2C port to output UBX only (turn off NMEA noise)
 
     Serial.print(F("Polling module info"));
     if (myGNSS.getModuleInfo(1100) == false) // Try to get the module info
@@ -129,24 +130,35 @@ bool SFE_UBLOX_GPS_ADD::getModuleInfo(uint16_t maxWait)
     // setPacketCfgPayloadSize tells the library how many bytes our customPayload can hold.
     // If we call it here, after the .begin, the library will attempt to resize the existing 256 byte payload buffer
     // by creating a new buffer, copying across the contents of the old buffer, and then delete the old buffer.
-    // This uses a lot of RAM and causes the code to fail on the ATmega328P. (We are also allocating another 341 bytes for minfo.)
-    // To keep the code ATmega328P compliant - don't call setPacketCfgPayloadSize here. Call it before .begin instead.
-    //myGNSS.setPacketCfgPayloadSize(MAX_PAYLOAD_SIZE);
+    // This uses a lot of RAM and causes the code to fail on the ATmega328P. (We are also allocating another 341 bytes
+    // for minfo.) To keep the code ATmega328P compliant - don't call setPacketCfgPayloadSize here. Call it before
+    // .begin instead.
+    // myGNSS.setPacketCfgPayloadSize(MAX_PAYLOAD_SIZE);
 
     // The next line creates and initialises the packet information which wraps around the payload
-    ubxPacket customCfg = {0, 0, 0, 0, 0, customPayload, 0, 0, SFE_UBLOX_PACKET_VALIDITY_NOT_DEFINED, SFE_UBLOX_PACKET_VALIDITY_NOT_DEFINED};
+    ubxPacket customCfg = {0,
+                           0,
+                           0,
+                           0,
+                           0,
+                           customPayload,
+                           0,
+                           0,
+                           SFE_UBLOX_PACKET_VALIDITY_NOT_DEFINED,
+                           SFE_UBLOX_PACKET_VALIDITY_NOT_DEFINED};
 
     // The structure of ubxPacket is:
     // uint8_t cls           : The message Class
     // uint8_t id            : The message ID
     // uint16_t len          : Length of the payload. Does not include cls, id, or checksum bytes
-    // uint16_t counter      : Keeps track of number of overall bytes received. Some responses are larger than 255 bytes.
-    // uint16_t startingSpot : The counter value needed to go past before we begin recording into payload array
+    // uint16_t counter      : Keeps track of number of overall bytes received. Some responses are larger than 255
+    // bytes. uint16_t startingSpot : The counter value needed to go past before we begin recording into payload array
     // uint8_t *payload      : The payload
     // uint8_t checksumA     : Given to us by the module. Checked against the rolling calculated A/B checksums.
     // uint8_t checksumB
-    // sfe_ublox_packet_validity_e valid            : Goes from NOT_DEFINED to VALID or NOT_VALID when checksum is checked
-    // sfe_ublox_packet_validity_e classAndIDmatch  : Goes from NOT_DEFINED to VALID or NOT_VALID when the Class and ID match the requestedClass and requestedID
+    // sfe_ublox_packet_validity_e valid            : Goes from NOT_DEFINED to VALID or NOT_VALID when checksum is
+    // checked sfe_ublox_packet_validity_e classAndIDmatch  : Goes from NOT_DEFINED to VALID or NOT_VALID when the Class
+    // and ID match the requestedClass and requestedID
 
     // sendCommand will return:
     // SFE_UBLOX_STATUS_DATA_RECEIVED if the data we requested was read / polled successfully
@@ -165,7 +177,7 @@ bool SFE_UBLOX_GPS_ADD::getModuleInfo(uint16_t maxWait)
     // Now let's send the command. The module info is returned in customPayload
 
     if (sendCommand(&customCfg, maxWait) != SFE_UBLOX_STATUS_DATA_RECEIVED)
-        return (false); //If command send fails then bail
+        return (false); // If command send fails then bail
 
     // Now let's extract the module info from customPayload
 
@@ -193,5 +205,5 @@ bool SFE_UBLOX_GPS_ADD::getModuleInfo(uint16_t maxWait)
             break;
     }
 
-    return (true); //Success!
+    return (true); // Success!
 }

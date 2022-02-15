@@ -17,8 +17,8 @@
 
   Hardware Connections:
   Plug a Qwiic cable into the GNSS and a RedBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
+  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper
+  (https://www.sparkfun.com/products/14425) Open the serial monitor at 115200 baud to see the output
 */
 
 #include <Wire.h> //Needed for I2C to GNSS
@@ -28,69 +28,69 @@ SFE_UBLOX_GNSS myGNSS;
 
 void setup()
 {
-  Serial.begin(115200);
-  while (!Serial)
-    ; //Wait for user to open terminal
-  Serial.println("SparkFun u-blox Example");
+    Serial.begin(115200);
+    while (!Serial)
+        ; // Wait for user to open terminal
+    Serial.println("SparkFun u-blox Example");
 
-  Wire.begin();
+    Wire.begin();
 
-  if (myGNSS.begin() == false) //Connect to the u-blox module using Wire port
-  {
-    Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
-    while (1)
-      ;
-  }
+    if (myGNSS.begin() == false) // Connect to the u-blox module using Wire port
+    {
+        Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
+        while (1)
+            ;
+    }
 
-  bool response = true;
+    bool response = true;
 
-  //Read the settings from RAM (what the module is running right now, not BBR, Flash, or default)
-  uint8_t currentUART1Setting_ubx = myGNSS.getVal8(UBLOX_CFG_UART1INPROT_UBX);
-  uint8_t currentUART1Setting_nmea = myGNSS.getVal8(UBLOX_CFG_UART1INPROT_NMEA);
-  uint8_t currentUART1Setting_rtcm3 = myGNSS.getVal8(UBLOX_CFG_UART1INPROT_RTCM3X);
+    // Read the settings from RAM (what the module is running right now, not BBR, Flash, or default)
+    uint8_t currentUART1Setting_ubx = myGNSS.getVal8(UBLOX_CFG_UART1INPROT_UBX);
+    uint8_t currentUART1Setting_nmea = myGNSS.getVal8(UBLOX_CFG_UART1INPROT_NMEA);
+    uint8_t currentUART1Setting_rtcm3 = myGNSS.getVal8(UBLOX_CFG_UART1INPROT_RTCM3X);
 
-  Serial.print("currentUART1Setting_ubx: ");
-  Serial.println(currentUART1Setting_ubx);
-  Serial.print("currentUART1Setting_nmea: ");
-  Serial.println(currentUART1Setting_nmea);
-  Serial.print("currentUART1Setting_rtcm3: ");
-  Serial.println(currentUART1Setting_rtcm3);
+    Serial.print("currentUART1Setting_ubx: ");
+    Serial.println(currentUART1Setting_ubx);
+    Serial.print("currentUART1Setting_nmea: ");
+    Serial.println(currentUART1Setting_nmea);
+    Serial.print("currentUART1Setting_rtcm3: ");
+    Serial.println(currentUART1Setting_rtcm3);
 
-  //Check if NMEA and RTCM are enabled for UART1
-  if (currentUART1Setting_ubx == 0 || currentUART1Setting_nmea == 0)
-  {
-    Serial.println("Updating UART1 configuration");
+    // Check if NMEA and RTCM are enabled for UART1
+    if (currentUART1Setting_ubx == 0 || currentUART1Setting_nmea == 0)
+    {
+        Serial.println("Updating UART1 configuration");
 
-    //setVal sets the values for RAM, BBR, and Flash automatically so no .saveConfiguration() is needed
-    response &= myGNSS.setVal8(UBLOX_CFG_UART1INPROT_UBX, 1);    //Enable UBX on UART1 Input
-    response &= myGNSS.setVal8(UBLOX_CFG_UART1INPROT_NMEA, 1);   //Enable NMEA on UART1 Input
-    response &= myGNSS.setVal8(UBLOX_CFG_UART1INPROT_RTCM3X, 0); //Disable RTCM on UART1 Input
+        // setVal sets the values for RAM, BBR, and Flash automatically so no .saveConfiguration() is needed
+        response &= myGNSS.setVal8(UBLOX_CFG_UART1INPROT_UBX, 1);    // Enable UBX on UART1 Input
+        response &= myGNSS.setVal8(UBLOX_CFG_UART1INPROT_NMEA, 1);   // Enable NMEA on UART1 Input
+        response &= myGNSS.setVal8(UBLOX_CFG_UART1INPROT_RTCM3X, 0); // Disable RTCM on UART1 Input
 
-    if (response == false)
-      Serial.println("SetVal failed");
+        if (response == false)
+            Serial.println("SetVal failed");
+        else
+            Serial.println("SetVal succeeded");
+    }
     else
-      Serial.println("SetVal succeeded");
-  }
-  else
-    Serial.println("No port change needed");
+        Serial.println("No port change needed");
 
-  //Change speed of UART2
-  uint32_t currentUART2Baud = myGNSS.getVal32(UBLOX_CFG_UART2_BAUDRATE);
-  Serial.print("currentUART2Baud: ");
-  Serial.println(currentUART2Baud);
+    // Change speed of UART2
+    uint32_t currentUART2Baud = myGNSS.getVal32(UBLOX_CFG_UART2_BAUDRATE);
+    Serial.print("currentUART2Baud: ");
+    Serial.println(currentUART2Baud);
 
-  if (currentUART2Baud != 57600)
-  {
-    response &= myGNSS.setVal32(UBLOX_CFG_UART2_BAUDRATE, 57600);
-    if (response == false)
-      Serial.println("SetVal failed");
+    if (currentUART2Baud != 57600)
+    {
+        response &= myGNSS.setVal32(UBLOX_CFG_UART2_BAUDRATE, 57600);
+        if (response == false)
+            Serial.println("SetVal failed");
+        else
+            Serial.println("SetVal succeeded");
+    }
     else
-      Serial.println("SetVal succeeded");
-  }
-  else
-    Serial.println("No baud change needed");
+        Serial.println("No baud change needed");
 
-  Serial.println("Done");
+    Serial.println("Done");
 }
 
 void loop()

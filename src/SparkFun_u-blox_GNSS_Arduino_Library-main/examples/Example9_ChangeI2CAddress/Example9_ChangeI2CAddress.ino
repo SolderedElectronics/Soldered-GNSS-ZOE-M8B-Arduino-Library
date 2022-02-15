@@ -16,8 +16,8 @@
 
   Hardware Connections:
   Plug a Qwiic cable into the GNSS and a BlackBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
+  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper
+  (https://www.sparkfun.com/products/14425) Open the serial monitor at 115200 baud to see the output
 */
 
 #include <Wire.h> //Needed for I2C to GNSS
@@ -25,92 +25,97 @@
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
 SFE_UBLOX_GNSS myGNSS;
 
-long lastTime = 0; //Tracks the passing of 2000ms (2 seconds)
+long lastTime = 0; // Tracks the passing of 2000ms (2 seconds)
 
 void setup()
 {
-  Serial.begin(115200);
-  while (!Serial); //Wait for user to open terminal
-  Serial.println("SparkFun u-blox Example");
+    Serial.begin(115200);
+    while (!Serial)
+        ; // Wait for user to open terminal
+    Serial.println("SparkFun u-blox Example");
 
-  Wire.begin();
+    Wire.begin();
 
-  byte oldAddress = 0x42; //The default address for u-blox modules is 0x42
-  byte newAddress = 0x3F; //Address you want to change to. Valid is 0x08 to 0x77.
+    byte oldAddress = 0x42; // The default address for u-blox modules is 0x42
+    byte newAddress = 0x3F; // Address you want to change to. Valid is 0x08 to 0x77.
 
-  while (Serial.available()) Serial.read(); //Trash any incoming chars
-  Serial.print("Press a key to change address to 0x");
-  Serial.println(newAddress, HEX);
-  while (Serial.available() == false) ; //Wait for user to send character
+    while (Serial.available())
+        Serial.read(); // Trash any incoming chars
+    Serial.print("Press a key to change address to 0x");
+    Serial.println(newAddress, HEX);
+    while (Serial.available() == false)
+        ; // Wait for user to send character
 
-  //myGNSS.enableDebugging(); // Uncomment this line to enable helpful debug messages on Serial
-  
-  if (myGNSS.begin(Wire, oldAddress) == true) //Connect to the u-blox module using Wire port and the old address
-  {
-    Serial.print("GNSS found at address 0x");
-    Serial.println(oldAddress, HEX);
+    // myGNSS.enableDebugging(); // Uncomment this line to enable helpful debug messages on Serial
 
-    myGNSS.setI2CAddress(newAddress); //Change I2C address of this device
-    //Device's I2C address is stored to memory and loaded on each power-on
-
-    delay(2000); // Allow time for the change to take
-
-    if (myGNSS.begin(Wire, newAddress) == true)
+    if (myGNSS.begin(Wire, oldAddress) == true) // Connect to the u-blox module using Wire port and the old address
     {
-      myGNSS.saveConfiguration(); //Save the current settings to flash and BBR
-      
-      Serial.print("Address successfully changed to 0x");
-      Serial.println(newAddress, HEX);
-      Serial.print("Now load another example sketch using .begin(Wire, 0x");
-      Serial.print(newAddress, HEX);
-      Serial.println(") to use this GPS module");
-      Serial.println("Freezing...");
-      while (1);
+        Serial.print("GNSS found at address 0x");
+        Serial.println(oldAddress, HEX);
+
+        myGNSS.setI2CAddress(newAddress); // Change I2C address of this device
+        // Device's I2C address is stored to memory and loaded on each power-on
+
+        delay(2000); // Allow time for the change to take
+
+        if (myGNSS.begin(Wire, newAddress) == true)
+        {
+            myGNSS.saveConfiguration(); // Save the current settings to flash and BBR
+
+            Serial.print("Address successfully changed to 0x");
+            Serial.println(newAddress, HEX);
+            Serial.print("Now load another example sketch using .begin(Wire, 0x");
+            Serial.print(newAddress, HEX);
+            Serial.println(") to use this GPS module");
+            Serial.println("Freezing...");
+            while (1)
+                ;
+        }
     }
-  }
 
-  //Something went wrong, begin looking for the I2C device
-  Serial.println("Address change probably failed. Beginning an I2C scan.");
+    // Something went wrong, begin looking for the I2C device
+    Serial.println("Address change probably failed. Beginning an I2C scan.");
 
-  Wire.begin();
+    Wire.begin();
 }
 
-void loop() {
+void loop()
+{
 
-  byte address;
-  int nDevices;
+    byte address;
+    int nDevices;
 
-  Serial.println("Scanning...");
+    Serial.println("Scanning...");
 
-  nDevices = 0;
-  for (address = 1; address < 127; address++ )
-  {
-    Wire.beginTransmission(address);
-    byte error = Wire.endTransmission();
-
-    if (error == 0)
+    nDevices = 0;
+    for (address = 1; address < 127; address++)
     {
-      Serial.print("I2C device found at address 0x");
-      if (address < 16)
-        Serial.print("0");
-      Serial.print(address, HEX);
-      Serial.println("  !");
+        Wire.beginTransmission(address);
+        byte error = Wire.endTransmission();
 
-      nDevices++;
+        if (error == 0)
+        {
+            Serial.print("I2C device found at address 0x");
+            if (address < 16)
+                Serial.print("0");
+            Serial.print(address, HEX);
+            Serial.println("  !");
+
+            nDevices++;
+        }
+        //    else if (error == 4)
+        //    {
+        //      Serial.print("Unknown error at address 0x");
+        //      if (address < 16)
+        //        Serial.print("0");
+        //      Serial.println(address, HEX);
+        //    }
     }
-//    else if (error == 4)
-//    {
-//      Serial.print("Unknown error at address 0x");
-//      if (address < 16)
-//        Serial.print("0");
-//      Serial.println(address, HEX);
-//    }
-  }
 
-  if (nDevices == 0)
-    Serial.println("No I2C devices found\n");
-  else
-    Serial.println("done\n");
+    if (nDevices == 0)
+        Serial.println("No I2C devices found\n");
+    else
+        Serial.println("done\n");
 
-  delay(5000);           // wait 5 seconds for next scan
+    delay(5000); // wait 5 seconds for next scan
 }

@@ -26,7 +26,8 @@ SFE_UBLOX_GNSS myGNSS;
 
 //#define mySerial Serial1 // Uncomment this line to connect via Serial1
 // - or -
-SoftwareSerial mySerial(10, 11); // Uncomment this line to connect via SoftwareSerial(RX, TX). Connect pin 10 to GNSS TX pin.
+SoftwareSerial mySerial(
+    10, 11); // Uncomment this line to connect via SoftwareSerial(RX, TX). Connect pin 10 to GNSS TX pin.
 
 #define defaultRate 9600 // Uncomment this line if you are using an M8 - which defaults to 9600 Baud on UART1
 // - or -
@@ -36,37 +37,44 @@ int state = 0; // steps through auto-baud, reset, etc states
 
 void setup()
 {
-  Serial.begin(115200);
-  while (!Serial); //Wait for user to open terminal
-  Serial.println("SparkFun u-blox Example");
+    Serial.begin(115200);
+    while (!Serial)
+        ; // Wait for user to open terminal
+    Serial.println("SparkFun u-blox Example");
 
-  //myGNSS.enableDebugging(); // Uncomment this line to enable helpful debug messages on Serial
+    // myGNSS.enableDebugging(); // Uncomment this line to enable helpful debug messages on Serial
 }
 
 void loop()
 {
     Serial.print("===== STATE ");
     Serial.println(state);
-    switch (state) {
+    switch (state)
+    {
     case 0: // auto-baud connection, then switch to 38400 and save config
-        do {
+        do
+        {
             Serial.println("GNSS: trying 38400 baud");
             mySerial.begin(38400);
-            if (myGNSS.begin(mySerial)) break;
+            if (myGNSS.begin(mySerial))
+                break;
 
             delay(100);
             Serial.println("GNSS: trying 9600 baud");
             mySerial.begin(9600);
-            if (myGNSS.begin(mySerial)) {
+            if (myGNSS.begin(mySerial))
+            {
                 Serial.println("GNSS: connected at 9600 baud, switching to 38400");
                 myGNSS.setSerialRate(38400);
                 delay(100);
-            } else {
-                delay(2000); //Wait a bit before trying again to limit the Serial output flood
             }
-        } while(1);
-        myGNSS.setUART1Output(COM_TYPE_UBX); //Set the UART port to output UBX only
-        myGNSS.saveConfiguration(); //Save the current settings to flash and BBR
+            else
+            {
+                delay(2000); // Wait a bit before trying again to limit the Serial output flood
+            }
+        } while (1);
+        myGNSS.setUART1Output(COM_TYPE_UBX); // Set the UART port to output UBX only
+        myGNSS.saveConfiguration();          // Save the current settings to flash and BBR
         Serial.println("GNSS serial connected, saved config");
         state++;
         break;
@@ -75,10 +83,13 @@ void loop()
         myGNSS.hardReset();
         delay(2000);
         mySerial.begin(38400);
-        if (myGNSS.begin(mySerial)) {
+        if (myGNSS.begin(mySerial))
+        {
             Serial.println("Success.");
             state++;
-        } else {
+        }
+        else
+        {
             Serial.println("*** GNSS did not respond at 38400 baud, starting over.");
             state = 0;
         }
@@ -88,10 +99,13 @@ void loop()
         myGNSS.factoryReset();
         delay(5000); // takes more than one second... a loop to resync would be best
         mySerial.begin(defaultRate);
-        if (myGNSS.begin(mySerial)) {
+        if (myGNSS.begin(mySerial))
+        {
             Serial.println("Success.");
             state++;
-        } else {
+        }
+        else
+        {
             Serial.println("*** GNSS did not come back at defaultRate baud, starting over.");
             state = 0;
         }
@@ -104,7 +118,8 @@ void loop()
         Serial.print('.');
         Serial.println(myGNSS.getProtocolVersionLow());
         Serial.println("All finished! Freezing...");
-        while(1);
+        while (1)
+            ;
     }
     delay(1000);
 }

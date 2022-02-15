@@ -25,59 +25,62 @@
 
   Hardware Connections:
   Plug a Qwiic cable into the GNSS and a BlackBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
+  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper
+  (https://www.sparkfun.com/products/14425) Open the serial monitor at 115200 baud to see the output
 */
 
 #include <SoftwareSerial.h>
 
 //#define mySerial Serial1 // Uncomment this line to connect via Serial1
 // - or -
-//SoftwareSerial mySerial(10, 11); // Uncomment this line to connect via SoftwareSerial(RX, TX). Connect pin 10 to GNSS TX pin.
+// SoftwareSerial mySerial(10, 11); // Uncomment this line to connect via SoftwareSerial(RX, TX). Connect pin 10 to GNSS
+// TX pin.
 // - or -
 #define mySerial Serial // Uncomment this line if you just want to keep using Serial
 
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
 SFE_UBLOX_GNSS myGNSS;
 
-long lastTime = 0; //Simple local timer. Limits amount if I2C traffic to u-blox module.
+long lastTime = 0; // Simple local timer. Limits amount if I2C traffic to u-blox module.
 
 void setup()
 {
-  Serial.begin(115200);
-  while (!Serial); //Wait for user to open terminal
-  Serial.println("SparkFun u-blox Example");
+    Serial.begin(115200);
+    while (!Serial)
+        ; // Wait for user to open terminal
+    Serial.println("SparkFun u-blox Example");
 
-  Serial.println("Trying 38400 baud");
-  mySerial.begin(38400);
-  if (myGNSS.begin(mySerial))
-  {
-    Serial.println("GNSS connected at 38400 baud");
-  }
-  else
-  {
-    Serial.println("Trying 9600 baud");
-    mySerial.begin(9600);
+    Serial.println("Trying 38400 baud");
+    mySerial.begin(38400);
     if (myGNSS.begin(mySerial))
     {
-      Serial.println("GNSS connected at 9600 baud");
+        Serial.println("GNSS connected at 38400 baud");
     }
     else
     {
-      Serial.println("Could not connect to GNSS. Freezing...");
-      while(1); // Do nothing more
+        Serial.println("Trying 9600 baud");
+        mySerial.begin(9600);
+        if (myGNSS.begin(mySerial))
+        {
+            Serial.println("GNSS connected at 9600 baud");
+        }
+        else
+        {
+            Serial.println("Could not connect to GNSS. Freezing...");
+            while (1)
+                ; // Do nothing more
+        }
     }
-  }
 
-  Serial.print(F("Version: "));
-  byte versionHigh = myGNSS.getProtocolVersionHigh();
-  Serial.print(versionHigh);
-  Serial.print(".");
-  byte versionLow = myGNSS.getProtocolVersionLow();
-  Serial.print(versionLow);
+    Serial.print(F("Version: "));
+    byte versionHigh = myGNSS.getProtocolVersionHigh();
+    Serial.print(versionHigh);
+    Serial.print(".");
+    byte versionLow = myGNSS.getProtocolVersionLow();
+    Serial.print(versionLow);
 }
 
 void loop()
 {
-  //Do nothing
+    // Do nothing
 }

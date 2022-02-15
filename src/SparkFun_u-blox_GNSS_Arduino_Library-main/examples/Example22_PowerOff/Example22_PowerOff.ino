@@ -7,11 +7,12 @@
   basically do whatever you want with this code.
 
   This example shows you how to turn off the ublox module to lower the power consumption.
-  There are two functions: one just specifies a duration in milliseconds the other also specifies a pin on the GNSS device to wake it up with.
-  By driving a voltage from LOW to HIGH or HIGH to LOW on the chosen module pin you wake the device back up.
-  Note: Doing so on the INT0 pin when using the regular powerOff(durationInMs) function will wake the device anyway. (tested on SAM-M8Q)
-  Note: While powered off, you should not query the device for data or it might wake up. This can be used to wake the device but is not recommended.
-        Works best when also putting your microcontroller to sleep.
+  There are two functions: one just specifies a duration in milliseconds the other also specifies a pin on the GNSS
+  device to wake it up with. By driving a voltage from LOW to HIGH or HIGH to LOW on the chosen module pin you wake the
+  device back up. Note: Doing so on the INT0 pin when using the regular powerOff(durationInMs) function will wake the
+  device anyway. (tested on SAM-M8Q) Note: While powered off, you should not query the device for data or it might wake
+  up. This can be used to wake the device but is not recommended. Works best when also putting your microcontroller to
+  sleep.
 
   Feel like supporting open source hardware?
   Buy a board from SparkFun!
@@ -22,8 +23,8 @@
   Hardware Connections:
   Plug a Qwiic cable into the GNSS and a BlackBoard.
   To force the device to wake up you need to connect to a pin (for example INT0) seperately on the module.
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
+  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper
+  (https://www.sparkfun.com/products/14425) Open the serial monitor at 115200 baud to see the output
 */
 
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
@@ -39,50 +40,55 @@ SFE_UBLOX_GNSS myGNSS;
 // VAL_RXM_PMREQ_WAKEUPSOURCE_SPICS   = spics
 // These values can be or'd (|) together to enable interrupts on multiple pins
 
-void wakeUp() {
+void wakeUp()
+{
 
-  Serial.print("-- waking up module via pin " + String(WAKEUP_PIN));
-  Serial.println(" on your microcontroller --");
+    Serial.print("-- waking up module via pin " + String(WAKEUP_PIN));
+    Serial.println(" on your microcontroller --");
 
-  digitalWrite(WAKEUP_PIN, LOW);
-  delay(1000);
-  digitalWrite(WAKEUP_PIN, HIGH);
-  delay(1000);
-  digitalWrite(WAKEUP_PIN, LOW);
+    digitalWrite(WAKEUP_PIN, LOW);
+    delay(1000);
+    digitalWrite(WAKEUP_PIN, HIGH);
+    delay(1000);
+    digitalWrite(WAKEUP_PIN, LOW);
 }
 
 
-void setup() {
+void setup()
+{
 
-  pinMode(WAKEUP_PIN, OUTPUT);
-  digitalWrite(WAKEUP_PIN, LOW);
+    pinMode(WAKEUP_PIN, OUTPUT);
+    digitalWrite(WAKEUP_PIN, LOW);
 
-  Serial.begin(115200);
-  while (!Serial); //Wait for user to open terminal
-  Serial.println("SparkFun u-blox Example");
+    Serial.begin(115200);
+    while (!Serial)
+        ; // Wait for user to open terminal
+    Serial.println("SparkFun u-blox Example");
 
-  Wire.begin();
+    Wire.begin();
 
-  //myGNSS.enableDebugging(); // Enable debug messages
+    // myGNSS.enableDebugging(); // Enable debug messages
 
-  if (myGNSS.begin() == false) //Connect to the u-blox module using Wire port
-  {
-    Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
-    while (1);
-  }
+    if (myGNSS.begin() == false) // Connect to the u-blox module using Wire port
+    {
+        Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
+        while (1)
+            ;
+    }
 
-  // Powering off for 20s, you should see the power consumption drop.
-  Serial.println("-- Powering off module for 20s --");
+    // Powering off for 20s, you should see the power consumption drop.
+    Serial.println("-- Powering off module for 20s --");
 
-  myGNSS.powerOff(20000);
-  //myGNSS.powerOffWithInterrupt(20000, VAL_RXM_PMREQ_WAKEUPSOURCE_EXTINT0);
+    myGNSS.powerOff(20000);
+    // myGNSS.powerOffWithInterrupt(20000, VAL_RXM_PMREQ_WAKEUPSOURCE_EXTINT0);
 
-  delay(10000);
+    delay(10000);
 
-  // After 10 seconds wake the device via the specified pin on your microcontroller and module.
-  wakeUp();
+    // After 10 seconds wake the device via the specified pin on your microcontroller and module.
+    wakeUp();
 }
 
-void loop() {
-  //Do nothing
+void loop()
+{
+    // Do nothing
 }

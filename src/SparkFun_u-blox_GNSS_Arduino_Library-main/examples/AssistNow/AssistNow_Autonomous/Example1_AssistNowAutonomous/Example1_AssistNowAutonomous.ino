@@ -26,8 +26,8 @@
 
   Hardware Connections:
   Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
+  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper
+  (https://www.sparkfun.com/products/14425) Open the serial monitor at 115200 baud to see the output
 */
 
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
@@ -44,46 +44,47 @@ SFE_UBLOX_GNSS myGNSS;
 //        |                 |              |
 void printSATdata(UBX_NAV_SAT_data_t ubxDataStruct)
 {
-  //Serial.println();
-  
-  Serial.print(F("UBX-NAV-SAT contains data for "));
-  Serial.print(ubxDataStruct.header.numSvs);
-  if (ubxDataStruct.header.numSvs == 1)
-    Serial.println(F(" SV"));
-  else
-    Serial.println(F(" SVs"));
+    // Serial.println();
 
-  uint16_t numAopAvail = 0; // Count how many SVs have AssistNow Autonomous data available
-    
-  for (uint16_t block = 0; block < ubxDataStruct.header.numSvs; block++) // For each SV
-  {
-    if (ubxDataStruct.blocks[block].flags.bits.aopAvail == 1) // If the aopAvail bit is set
-      numAopAvail++; // Increment the number of SVs
-  }
+    Serial.print(F("UBX-NAV-SAT contains data for "));
+    Serial.print(ubxDataStruct.header.numSvs);
+    if (ubxDataStruct.header.numSvs == 1)
+        Serial.println(F(" SV"));
+    else
+        Serial.println(F(" SVs"));
 
-  Serial.print(F("AssistNow Autonomous data is available for "));
-  Serial.print(numAopAvail);
-  if (numAopAvail == 1)
-    Serial.println(F(" SV"));
-  else
-    Serial.println(F(" SVs"));
+    uint16_t numAopAvail = 0; // Count how many SVs have AssistNow Autonomous data available
+
+    for (uint16_t block = 0; block < ubxDataStruct.header.numSvs; block++) // For each SV
+    {
+        if (ubxDataStruct.blocks[block].flags.bits.aopAvail == 1) // If the aopAvail bit is set
+            numAopAvail++;                                        // Increment the number of SVs
+    }
+
+    Serial.print(F("AssistNow Autonomous data is available for "));
+    Serial.print(numAopAvail);
+    if (numAopAvail == 1)
+        Serial.println(F(" SV"));
+    else
+        Serial.println(F(" SVs"));
 }
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // Callback: printAOPstatus will be called when new NAV AOPSTATUS data arrives
 // See u-blox_structs.h for the full definition of UBX_NAV_AOPSTATUS_data_t
-//         _____  You can use any name you like for the callback. Use the same name when you call setAutoNAVAOPSTATUScallback
+//         _____  You can use any name you like for the callback. Use the same name when you call
+//         setAutoNAVAOPSTATUScallback
 //        /                  _____  This _must_ be UBX_NAV_AOPSTATUS_data_t
 //        |                 /               _____ You can use any name you like for the struct
 //        |                 |              /
 //        |                 |              |
 void printAOPstatus(UBX_NAV_AOPSTATUS_data_t ubxDataStruct)
 {
-  //Serial.println();
-  
-  Serial.print(F("AOPSTATUS status is "));
-  Serial.println(ubxDataStruct.status);
+    // Serial.println();
+
+    Serial.print(F("AOPSTATUS status is "));
+    Serial.println(ubxDataStruct.status);
 }
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -97,92 +98,101 @@ void printAOPstatus(UBX_NAV_AOPSTATUS_data_t ubxDataStruct)
 //        |                 |              |
 void printPVTdata(UBX_NAV_PVT_data_t ubxDataStruct)
 {
-  // Print the UBX-NAV-PVT data so we can see how quickly the fixType goes to 3D
-  
-  Serial.println();
+    // Print the UBX-NAV-PVT data so we can see how quickly the fixType goes to 3D
 
-  long latitude = ubxDataStruct.lat; // Print the latitude
-  Serial.print(F("Lat: "));
-  Serial.print(latitude);
+    Serial.println();
 
-  long longitude = ubxDataStruct.lon; // Print the longitude
-  Serial.print(F(" Long: "));
-  Serial.print(longitude);
-  Serial.print(F(" (degrees * 10^-7)"));
+    long latitude = ubxDataStruct.lat; // Print the latitude
+    Serial.print(F("Lat: "));
+    Serial.print(latitude);
 
-  long altitude = ubxDataStruct.hMSL; // Print the height above mean sea level
-  Serial.print(F(" Alt: "));
-  Serial.print(altitude);
-  Serial.print(F(" (mm)"));
+    long longitude = ubxDataStruct.lon; // Print the longitude
+    Serial.print(F(" Long: "));
+    Serial.print(longitude);
+    Serial.print(F(" (degrees * 10^-7)"));
 
-  byte fixType = ubxDataStruct.fixType; // Print the fix type
-  Serial.print(F(" Fix: "));
-  if(fixType == 0) Serial.print(F("No fix"));
-  else if(fixType == 1) Serial.print(F("Dead reckoning"));
-  else if(fixType == 2) Serial.print(F("2D"));
-  else if(fixType == 3) Serial.print(F("3D"));
-  else if(fixType == 4) Serial.print(F("GNSS + Dead reckoning"));
-  else if(fixType == 5) Serial.print(F("Time only"));
+    long altitude = ubxDataStruct.hMSL; // Print the height above mean sea level
+    Serial.print(F(" Alt: "));
+    Serial.print(altitude);
+    Serial.print(F(" (mm)"));
 
-  Serial.println();
+    byte fixType = ubxDataStruct.fixType; // Print the fix type
+    Serial.print(F(" Fix: "));
+    if (fixType == 0)
+        Serial.print(F("No fix"));
+    else if (fixType == 1)
+        Serial.print(F("Dead reckoning"));
+    else if (fixType == 2)
+        Serial.print(F("2D"));
+    else if (fixType == 3)
+        Serial.print(F("3D"));
+    else if (fixType == 4)
+        Serial.print(F("GNSS + Dead reckoning"));
+    else if (fixType == 5)
+        Serial.print(F("Time only"));
+
+    Serial.println();
 }
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 void setup()
 {
-  delay(1000);
+    delay(1000);
 
-  Serial.begin(115200);
-  Serial.println(F("AssistNow Example"));
+    Serial.begin(115200);
+    Serial.println(F("AssistNow Example"));
 
-  //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  // Start I2C. Connect to the GNSS.
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    // Start I2C. Connect to the GNSS.
 
-  Wire.begin(); //Start I2C
+    Wire.begin(); // Start I2C
 
-  //myGNSS.enableDebugging(Serial, true); // Uncomment this line to see the 'major' debug messages on Serial
+    // myGNSS.enableDebugging(Serial, true); // Uncomment this line to see the 'major' debug messages on Serial
 
-  if (myGNSS.begin() == false) //Connect to the Ublox module using Wire port
-  {
-    Serial.println(F("u-blox GPS not detected at default I2C address. Please check wiring. Freezing."));
-    while (1);
-  }
-  Serial.println(F("u-blox module connected"));
+    if (myGNSS.begin() == false) // Connect to the Ublox module using Wire port
+    {
+        Serial.println(F("u-blox GPS not detected at default I2C address. Please check wiring. Freezing."));
+        while (1)
+            ;
+    }
+    Serial.println(F("u-blox module connected"));
 
-  myGNSS.setI2COutput(COM_TYPE_UBX); //Turn off NMEA noise
-  myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); //Save (only) the communications port settings to flash and BBR
+    myGNSS.setI2COutput(COM_TYPE_UBX);                 // Turn off NMEA noise
+    myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); // Save (only) the communications port settings to flash and BBR
 
-  //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  // Enable AssistNow Autonomous data collection.
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    // Enable AssistNow Autonomous data collection.
 
-  if (myGNSS.setAopCfg(1) == true)
-  {
-    Serial.println(F("aopCfg enabled"));
-  }
-  else
-  {
-    Serial.println(F("Could not enable aopCfg. Please check wiring. Freezing."));
-    while (1);
-  }
+    if (myGNSS.setAopCfg(1) == true)
+    {
+        Serial.println(F("aopCfg enabled"));
+    }
+    else
+    {
+        Serial.println(F("Could not enable aopCfg. Please check wiring. Freezing."));
+        while (1)
+            ;
+    }
 
-  //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  // Enable automatic UBX-NAV-SAT and UBX-NAV-AOPSTATUS messages and set up the callbacks
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    // Enable automatic UBX-NAV-SAT and UBX-NAV-AOPSTATUS messages and set up the callbacks
 
-  myGNSS.setNavigationFrequency(1); //Produce one solution per second
+    myGNSS.setNavigationFrequency(1); // Produce one solution per second
 
-  myGNSS.setAutoNAVSATcallback(&printSATdata); // Enable automatic NAV SAT messages with callback to printSATdata
-  myGNSS.setAutoAOPSTATUScallback(&printAOPstatus); // Enable automatic NAV AOPSTATUS messages with callback to printAOPstatus
-  myGNSS.setAutoPVTcallback(&printPVTdata); // Enable automatic NAV PVT messages with callback to printPVTdata
+    myGNSS.setAutoNAVSATcallback(&printSATdata); // Enable automatic NAV SAT messages with callback to printSATdata
+    myGNSS.setAutoAOPSTATUScallback(
+        &printAOPstatus);                     // Enable automatic NAV AOPSTATUS messages with callback to printAOPstatus
+    myGNSS.setAutoPVTcallback(&printPVTdata); // Enable automatic NAV PVT messages with callback to printPVTdata
 }
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 void loop()
 {
-  myGNSS.checkUblox(); // Check for the arrival of new data and process it.
-  myGNSS.checkCallbacks(); // Check if any callbacks are waiting to be processed.
+    myGNSS.checkUblox();     // Check for the arrival of new data and process it.
+    myGNSS.checkCallbacks(); // Check if any callbacks are waiting to be processed.
 
-  Serial.print(".");
-  delay(50);
+    Serial.print(".");
+    delay(50);
 }

@@ -30,8 +30,8 @@
 
   Hardware Connections:
   Plug a Qwiic cable into the GPS and a BlackBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
+  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper
+  (https://www.sparkfun.com/products/14425) Open the serial monitor at 115200 baud to see the output
 */
 
 #include <Wire.h> //Needed for I2C to GPS
@@ -78,38 +78,41 @@ void printTIMTM2data(UBX_TIM_TM2_data_t ubxDataStruct)
 
 void setup()
 {
-  Serial.begin(115200);
-  while (!Serial); //Wait for user to open terminal
-  Serial.println("SparkFun u-blox Example");
+    Serial.begin(115200);
+    while (!Serial)
+        ; // Wait for user to open terminal
+    Serial.println("SparkFun u-blox Example");
 
-  Wire.begin();
+    Wire.begin();
 
-  //myGNSS.enableDebugging(); // Uncomment this line to enable helpful debug messages on Serial
+    // myGNSS.enableDebugging(); // Uncomment this line to enable helpful debug messages on Serial
 
-  if (myGNSS.begin() == false) //Connect to the u-blox module using Wire port
-  {
-    Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
-    while (1);
-  }
+    if (myGNSS.begin() == false) // Connect to the u-blox module using Wire port
+    {
+        Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
+        while (1)
+            ;
+    }
 
-  myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
-  myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); //Save (only) the communications port settings to flash and BBR
+    myGNSS.setI2COutput(COM_TYPE_UBX);                 // Set the I2C port to output UBX only (turn off NMEA noise)
+    myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); // Save (only) the communications port settings to flash and BBR
 
-  myGNSS.setNavigationFrequency(1); //Produce one solution per second
+    myGNSS.setNavigationFrequency(1); // Produce one solution per second
 
-  myGNSS.setAutoTIMTM2callback(&printTIMTM2data); // Enable automatic TIM TM2 messages with callback to printTIMTM2data
+    myGNSS.setAutoTIMTM2callback(
+        &printTIMTM2data); // Enable automatic TIM TM2 messages with callback to printTIMTM2data
 }
 
 void loop()
 {
-  myGNSS.checkUblox(); // Check for the arrival of new data and process it.
-  myGNSS.checkCallbacks(); // Check if any callbacks are waiting to be processed.
+    myGNSS.checkUblox();     // Check for the arrival of new data and process it.
+    myGNSS.checkCallbacks(); // Check if any callbacks are waiting to be processed.
 
-  Serial.print(".");
-  delay(50);
-  if (++dotsPrinted > 50)
-  {
-    Serial.println();
-    dotsPrinted = 0;
-  }
+    Serial.print(".");
+    delay(50);
+    if (++dotsPrinted > 50)
+    {
+        Serial.println();
+        dotsPrinted = 0;
+    }
 }
