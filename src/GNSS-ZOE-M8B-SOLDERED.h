@@ -9,4 +9,4 @@
  * @authors     Goran Juric @ soldered.com
  ***************************************************/
 
-#include <GNSS-ZOE-M8B-SOLDERED.h>
+#include <SparkFun_u-blox_GNSS_Arduino_Library-main/src/SparkFun_u-blox_GNSS_Arduino_Library.h>
