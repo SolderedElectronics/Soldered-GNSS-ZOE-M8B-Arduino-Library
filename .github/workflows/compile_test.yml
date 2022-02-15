@@ -50,5 +50,6 @@ jobs:
             - name: SD
             - name: WiFi
             - name: HttpClient
+            - name: SparkFun SerLCD Arduino Library
           sketch-paths: |
             - ./examples/
