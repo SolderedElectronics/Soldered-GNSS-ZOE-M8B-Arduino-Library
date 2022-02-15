@@ -87,7 +87,7 @@ Migrating to v2.0 is easy. There are two small changes all users will need to ma
   * But we would encourage you to use ```SFE_UBLOX_GNSS myGNSS;```. You will see that all of the library examples now use ```myGNSS``` instead of ```myGPS```.
 * The name of the library header and C++ files have changed too:
   * Change: ```#include <SparkFun_Ublox_Arduino_Library.h>```
-  * to: ```#include <SparkFun_u-blox_GNSS_Arduino_Library.h>```
+  * to: ```#include <GNSS-ZOE-M8B-SOLDERED.h>```
 
 The biggest change in v2.0 is that data is now stored in a _struct_ which matches the u-blox interface description for that message. For example:
 - In v1, the NAV PVT (Position Velocity Time) latitude and longitude were stored in 'global' _int32_t_ variables called ```latitude``` and ```longitude```

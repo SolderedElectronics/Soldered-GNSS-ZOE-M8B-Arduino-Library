@@ -47,5 +47,6 @@ jobs:
           fqbn: ${{ matrix.board.fqbn }}
           libraries: |
             - source-path: ./
+            - name: 
           sketch-paths: |
             - ./examples/

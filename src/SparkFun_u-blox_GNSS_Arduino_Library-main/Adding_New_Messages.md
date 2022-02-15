@@ -103,7 +103,7 @@ The names and widths of the fields are taken directly from the interface definit
 
 See [this commit](https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/a4ba440c6240e0974c27f40b976a5ddf0fbdb9b6) for the changes.
 
-### Step 5: Update SparkFun_u-blox_GNSS_Arduino_Library.h
+### Step 5: Update GNSS-ZOE-M8B-SOLDERED.h
 
 Add the new message ID: ```const uint8_t UBX_NAV_PVAT = 0x17;```
 

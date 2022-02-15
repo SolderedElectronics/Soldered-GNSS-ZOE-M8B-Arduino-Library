@@ -68,7 +68,7 @@ Migrating to v2.0 is easy. There are two small changes all users will need to ma
   * But we would encourage you to use ```SFE_UBLOX_GNSS myGNSS;```. You will see that all of the library examples now use ```myGNSS``` instead of ```myGPS```.
 * The name of the library header and C++ files have changed too:
   * Change: ```#include <SparkFun_Ublox_Arduino_Library.h>```
-  * to: ```#include <SparkFun_u-blox_GNSS_Arduino_Library.h>```
+  * to: ```#include <GNSS-ZOE-M8B-SOLDERED.h>```
 
 If you are using the Dead Reckoning Sensor Fusion or High Dynamic Rate messages, you will need to make more small changes to your code. Please see the [dead reckoning examples](./examples/Dead_Reckoning) for more details. There is more detail available in [Theory.md](./Theory.md#migrating-your-code-to-v20) if you need it.
 
@@ -77,7 +77,7 @@ There is a [new example](./examples/Dead_Reckoning/Example8_getNAVPVAT) showing 
 ## Memory Usage
 
 The u-blox GNSS library has grown considerably over the years and v2.0.8 came very close to completely filling the program memory on platforms like the ATmega328 (Arduino Uno).
-If you want to reduce the amount of memory used by the library, you can edit the header file (_SparkFun_u-blox_GNSS_Arduino_Library.h_) and uncomment line 60:
+If you want to reduce the amount of memory used by the library, you can edit the header file (_GNSS-ZOE-M8B-SOLDERED.h_) and uncomment line 60:
 
 ```
 #define SFE_UBLOX_REDUCED_PROG_MEM // Uncommenting this line will delete the minor debug messages to save memory
@@ -85,7 +85,7 @@ If you want to reduce the amount of memory used by the library, you can edit the
 
 Doing this will save approximately 15% of the program memory used by the library. From v2.0.18 of the library, the debug messages are automatically deleted on ARDUINO_AVR_UNO platforms. For other platforms, you will need to uncomment that line manually.
 
-On Windows, you will normally find _SparkFun_u-blox_GNSS_Arduino_Library.h_ in:
+On Windows, you will normally find _GNSS-ZOE-M8B-SOLDERED.h_ in:
 - Documents\Arduino\libraries\SparkFun_u-blox_GNSS_Arduino_Library\src
 
 ## SPI Support

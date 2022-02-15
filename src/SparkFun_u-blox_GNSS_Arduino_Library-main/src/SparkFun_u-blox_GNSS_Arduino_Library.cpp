@@ -40,7 +40,7 @@
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "SparkFun_u-blox_GNSS_Arduino_Library.h"
+#include "GNSS-ZOE-M8B-SOLDERED.h"
 
 SFE_UBLOX_GNSS::SFE_UBLOX_GNSS(void)
 {
