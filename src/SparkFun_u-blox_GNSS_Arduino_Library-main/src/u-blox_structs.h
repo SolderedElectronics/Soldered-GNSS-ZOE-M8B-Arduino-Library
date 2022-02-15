@@ -1996,10 +1996,10 @@ typedef struct
 } UBX_MGA_DBD_data_t;
 
 #if defined(ARDUINO_ARCH_AVR)
-#define UBX_MGA_DBD_RINGBUFFER_LEN 127 // Fix to let the code compile on AVR platforms - including the UNO.
+#define UBX_MGA_DBD_RINGBUFFER_LEN 96 // Fix to let the code compile on AVR platforms - including the UNO.
 #else
 #define UBX_MGA_DBD_RINGBUFFER_LEN                                                                                     \
-    250 // Provide storage for MGA DBD packets. TO DO: confirm if 250 is large enough for all modules!
+    128 // Provide storage for MGA DBD packets. TO DO: confirm if 250 is large enough for all modules!
 #endif
 
 typedef struct
