@@ -40,13 +40,13 @@ var NAVTREE =
     ] ],
     [ "Subject of the issue", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__i_s_s_u_e__t_e_m_p_l_a_t_e.html", null ],
     [ "SparkFun License Information", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html", [
-      [ "Hardware", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md54", null ],
-      [ "Code", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md55", null ]
+      [ "Hardware", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md46", null ],
+      [ "Code", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md47", null ]
     ] ],
     [ "How I<sup>2</sup>C (aka DDC) communication works with a u-blox module", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html", [
-      [ "How data is processed by this library", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md72", null ],
-      [ "\"Auto\" messages", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md73", null ],
-      [ "Migrating your code to v2.0", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md74", null ]
+      [ "How data is processed by this library", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md64", null ],
+      [ "\"Auto\" messages", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md65", null ],
+      [ "Migrating your code to v2.0", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md66", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -81,22 +81,21 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_g_n_s_s-_z_o_e-_m8_b-_s_o_l_d_e_r_e_d_8cpp.html",
-"_spark_fun__u-blox___g_n_s_s___arduino___library_8h.html#ad3a3666df386c6b6a0e83e6f7ebefa4ca54052283e4c6eea2ba9f082d296caa03",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a27181925a688bba5d43d6a55e43873e7",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a8c993898476f358cc494c3d54ba39322",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#aec68b57a3e522ef7918af4a6cfeb61cb",
-"globals_v.html",
-"struct_u_b_x___e_s_f___a_l_g__data__t.html#ade935a43ac7f524ab7eb21a548881f6a",
-"struct_u_b_x___h_n_r___p_v_t__data__t.html#a77dfb50bb8eac2f01be111af17992eab",
-"struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__module_queried__t.html#afe7526f923218134b4f036efc3bbd784",
-"struct_u_b_x___n_a_v___p_v_t__module_queried__t.html#a0715982091d01e42b8a69ef657d14f2a",
-"struct_u_b_x___n_a_v___s_v_i_n__t.html#acf4a89c632e345d082681e7e34ca6258",
-"struct_u_b_x___t_i_m___t_m2__t.html#a30e053147e10ba395d45d2a05c085172",
-"u-blox__config__keys_8h.html#a2f127d39bf7cdb591c266ee5efd09172",
-"u-blox__config__keys_8h.html#a727f71a8bb7d7401445aa78e6b03f2a9",
-"u-blox__config__keys_8h.html#ab23592f052753f8ec2779872adad24c5",
-"u-blox__config__keys_8h.html#af97a9f336ea3a901be4be01116dc351b"
+"_assist_now_2_assist_now___autonomous_2_example3___assist_now_autonomous___database_write_2secrets_8h.html",
+"_spark_fun__u-blox___g_n_s_s___arduino___library_8h.html#ad07514134b85c8d1e2419a7bcdb5dde9",
+"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a087fe865940aa0a94b316f3b7dbe53f0",
+"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a677debd09c2c1d9af783c019b7d8fd60",
+"class_s_f_e___u_b_l_o_x___g_n_s_s.html#acf3feae51ba1efa89029fb49504d7674",
+"index.html#autotoc_md5",
+"struct_u_b_x___e_s_f___m_e_a_s__t.html",
+"struct_u_b_x___n_a_v___a_o_p_s_t_a_t_u_s__module_queried__t.html#a42ccf76385941ba682a3d607f201f5ba",
+"struct_u_b_x___n_a_v___p_v_a_t__data__t.html#a54a7b5c10e9426d04e34c5f5bf239c91",
+"struct_u_b_x___n_a_v___r_e_l_p_o_s_n_e_d__module_queried__t.html#a52459bbac30899cbeec804caf203aa65",
+"struct_u_b_x___n_a_v___v_e_l_e_c_e_f__module_queried__t.html#a9d1565f975c881e2fbe08b1b3e8f3ee7",
+"u-blox__config__keys_8h.html#a04f71dcb7e41d6243a4c2975177675d6",
+"u-blox__config__keys_8h.html#a46ca9f9767ea63bd7691e4ae1c06360a",
+"u-blox__config__keys_8h.html#a8b798dc99973d7685223d6d926875a3f",
+"u-blox__config__keys_8h.html#acdf348616b662d537ff2ccc3e876e491"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

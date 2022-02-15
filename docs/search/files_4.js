@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['issue_5ftemplate_2emd_0',['ISSUE_TEMPLATE.md',['../_i_s_s_u_e___t_e_m_p_l_a_t_e_8md.html',1,'']]]
+  ['gnss_2dzoe_2dm8b_2dsoldered_2ecpp_0',['GNSS-ZOE-M8B-SOLDERED.cpp',['../_g_n_s_s-_z_o_e-_m8_b-_s_o_l_d_e_r_e_d_8cpp.html',1,'']]],
+  ['gnss_2dzoe_2dm8b_2dsoldered_2eh_1',['GNSS-ZOE-M8B-SOLDERED.h',['../_g_n_s_s-_z_o_e-_m8_b-_s_o_l_d_e_r_e_d_8h.html',1,'']]]
 ];

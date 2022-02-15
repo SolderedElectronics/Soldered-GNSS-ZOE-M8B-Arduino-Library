@@ -1,5 +1,0 @@
-var examples_2_assist_now_2_assist_now___autonomous_2_example3___assist_now_autonomous___database_write_2database_8h =
-[
-    [ "database", "examples_2_assist_now_2_assist_now___autonomous_2_example3___assist_now_autonomous___database_write_2database_8h.html#a9f64cf9b71cebe395a2ce0759ec1e077", null ],
-    [ "databaseLen", "examples_2_assist_now_2_assist_now___autonomous_2_example3___assist_now_autonomous___database_write_2database_8h.html#a3eadd290c969585f8c51dbb89f97adb6", null ]
-];

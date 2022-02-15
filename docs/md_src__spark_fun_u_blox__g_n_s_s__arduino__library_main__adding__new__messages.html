@@ -178,7 +178,7 @@ Step 4: Add the new message struct to u-blox_struct.h</h2>
 <p >The names and widths of the fields are taken directly from the interface definition.</p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/a4ba440c6240e0974c27f40b976a5ddf0fbdb9b6">this commit</a> for the changes.</p>
 <h2><a class="anchor" id="autotoc_md28"></a>
-Step 5: Update SparkFun_u-blox_GNSS_Arduino_Library.h</h2>
+Step 5: Update GNSS-ZOE-M8B-SOLDERED.h</h2>
 <p >Add the new message ID: <code>const uint8_t UBX_NAV_PVAT = 0x17;</code></p>
 <p >Add the new functions to provide "auto" support for UBX-NAV-PVAT: <code>getNAVPVAT</code>, <code>setAutoNAVPVAT</code>, ..., <code>logNAVPVAT</code></p>
 <p >Add new helper functions to access the most important fields: <code>getVehicleRoll</code>, ..., <code>getMotionHeading</code></p>
@@ -227,7 +227,7 @@ Step 9: Update Theory.md</h2>
     <!-- id is needed for treeview function! -->
     <ul>
         <li class="footer">
-            Generated on Tue Feb 15 2022 11:17:48 for 16x2 easyC LCD Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 15 2022 11:27:27 for 16x2 easyC LCD Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

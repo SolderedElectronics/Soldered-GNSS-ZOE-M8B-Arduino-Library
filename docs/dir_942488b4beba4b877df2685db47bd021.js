@@ -1,4 +1,0 @@
-var dir_942488b4beba4b877df2685db47bd021 =
-[
-    [ "src/SparkFun_u-blox_GNSS_Arduino_Library-main/examples/AssistNow/AssistNow_Online/Example4_AssistNowOnline_Serial/secrets.h", "src_2_spark_fun__u-blox___g_n_s_s___arduino___library-main_2examples_2_assist_now_2_assist_now__4ae9ac34bf9515c15b92529f3add5aaa.html", "src_2_spark_fun__u-blox___g_n_s_s___arduino___library-main_2examples_2_assist_now_2_assist_now__4ae9ac34bf9515c15b92529f3add5aaa" ]
-];
