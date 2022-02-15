@@ -47,6 +47,7 @@ jobs:
           fqbn: ${{ matrix.board.fqbn }}
           libraries: |
             - source-path: ./
-            - name: 
+            - name: SD
+            - name: WiFi
           sketch-paths: |
             - ./examples/
