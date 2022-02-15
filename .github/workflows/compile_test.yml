@@ -51,5 +51,8 @@ jobs:
             - name: WiFi
             - name: HttpClient
             - name: SparkFun SerLCD Arduino Library
+            - name: ArduinoMqttClient
+            - name: base64
+            - name: MicroNMEA
           sketch-paths: |
             - ./examples/

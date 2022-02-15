@@ -32,7 +32,7 @@
 //#define USE_MGA_ACKs // Uncomment this line to use the UBX_MGA_ACK_DATA0 acknowledgements
 
 #include <WiFi.h>
-#include <HTTPClient.h>
+#include "HTTPClient.h"
 #include "secrets.h"
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";
