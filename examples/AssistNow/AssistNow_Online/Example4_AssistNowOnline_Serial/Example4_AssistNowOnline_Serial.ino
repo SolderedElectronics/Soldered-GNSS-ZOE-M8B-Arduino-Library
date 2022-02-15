@@ -32,7 +32,11 @@
 //#define USE_MGA_ACKs // Uncomment this line to use the UBX_MGA_ACK_DATA0 acknowledgements
 
 #include <WiFi.h>
+#ifdef ARDUINO_ESP8266_GENERIC
+#include "ESP8266HTTPClient.h"
+#else
 #include "HTTPClient.h"
+#endif
 #include "secrets.h"
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";
