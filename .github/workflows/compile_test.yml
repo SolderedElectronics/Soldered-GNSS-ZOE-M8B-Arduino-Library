@@ -47,9 +47,7 @@ jobs:
           fqbn: ${{ matrix.board.fqbn }}
           libraries: |
             - source-path: ./
-            - name: SD
             - name: WiFi
-            - name: HttpClient
             - name: SparkFun SerLCD Arduino Library
             - name: ArduinoMqttClient
             - name: base64
