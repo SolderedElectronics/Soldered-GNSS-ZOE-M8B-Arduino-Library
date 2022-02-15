@@ -2087,10 +2087,10 @@ $(document).ready(function(){initNavTree('u-blox__structs_8h_source.html',''); i
 <div class="line"><a id="l01996" name="l01996"></a><span class="lineno"> 1996</span>} <a class="code hl_struct" href="struct_u_b_x___m_g_a___d_b_d__data__t.html">UBX_MGA_DBD_data_t</a>;</div>
 <div class="line"><a id="l01997" name="l01997"></a><span class="lineno"> 1997</span> </div>
 <div class="line"><a id="l01998" name="l01998"></a><span class="lineno"> 1998</span><span class="preprocessor">#if defined(ARDUINO_ARCH_AVR)</span></div>
-<div class="line"><a id="l01999" name="l01999"></a><span class="lineno"> 1999</span><span class="preprocessor">#define UBX_MGA_DBD_RINGBUFFER_LEN 127 </span><span class="comment">// Fix to let the code compile on AVR platforms - including the UNO.</span></div>
+<div class="line"><a id="l01999" name="l01999"></a><span class="lineno"> 1999</span><span class="preprocessor">#define UBX_MGA_DBD_RINGBUFFER_LEN 96 </span><span class="comment">// Fix to let the code compile on AVR platforms - including the UNO.</span></div>
 <div class="line"><a id="l02000" name="l02000"></a><span class="lineno"> 2000</span><span class="preprocessor">#else</span></div>
 <div class="line"><a id="l02001" name="l02001"></a><span class="lineno"> 2001</span><span class="preprocessor">#define UBX_MGA_DBD_RINGBUFFER_LEN                                                                                     \</span></div>
-<div class="line"><a id="l02002" name="l02002"></a><span class="lineno"> 2002</span><span class="preprocessor">    250 </span><span class="comment">// Provide storage for MGA DBD packets. TO DO: confirm if 250 is large enough for all modules!</span></div>
+<div class="line"><a id="l02002" name="l02002"></a><span class="lineno"> 2002</span><span class="preprocessor">    128 </span><span class="comment">// Provide storage for MGA DBD packets. TO DO: confirm if 250 is large enough for all modules!</span></div>
 <div class="line"><a id="l02003" name="l02003"></a><span class="lineno"> 2003</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l02004" name="l02004"></a><span class="lineno"> 2004</span> </div>
 <div class="line"><a id="l02005" name="l02005"></a><span class="lineno"><a class="line" href="struct_u_b_x___m_g_a___d_b_d__t.html"> 2005</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
@@ -3558,7 +3558,7 @@ $(document).ready(function(){initNavTree('u-blox__structs_8h_source.html',''); i
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d91d0eae950725838592d845bc24e18a.html">SparkFun_u-blox_GNSS_Arduino_Library-main</a></li><li class="navelem"><a class="el" href="dir_f803a308c654451ab77c3802201f2d1a.html">src</a></li><li class="navelem"><a class="el" href="u-blox__structs_8h.html">u-blox_structs.h</a></li>
         <li class="footer">
-            Generated on Tue Feb 15 2022 11:54:07 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 15 2022 12:02:08 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
