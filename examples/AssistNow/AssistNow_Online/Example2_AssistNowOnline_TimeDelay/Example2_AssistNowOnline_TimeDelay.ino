@@ -34,7 +34,7 @@
 */
 
 #include <WiFi.h>
-#include <HTTPClient.h>
+#include "HTTPClient.h"
 #include "secrets.h"
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";

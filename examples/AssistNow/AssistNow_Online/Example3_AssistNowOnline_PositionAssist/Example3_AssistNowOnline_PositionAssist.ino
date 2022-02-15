@@ -32,7 +32,7 @@
 //#define USE_SERVER_ASSISTANCE // Uncomment this line to include the position in the AssistNow data request
 
 #include <WiFi.h>
-#include <HTTPClient.h>
+#include "HTTPClient.h"
 #include "secrets.h"
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";
