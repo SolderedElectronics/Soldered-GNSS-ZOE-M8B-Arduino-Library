@@ -412,9 +412,9 @@ const uint32_t UBLOX_CFG_MSGOUT_UBX_LOG_INFO_UART1 = 0x2091025a; // Output rate 
                                                                  // UART1
 const uint32_t UBLOX_CFG_MSGOUT_UBX_LOG_INFO_UART2 = 0x2091025b; // Output rate of the UBX-LOG-INFO message on port
                                                                  // UART2
-const uint32_t UBLOX_CFG_MSGOUT_UBX_LOG_INFO_USB = 0x2091025c;  // Output rate of the UBX-LOG-INFO message on port USB
-const uint32_t UBLOX_CFG_MSGOUT_UBX_MON_COMMS_I2C = 0x2091034f; // Output rate of the UBX-MON-COMMS message on port I2C
-const uint32_t UBLOX_CFG_MSGOUT_UBX_MON_COMMS_SPI = 0x20910353; // Output rate of the UBX-MON-COMMS message on port SPI
+const uint32_t UBLOX_CFG_MSGOUT_UBX_LOG_INFO_USB = 0x2091025c;   // Output rate of the UBX-LOG-INFO message on port USB
+const uint32_t UBLOX_CFG_MSGOUT_UBX_MON_COMMS_I2C = 0x2091034f;  // Output rate of the UBX-MON-COMMS message on port I2C
+const uint32_t UBLOX_CFG_MSGOUT_UBX_MON_COMMS_SPI = 0x20910353;  // Output rate of the UBX-MON-COMMS message on port SPI
 const uint32_t UBLOX_CFG_MSGOUT_UBX_MON_COMMS_UART1 =
     0x20910350; // Output rate of the UBX-MON-COMMS message on port UART1
 const uint32_t UBLOX_CFG_MSGOUT_UBX_MON_COMMS_UART2 =

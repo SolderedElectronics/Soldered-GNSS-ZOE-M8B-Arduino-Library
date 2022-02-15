@@ -1081,7 +1081,7 @@ bool SFE_UBLOX_GNSS::checkUbloxI2C(ubxPacket *incomingUBX, uint8_t requestedClas
 
                     // Check to see if the first read is 0x7F. If it is, the module is not ready to respond. Stop, wait,
                     // and try again. Note: the integration manual says: "If there is no data awaiting transmission from
-                    //the receiver, then this register will deliver the value 0xFF,
+                    // the receiver, then this register will deliver the value 0xFF,
                     // which cannot be the first byte of a valid message."
                     // But it can be the first byte waiting to be read from the buffer if we have already read part of
                     // the message. Therefore I think this check needs to be commented.
@@ -3967,7 +3967,7 @@ sfe_ublox_status_e SFE_UBLOX_GNSS::sendI2cCommand(ubxPacket *outgoingUBX, uint16
     //     a single byte until pushRawData is called again.
     // The next four lines can be commented. We do not need to point at the 0xFF data register
     //_i2cPort->beginTransmission((uint8_t)_gpsI2Caddress); //There is no register to write to, we just begin writing
-    //data bytes _i2cPort->write(0xFF); if (_i2cPort->endTransmission(false) != 0)         //Don't release bus
+    // data bytes _i2cPort->write(0xFF); if (_i2cPort->endTransmission(false) != 0)         //Don't release bus
     //  return (SFE_UBLOX_STATUS_I2C_COMM_FAILURE); //Sensor did not ACK
 
     // The total number of bytes to be written is: payload len + 8
@@ -4259,7 +4259,7 @@ void SFE_UBLOX_GNSS::printPacket(ubxPacket *packet, bool alwaysPrintPayload)
 
 // When messages from the class CFG are sent to the receiver, the receiver will send an "acknowledge"(UBX - ACK - ACK)
 // or a "not acknowledge"(UBX-ACK-NAK) message back to the sender, depending on whether or not the message was processed
-//correctly. Some messages from other classes also use the same acknowledgement mechanism.
+// correctly. Some messages from other classes also use the same acknowledgement mechanism.
 
 // When we poll or get a setting, we will receive _both_ a config packet and an ACK
 // If the poll or get request is not valid, we will receive _only_ a NACK
@@ -4268,7 +4268,7 @@ void SFE_UBLOX_GNSS::printPacket(ubxPacket *packet, bool alwaysPrintPayload)
 // If we poll the setting for a particular port using UBX-CFG-PRT then .len will be 1 initially
 // For all other gets or polls, .len will be 0 initially
 //(It would be possible for .len to be 2 _if_ we were using UBX-CFG-MSG to poll the settings for a particular message -
-//but we don't use that (currently))
+// but we don't use that (currently))
 
 // If the get or poll _fails_, i.e. is NACK'd, then packetCfg.len could still be 0 or 1 after the NACK is received
 // But if the get or poll is ACK'd, then packetCfg.len will have been updated by the incoming data and will always be at
@@ -4494,9 +4494,9 @@ sfe_ublox_status_e SFE_UBLOX_GNSS::waitForACKResponse(ubxPacket *outgoingUBX, ui
 // For non-CFG queries no ACK is sent so we use this function
 // Returns SFE_UBLOX_STATUS_DATA_RECEIVED if we got a config packet full of response data that has CLS/ID match to our
 // query packet Returns SFE_UBLOX_STATUS_CRC_FAIL if we got a corrupt config packet that has CLS/ID match to our query
-// packet Returns SFE_UBLOX_STATUS_TIMEOUT if we timed out Returns SFE_UBLOX_STATUS_DATA_OVERWRITTEN if we got an a valid
-// packetCfg but that the packetCfg has been
-// or is currently being overwritten (remember that Serial data can arrive very slowly)
+// packet Returns SFE_UBLOX_STATUS_TIMEOUT if we timed out Returns SFE_UBLOX_STATUS_DATA_OVERWRITTEN if we got an a
+// valid packetCfg but that the packetCfg has been or is currently being overwritten (remember that Serial data can
+// arrive very slowly)
 sfe_ublox_status_e SFE_UBLOX_GNSS::waitForNoACKResponse(ubxPacket *outgoingUBX, uint8_t requestedClass,
                                                         uint8_t requestedID, uint16_t maxTime)
 {

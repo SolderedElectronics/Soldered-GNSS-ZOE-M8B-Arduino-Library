@@ -58,7 +58,7 @@
 
 // Uncomment the next line (or add SFE_UBLOX_REDUCED_PROG_MEM as a compiler directive) to reduce the amount of program
 // memory used by the library #define SFE_UBLOX_REDUCED_PROG_MEM // Uncommenting this line will delete the minor debug
-//messages to save memory
+// messages to save memory
 
 // The code just about fills the program memory on the ATmega328P (Arduino Uno), so let's delete the minor debug
 // messages anyway
@@ -206,19 +206,19 @@ const uint8_t UBX_CLASS_NMEA = 0xF0; // NMEA Strings: standard NMEA strings
 // Class: CFG
 // The following are used for configuration. Descriptions are from the ZED-F9P Interface Description pg 33-34 and
 // NEO-M9N Interface Description pg 47-48
-const uint8_t UBX_CFG_ANT = 0x13;      // Antenna Control Settings. Used to configure the antenna control settings
-const uint8_t UBX_CFG_BATCH = 0x93;    // Get/set data batching configuration.
-const uint8_t UBX_CFG_CFG = 0x09;      // Clear, Save, and Load Configurations. Used to save current configuration
-const uint8_t UBX_CFG_DAT = 0x06;      // Set User-defined Datum or The currently defined Datum
-const uint8_t UBX_CFG_DGNSS = 0x70;    // DGNSS configuration
-const uint8_t UBX_CFG_ESFALG = 0x56;   // ESF alignment
-const uint8_t UBX_CFG_ESFA = 0x4C;     // ESF accelerometer
-const uint8_t UBX_CFG_ESFG = 0x4D;     // ESF gyro
-const uint8_t UBX_CFG_GEOFENCE = 0x69; // Geofencing configuration. Used to configure a geofence
-const uint8_t UBX_CFG_GNSS = 0x3E;     // GNSS system configuration
-const uint8_t UBX_CFG_HNR = 0x5C;      // High Navigation Rate
-const uint8_t UBX_CFG_INF = 0x02;      // Depending on packet length, either: poll configuration for one protocol, or
-                                  // information message configuration
+const uint8_t UBX_CFG_ANT = 0x13;       // Antenna Control Settings. Used to configure the antenna control settings
+const uint8_t UBX_CFG_BATCH = 0x93;     // Get/set data batching configuration.
+const uint8_t UBX_CFG_CFG = 0x09;       // Clear, Save, and Load Configurations. Used to save current configuration
+const uint8_t UBX_CFG_DAT = 0x06;       // Set User-defined Datum or The currently defined Datum
+const uint8_t UBX_CFG_DGNSS = 0x70;     // DGNSS configuration
+const uint8_t UBX_CFG_ESFALG = 0x56;    // ESF alignment
+const uint8_t UBX_CFG_ESFA = 0x4C;      // ESF accelerometer
+const uint8_t UBX_CFG_ESFG = 0x4D;      // ESF gyro
+const uint8_t UBX_CFG_GEOFENCE = 0x69;  // Geofencing configuration. Used to configure a geofence
+const uint8_t UBX_CFG_GNSS = 0x3E;      // GNSS system configuration
+const uint8_t UBX_CFG_HNR = 0x5C;       // High Navigation Rate
+const uint8_t UBX_CFG_INF = 0x02;       // Depending on packet length, either: poll configuration for one protocol, or
+                                        // information message configuration
 const uint8_t UBX_CFG_ITFM = 0x39;      // Jamming/Interference Monitor configuration
 const uint8_t UBX_CFG_LOGFILTER = 0x47; // Data Logger Configuration
 const uint8_t UBX_CFG_MSG = 0x01;       // Poll a message configuration, or Set Message Rate(s), or Set Message Rate
@@ -232,7 +232,7 @@ const uint8_t UBX_CFG_PMS = 0x86;   // Power mode setup
 const uint8_t UBX_CFG_PRT = 0x00; // Used to configure port specifics. Polls the configuration for one I/O Port, or Port
                                   // configuration for UART ports, or Port configuration for USB port, or Port
                                   // configuration for SPI port, or Port configuration for DDC port
-const uint8_t UBX_CFG_PWR = 0x57;    // Put receiver in a defined power state
+const uint8_t UBX_CFG_PWR = 0x57; // Put receiver in a defined power state
 const uint8_t UBX_CFG_RATE = 0x08;   // Navigation/Measurement Rate Settings. Used to set port baud rates.
 const uint8_t UBX_CFG_RINV = 0x34;   // Contents of Remote Inventory
 const uint8_t UBX_CFG_RST = 0x04;    // Reset Receiver / Clear Backup Data Structures. Used to reset device.
@@ -319,10 +319,10 @@ const uint8_t UBX_LOG_STRING = 0x04;           // Store arbitrary string on on-b
 // The following are used to configure MGA UBX messages (Multiple GNSS Assistance Messages).  Descriptions from UBX
 // messages overview (ZED_F9P Interface Description Document page 34)
 const uint8_t UBX_MGA_ACK_DATA0 = 0x60; // Multiple GNSS Acknowledge message
-const uint8_t UBX_MGA_ANO = 0x20; // Multiple GNSS AssistNow Offline assistance - NOT SUPPORTED BY THE ZED-F9P! "The
-                                  // ZED-F9P supports AssistNow Online only."
-const uint8_t UBX_MGA_BDS_EPH = 0x03;        // BDS Ephemeris Assistance
-const uint8_t UBX_MGA_BDS_ALM = 0x03;        // BDS Almanac Assistance
+const uint8_t UBX_MGA_ANO = 0x20;     // Multiple GNSS AssistNow Offline assistance - NOT SUPPORTED BY THE ZED-F9P! "The
+                                      // ZED-F9P supports AssistNow Online only."
+const uint8_t UBX_MGA_BDS_EPH = 0x03; // BDS Ephemeris Assistance
+const uint8_t UBX_MGA_BDS_ALM = 0x03; // BDS Almanac Assistance
 const uint8_t UBX_MGA_BDS_HEALTH = 0x03;     // BDS Health Assistance
 const uint8_t UBX_MGA_BDS_UTC = 0x03;        // BDS UTC Assistance
 const uint8_t UBX_MGA_BDS_IONO = 0x03;       // BDS Ionospheric Assistance
@@ -383,9 +383,9 @@ const uint8_t UBX_NAV_ODO = 0x09;     // Odometer Solution
 const uint8_t UBX_NAV_ORB = 0x34;     // GNSS Orbit Database Info
 const uint8_t UBX_NAV_POSECEF = 0x01; // Position Solution in ECEF
 const uint8_t UBX_NAV_POSLLH = 0x02;  // Geodetic Position Solution
-const uint8_t UBX_NAV_PVT = 0x07; // All the things! Position, velocity, time, PDOP, height, h/v accuracies, number of
-                                  // satellites. Navigation Position Velocity Time Solution.
-const uint8_t UBX_NAV_PVAT = 0x17;      // Navigation position velocity attitude time solution (ZED-F9R only)
+const uint8_t UBX_NAV_PVT = 0x07;  // All the things! Position, velocity, time, PDOP, height, h/v accuracies, number of
+                                   // satellites. Navigation Position Velocity Time Solution.
+const uint8_t UBX_NAV_PVAT = 0x17; // Navigation position velocity attitude time solution (ZED-F9R only)
 const uint8_t UBX_NAV_RELPOSNED = 0x3C; // Relative Positioning Information in NED frame
 const uint8_t UBX_NAV_RESETODO = 0x10;  // Reset odometer
 const uint8_t UBX_NAV_SAT = 0x35;       // Satellite Information
@@ -501,8 +501,8 @@ enum dynModel // Possible values for the dynamic platform model, which provide m
     // 1 is not defined
     DYN_MODEL_STATIONARY = 2, // Used in timing applications (antenna must be stationary) or other stationary
                               // applications. Velocity restricted to 0 m/s. Zero dynamics assumed.
-    DYN_MODEL_PEDESTRIAN, // Applications with low acceleration and speed, e.g. how a pedestrian would move. Low
-                          // acceleration assumed.
+    DYN_MODEL_PEDESTRIAN,     // Applications with low acceleration and speed, e.g. how a pedestrian would move. Low
+                              // acceleration assumed.
     DYN_MODEL_AUTOMOTIVE, // Used for applications with equivalent dynamics to those of a passenger car. Low vertical
                           // acceleration assumed
     DYN_MODEL_SEA, // Recommended for applications at sea, with zero vertical velocity. Zero vertical velocity assumed.
@@ -1130,8 +1130,8 @@ class SFE_UBLOX_GNSS
     bool assumeAutoNAVPOSECEF(bool enabled,
                               bool implicitUpdate = true); // In case no config access to the GPS is possible and
                                                            // POSECEF is send cyclically already
-    void flushNAVPOSECEF();                  // Mark all the data as read/stale
-    void logNAVPOSECEF(bool enabled = true); // Log data to file buffer
+    void flushNAVPOSECEF();                                // Mark all the data as read/stale
+    void logNAVPOSECEF(bool enabled = true);               // Log data to file buffer
 
     bool getNAVSTATUS(uint16_t maxWait = defaultMaxWait); // NAV STATUS
     bool setAutoNAVSTATUS(
@@ -1149,10 +1149,11 @@ class SFE_UBLOX_GNSS
         void (*callbackPointer)(UBX_NAV_STATUS_data_t),
         uint16_t maxWait = defaultMaxWait); // Enable automatic STATUS reports at the navigation frequency. Data is
                                             // accessed from the callback.
-    bool assumeAutoNAVSTATUS(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is
-                                                                        // possible and STATUS is send cyclically already
-    void flushNAVSTATUS();                  // Mark all the data as read/stale
-    void logNAVSTATUS(bool enabled = true); // Log data to file buffer
+    bool assumeAutoNAVSTATUS(bool enabled,
+                             bool implicitUpdate = true); // In case no config access to the GPS is
+                                                          // possible and STATUS is send cyclically already
+    void flushNAVSTATUS();                                // Mark all the data as read/stale
+    void logNAVSTATUS(bool enabled = true);               // Log data to file buffer
 
     bool getDOP(
         uint16_t maxWait = defaultMaxWait); // Query module for latest dilution of precision values and load global
@@ -1191,12 +1192,12 @@ class SFE_UBLOX_GNSS
     bool setAutoNAVATTrate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic ATT reports
     bool setAutoNAVATTcallback(void (*callbackPointer)(UBX_NAV_ATT_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic ATT reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic ATT reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoNAVATT(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and vehicle attitude is send cyclically already
-    void flushNAVATT();                  // Mark all the data as read/stale
-    void logNAVATT(bool enabled = true); // Log data to file buffer
+    void flushNAVATT();                                              // Mark all the data as read/stale
+    void logNAVATT(bool enabled = true);                             // Log data to file buffer
 
     bool getPVT(uint16_t maxWait =
                     defaultMaxWait); // Query module for latest group of datums and load global vars: lat, long, alt,
@@ -1235,12 +1236,12 @@ class SFE_UBLOX_GNSS
     bool setAutoNAVODOrate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic ODO reports
     bool setAutoNAVODOcallback(void (*callbackPointer)(UBX_NAV_ODO_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic ODO reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic ODO reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoNAVODO(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and ODO is send cyclically already
-    void flushNAVODO();                  // Mark all the data as read/stale
-    void logNAVODO(bool enabled = true); // Log data to file buffer
+    void flushNAVODO();                                              // Mark all the data as read/stale
+    void logNAVODO(bool enabled = true);                             // Log data to file buffer
 
     bool getNAVVELECEF(uint16_t maxWait = defaultMaxWait); // NAV VELECEF
     bool setAutoNAVVELECEF(
@@ -1261,8 +1262,8 @@ class SFE_UBLOX_GNSS
     bool assumeAutoNAVVELECEF(bool enabled,
                               bool implicitUpdate = true); // In case no config access to the GPS is possible and
                                                            // VELECEF is send cyclically already
-    void flushNAVVELECEF();                  // Mark all the data as read/stale
-    void logNAVVELECEF(bool enabled = true); // Log data to file buffer
+    void flushNAVVELECEF();                                // Mark all the data as read/stale
+    void logNAVVELECEF(bool enabled = true);               // Log data to file buffer
 
     bool getNAVVELNED(uint16_t maxWait = defaultMaxWait); // NAV VELNED
     bool setAutoNAVVELNED(
@@ -1280,10 +1281,11 @@ class SFE_UBLOX_GNSS
         void (*callbackPointer)(UBX_NAV_VELNED_data_t),
         uint16_t maxWait = defaultMaxWait); // Enable automatic VELNED reports at the navigation frequency. Data is
                                             // accessed from the callback.
-    bool assumeAutoNAVVELNED(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is
-                                                                        // possible and VELNED is send cyclically already
-    void flushNAVVELNED();                  // Mark all the data as read/stale
-    void logNAVVELNED(bool enabled = true); // Log data to file buffer
+    bool assumeAutoNAVVELNED(bool enabled,
+                             bool implicitUpdate = true); // In case no config access to the GPS is
+                                                          // possible and VELNED is send cyclically already
+    void flushNAVVELNED();                                // Mark all the data as read/stale
+    void logNAVVELNED(bool enabled = true);               // Log data to file buffer
 
     bool getNAVHPPOSECEF(uint16_t maxWait = defaultMaxWait); // NAV HPPOSECEF
     bool setAutoNAVHPPOSECEF(
@@ -1304,8 +1306,8 @@ class SFE_UBLOX_GNSS
     bool assumeAutoNAVHPPOSECEF(bool enabled,
                                 bool implicitUpdate = true); // In case no config access to the GPS is possible and
                                                              // HPPOSECEF is send cyclically already
-    void flushNAVHPPOSECEF();                  // Mark all the data as read/stale
-    void logNAVHPPOSECEF(bool enabled = true); // Log data to file buffer
+    void flushNAVHPPOSECEF();                                // Mark all the data as read/stale
+    void logNAVHPPOSECEF(bool enabled = true);               // Log data to file buffer
 
     bool getHPPOSLLH(uint16_t maxWait = defaultMaxWait); // NAV HPPOSLLH
     bool setAutoHPPOSLLH(
@@ -1343,12 +1345,12 @@ class SFE_UBLOX_GNSS
     bool setAutoNAVPVATrate(uint8_t rate, bool implicitUpdate = true,
                             uint16_t maxWait = defaultMaxWait); // Set the rate for automatic PVAT reports
     bool setAutoNAVPVATcallback(void (*callbackPointer)(UBX_NAV_PVAT_data_t),
-                                uint16_t maxWait = defaultMaxWait); // Enable automatic PVAT reports at the navigation
-                                                                    // frequency. Data is accessed from the callback.
+                                uint16_t maxWait = defaultMaxWait);   // Enable automatic PVAT reports at the navigation
+                                                                      // frequency. Data is accessed from the callback.
     bool assumeAutoNAVPVAT(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                       // and PVAT is send cyclically already
-    void flushNAVPVAT();                  // Mark all the PVAT data as read/stale
-    void logNAVPVAT(bool enabled = true); // Log data to file buffer
+    void flushNAVPVAT();                                              // Mark all the PVAT data as read/stale
+    void logNAVPVAT(bool enabled = true);                             // Log data to file buffer
 
     bool getNAVCLOCK(uint16_t maxWait = defaultMaxWait); // NAV CLOCK
     bool setAutoNAVCLOCK(
@@ -1367,8 +1369,8 @@ class SFE_UBLOX_GNSS
                                                                      // frequency. Data is accessed from the callback.
     bool assumeAutoNAVCLOCK(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is
                                                                        // possible and clock is send cyclically already
-    void flushNAVCLOCK();                  // Mark all the data as read/stale
-    void logNAVCLOCK(bool enabled = true); // Log data to file buffer
+    void flushNAVCLOCK();                                              // Mark all the data as read/stale
+    void logNAVCLOCK(bool enabled = true);                             // Log data to file buffer
 
     // Add "auto" support for NAV SVIN - to avoid needing 'global' storage
     bool getSurveyStatus(uint16_t maxWait); // Reads survey in status
@@ -1396,17 +1398,18 @@ class SFE_UBLOX_GNSS
                                                                    // frequency. Data is accessed from the callback.
     bool assumeAutoNAVSAT(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and NAVSAT is send cyclically already
-    void flushNAVSAT();                  // Mark all the NAVSAT data as read/stale
-    void logNAVSAT(bool enabled = true); // Log data to file buffer
+    void flushNAVSAT();                                              // Mark all the NAVSAT data as read/stale
+    void logNAVSAT(bool enabled = true);                             // Log data to file buffer
 
     bool getRELPOSNED(uint16_t maxWait = defaultMaxWait); // Get Relative Positioning Information of the NED frame
     bool setAutoRELPOSNED(bool enabled, uint16_t maxWait = defaultMaxWait); // Enable/disable automatic RELPOSNED
                                                                             // reports
-    bool setAutoRELPOSNED(bool enabled, bool implicitUpdate,
-                          uint16_t maxWait = defaultMaxWait); // Enable/disable automatic RELPOSNED, with implicitUpdate
-                                                              // == false accessing stale data will not issue parsing of
-                                                              // data in the rxbuffer of your interface, instead you have
-                                                              // to call checkUblox when you want to perform an update
+    bool setAutoRELPOSNED(
+        bool enabled, bool implicitUpdate,
+        uint16_t maxWait = defaultMaxWait); // Enable/disable automatic RELPOSNED, with implicitUpdate
+                                            // == false accessing stale data will not issue parsing of
+                                            // data in the rxbuffer of your interface, instead you have
+                                            // to call checkUblox when you want to perform an update
     bool setAutoRELPOSNEDrate(uint8_t rate, bool implicitUpdate = true,
                               uint16_t maxWait = defaultMaxWait); // Set the rate for automatic RELPOSNEDreports
     bool setAutoRELPOSNEDcallback(
@@ -1416,8 +1419,8 @@ class SFE_UBLOX_GNSS
     bool assumeAutoRELPOSNED(bool enabled,
                              bool implicitUpdate = true); // In case no config access to the GPS is possible and
                                                           // RELPOSNED is send cyclically already
-    void flushNAVRELPOSNED();                  // Mark all the data as read/stale
-    void logNAVRELPOSNED(bool enabled = true); // Log data to file buffer
+    void flushNAVRELPOSNED();                             // Mark all the data as read/stale
+    void logNAVRELPOSNED(bool enabled = true);            // Log data to file buffer
 
     bool getAOPSTATUS(
         uint16_t maxWait = defaultMaxWait); // Query module for latest AssistNow Autonomous status and load global
@@ -1441,8 +1444,8 @@ class SFE_UBLOX_GNSS
     bool assumeAutoAOPSTATUS(bool enabled,
                              bool implicitUpdate = true); // In case no config access to the GPS is possible and
                                                           // AOPSTATUS is send cyclically already
-    void flushAOPSTATUS();                  // Mark all the AOPSTATUS data as read/stale
-    void logAOPSTATUS(bool enabled = true); // Log data to file buffer
+    void flushAOPSTATUS();                                // Mark all the AOPSTATUS data as read/stale
+    void logAOPSTATUS(bool enabled = true);               // Log data to file buffer
 
     // Receiver Manager Messages (RXM)
 
@@ -1464,8 +1467,8 @@ class SFE_UBLOX_GNSS
     bool assumeAutoRXMSFRBX(bool enabled,
                             bool implicitUpdate = true); // In case no config access to the GPS is possible and RXM
                                                          // SFRBX is send cyclically already
-    void flushRXMSFRBX();                  // Mark all the data as read/stale
-    void logRXMSFRBX(bool enabled = true); // Log data to file buffer
+    void flushRXMSFRBX();                                // Mark all the data as read/stale
+    void logRXMSFRBX(bool enabled = true);               // Log data to file buffer
 
     bool getRXMRAWX(uint16_t maxWait = defaultMaxWait); // RXM RAWX
     bool setAutoRXMRAWX(
@@ -1480,12 +1483,12 @@ class SFE_UBLOX_GNSS
     bool setAutoRXMRAWXrate(uint8_t rate, bool implicitUpdate = true,
                             uint16_t maxWait = defaultMaxWait); // Set the rate for automatic RAWX reports
     bool setAutoRXMRAWXcallback(void (*callbackPointer)(UBX_RXM_RAWX_data_t),
-                                uint16_t maxWait = defaultMaxWait); // Enable automatic RAWX reports at the navigation
-                                                                    // frequency. Data is accessed from the callback.
+                                uint16_t maxWait = defaultMaxWait);   // Enable automatic RAWX reports at the navigation
+                                                                      // frequency. Data is accessed from the callback.
     bool assumeAutoRXMRAWX(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                       // and RXM RAWX is send cyclically already
-    void flushRXMRAWX();                  // Mark all the data as read/stale
-    void logRXMRAWX(bool enabled = true); // Log data to file buffer
+    void flushRXMRAWX();                                              // Mark all the data as read/stale
+    void logRXMRAWX(bool enabled = true);                             // Log data to file buffer
 
     // Configuration (CFG)
 
@@ -1508,12 +1511,12 @@ class SFE_UBLOX_GNSS
     bool setAutoTIMTM2rate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic TIM TM2 reports
     bool setAutoTIMTM2callback(void (*callbackPointer)(UBX_TIM_TM2_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic TM2 reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic TM2 reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoTIMTM2(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and TIM TM2 is send cyclically already
-    void flushTIMTM2();                  // Mark all the data as read/stale
-    void logTIMTM2(bool enabled = true); // Log data to file buffer
+    void flushTIMTM2();                                              // Mark all the data as read/stale
+    void logTIMTM2(bool enabled = true);                             // Log data to file buffer
 
     // Sensor fusion (dead reckoning) (ESF)
 
@@ -1529,12 +1532,12 @@ class SFE_UBLOX_GNSS
     bool setAutoESFALGrate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic ALG reports
     bool setAutoESFALGcallback(void (*callbackPointer)(UBX_ESF_ALG_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic ALG reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic ALG reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoESFALG(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and ESF ALG is send cyclically already
-    void flushESFALG();                  // Mark all the data as read/stale
-    void logESFALG(bool enabled = true); // Log data to file buffer
+    void flushESFALG();                                              // Mark all the data as read/stale
+    void logESFALG(bool enabled = true);                             // Log data to file buffer
 
     bool getEsfInfo(uint16_t maxWait = defaultMaxWait);   // ESF STATUS Helper
     bool getESFSTATUS(uint16_t maxWait = defaultMaxWait); // ESF STATUS
@@ -1555,8 +1558,8 @@ class SFE_UBLOX_GNSS
     bool assumeAutoESFSTATUS(bool enabled,
                              bool implicitUpdate = true); // In case no config access to the GPS is possible and ESF
                                                           // STATUS is send cyclically already
-    void flushESFSTATUS();                  // Mark all the data as read/stale
-    void logESFSTATUS(bool enabled = true); // Log data to file buffer
+    void flushESFSTATUS();                                // Mark all the data as read/stale
+    void logESFSTATUS(bool enabled = true);               // Log data to file buffer
 
     bool getEsfIns(uint16_t maxWait = defaultMaxWait);                   // ESF INS Helper
     bool getESFINS(uint16_t maxWait = defaultMaxWait);                   // ESF INS
@@ -1570,12 +1573,12 @@ class SFE_UBLOX_GNSS
     bool setAutoESFINSrate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic INS reports
     bool setAutoESFINScallback(void (*callbackPointer)(UBX_ESF_INS_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic INS reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic INS reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoESFINS(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and ESF INS is send cyclically already
-    void flushESFINS();                  // Mark all the data as read/stale
-    void logESFINS(bool enabled = true); // Log data to file buffer
+    void flushESFINS();                                              // Mark all the data as read/stale
+    void logESFINS(bool enabled = true);                             // Log data to file buffer
 
     bool getEsfDataInfo(uint16_t maxWait = defaultMaxWait);               // ESF MEAS Helper
     bool getESFMEAS(uint16_t maxWait = defaultMaxWait);                   // ESF MEAS
@@ -1589,12 +1592,12 @@ class SFE_UBLOX_GNSS
     bool setAutoESFMEASrate(uint8_t rate, bool implicitUpdate = true,
                             uint16_t maxWait = defaultMaxWait); // Set the rate for automatic MEAS reports
     bool setAutoESFMEAScallback(void (*callbackPointer)(UBX_ESF_MEAS_data_t),
-                                uint16_t maxWait = defaultMaxWait); // Enable automatic MEAS reports at the navigation
-                                                                    // frequency. Data is accessed from the callback.
+                                uint16_t maxWait = defaultMaxWait);   // Enable automatic MEAS reports at the navigation
+                                                                      // frequency. Data is accessed from the callback.
     bool assumeAutoESFMEAS(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                       // and ESF MEAS is send cyclically already
-    void flushESFMEAS();                  // Mark all the data as read/stale
-    void logESFMEAS(bool enabled = true); // Log data to file buffer
+    void flushESFMEAS();                                              // Mark all the data as read/stale
+    void logESFMEAS(bool enabled = true);                             // Log data to file buffer
 
     bool getEsfRawDataInfo(uint16_t maxWait = defaultMaxWait);           // ESF RAW Helper
     bool getESFRAW(uint16_t maxWait = defaultMaxWait);                   // ESF RAW
@@ -1608,12 +1611,12 @@ class SFE_UBLOX_GNSS
     bool setAutoESFRAWrate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic RAW reports
     bool setAutoESFRAWcallback(void (*callbackPointer)(UBX_ESF_RAW_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic RAW reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic RAW reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoESFRAW(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and ESF RAW is send cyclically already
-    void flushESFRAW();                  // Mark all the data as read/stale
-    void logESFRAW(bool enabled = true); // Log data to file buffer
+    void flushESFRAW();                                              // Mark all the data as read/stale
+    void logESFRAW(bool enabled = true);                             // Log data to file buffer
 
     // High navigation rate (HNR)
 
@@ -1631,12 +1634,12 @@ class SFE_UBLOX_GNSS
     bool setAutoHNRATTrate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic ATT reports
     bool setAutoHNRATTcallback(void (*callbackPointer)(UBX_HNR_ATT_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic ATT reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic ATT reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoHNRATT(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and HNR Attitude is send cyclically already
-    void flushHNRATT();                  // Mark all the data as read/stale
-    void logHNRATT(bool enabled = true); // Log data to file buffer
+    void flushHNRATT();                                              // Mark all the data as read/stale
+    void logHNRATT(bool enabled = true);                             // Log data to file buffer
 
     bool getHNRDyn(uint16_t maxWait = defaultMaxWait); // HNR INS Helper
     bool getHNRINS(uint16_t maxWait = defaultMaxWait); // Returns true if the get HNR dynamics is successful
@@ -1652,12 +1655,12 @@ class SFE_UBLOX_GNSS
     bool setAutoHNRINSrate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic INS reports
     bool setAutoHNRINScallback(void (*callbackPointer)(UBX_HNR_INS_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic INS reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic INS reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoHNRINS(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and HNR dynamics is send cyclically already
-    void flushHNRINS();                  // Mark all the data as read/stale
-    void logHNRINS(bool enabled = true); // Log data to file buffer
+    void flushHNRINS();                                              // Mark all the data as read/stale
+    void logHNRINS(bool enabled = true);                             // Log data to file buffer
 
     bool getHNRPVT(uint16_t maxWait = defaultMaxWait); // Returns true if the get HNR PVT is successful
     bool setAutoHNRPVT(bool enabled,
@@ -1671,12 +1674,12 @@ class SFE_UBLOX_GNSS
     bool setAutoHNRPVTrate(uint8_t rate, bool implicitUpdate = true,
                            uint16_t maxWait = defaultMaxWait); // Set the rate for automatic PVT reports
     bool setAutoHNRPVTcallback(void (*callbackPointer)(UBX_HNR_PVT_data_t),
-                               uint16_t maxWait = defaultMaxWait); // Enable automatic PVT reports at the navigation
-                                                                   // frequency. Data is accessed from the callback.
+                               uint16_t maxWait = defaultMaxWait);   // Enable automatic PVT reports at the navigation
+                                                                     // frequency. Data is accessed from the callback.
     bool assumeAutoHNRPVT(bool enabled, bool implicitUpdate = true); // In case no config access to the GPS is possible
                                                                      // and HNR PVT is send cyclically already
-    void flushHNRPVT();                  // Mark all the data as read/stale
-    void logHNRPVT(bool enabled = true); // Log data to file buffer
+    void flushHNRPVT();                                              // Mark all the data as read/stale
+    void logHNRPVT(bool enabled = true);                             // Log data to file buffer
 
     // Helper functions for CFG RATE
 
@@ -1893,7 +1896,7 @@ class SFE_UBLOX_GNSS
     uint32_t extractLong(ubxPacket *msg, uint8_t spotToStart);      // Combine four bytes from payload into long
     int32_t extractSignedLong(ubxPacket *msg, uint8_t spotToStart); // Combine four bytes from payload into signed long
                                                                     // (avoiding any ambiguity caused by casting)
-    uint16_t extractInt(ubxPacket *msg, uint8_t spotToStart); // Combine two bytes from payload into int
+    uint16_t extractInt(ubxPacket *msg, uint8_t spotToStart);       // Combine two bytes from payload into int
     int16_t extractSignedInt(ubxPacket *msg, int8_t spotToStart);
     uint8_t extractByte(ubxPacket *msg, uint8_t spotToStart);      // Get byte from payload
     int8_t extractSignedChar(ubxPacket *msg, uint8_t spotToStart); // Get signed 8-bit value from payload
@@ -2093,8 +2096,8 @@ class SFE_UBLOX_GNSS
     // Limit checking of new data to every X ms
     // If we are expecting an update every X Hz then we should check every quarter that amount of time
     // Otherwise we may block ourselves from seeing new data
-    uint8_t i2cPollingWait = 100; // Default to 100ms. Adjusted when user calls setNavigationFrequency() or
-                                  // setHNRNavigationRate() or setMeasurementRate()
+    uint8_t i2cPollingWait = 100;    // Default to 100ms. Adjusted when user calls setNavigationFrequency() or
+                                     // setHNRNavigationRate() or setMeasurementRate()
     uint8_t i2cPollingWaitNAV = 100; // We need to record the desired polling rate for standard nav messages
     uint8_t i2cPollingWaitHNR = 100; // and for HNR too so we can set i2cPollingWait to the lower of the two
 
