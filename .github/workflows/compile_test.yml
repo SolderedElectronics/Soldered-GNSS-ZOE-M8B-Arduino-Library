@@ -48,6 +48,7 @@ jobs:
           libraries: |
             - source-path: ./
             - name: WiFi
+            - name: EspSoftwareSerial
             - name: SparkFun SerLCD Arduino Library
             - name: ArduinoMqttClient
             - name: base64

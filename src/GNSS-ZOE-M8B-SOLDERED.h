@@ -10,7 +10,7 @@
  ***************************************************/
 
 #ifdef ARDUINO_ESP8266_GENERIC
-#define CS=9
+#define CS 9
 #endif
 
 #include <SparkFun_u-blox_GNSS_Arduino_Library-main/src/SparkFun_u-blox_GNSS_Arduino_Library.h>
