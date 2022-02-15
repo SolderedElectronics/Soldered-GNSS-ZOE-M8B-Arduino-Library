@@ -49,5 +49,6 @@ jobs:
             - source-path: ./
             - name: SD
             - name: WiFi
+            - name: HttpClient
           sketch-paths: |
             - ./examples/
