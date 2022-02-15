@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "16x2 easyC LCD Library", "index.html", [
+  [ "GNSS ZOE M8B Arduino Library", "index.html", [
     [ "SparkFun u-blox Arduino GNSS Library - AssistNow<sup>TM</sup>", "index.html", [
       [ "AssistNow<sup>TM</sup> Online", "index.html#autotoc_md1", null ],
       [ "AssistNow<sup>TM</sup> Offline", "index.html#autotoc_md2", null ],
@@ -36,17 +36,17 @@ var NAVTREE =
     ] ],
     [ "How to add new messages to the SparkFun u-blox GNSS Arduino Library", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__adding__new__messages.html", null ],
     [ "How to Contribute", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "Style guide", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md40", null ]
+      [ "Style guide", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md31", null ]
     ] ],
     [ "Subject of the issue", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__i_s_s_u_e__t_e_m_p_l_a_t_e.html", null ],
     [ "SparkFun License Information", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html", [
-      [ "Hardware", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md46", null ],
-      [ "Code", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md47", null ]
+      [ "Hardware", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md37", null ],
+      [ "Code", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md38", null ]
     ] ],
     [ "How I<sup>2</sup>C (aka DDC) communication works with a u-blox module", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html", [
-      [ "How data is processed by this library", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md64", null ],
-      [ "\"Auto\" messages", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md65", null ],
-      [ "Migrating your code to v2.0", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md66", null ]
+      [ "How data is processed by this library", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md55", null ],
+      [ "\"Auto\" messages", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md56", null ],
+      [ "Migrating your code to v2.0", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md57", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

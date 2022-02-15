@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>16x2 easyC LCD Library: How to add new messages to the SparkFun u-blox GNSS Arduino Library</title>
+<title>GNSS ZOE M8B Arduino Library: How to add new messages to the SparkFun u-blox GNSS Arduino Library</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,9 +28,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">16x2 easyC LCD Library<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">GNSS ZOE M8B Arduino Library<span id="projectnumber">&#160;1.0.0</span>
    </div>
-   <div id="projectbrief">This is a library for the 16x2 easyC LCD Module</div>
+   <div id="projectbrief">This is a library for the SGNSS ZOE M8B Module</div>
   </td>
  </tr>
  </tbody>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('md_src__spark_fun_u_blox__g_n_s_s__ard
 <div class="contents">
 <div class="textblock"><p >Based on <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/issues/97">this issue</a>, here is a summary of how to add new messages to the SparkFun u-blox GNSS Arduino Library with full "auto" support (for callbacks, logging, etc.).</p>
 <p >Looking at the issue, we see that the library is not supporting the UBX-NAV-PVAT (Navigation Position Velocity Attitude Time solution). PVAT is a new message added in version 1.21 of the HPS (High Precision Fusion) firmware and version 33.21 of the F9 Interface Description. This makes us wonder if more new messages have been added which should also be included?</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md15"></a>
 Step 1: Check the Interface Description for new keys</h2>
 <ul>
 <li>Download the latest <a href="https://www.u-blox.com/sites/default/files/F9-HPS-1.21_InterfaceDescription_UBX-21019746.pdf">interface description</a> from the <a href="https://www.u-blox.com/en/product/zed-f9r-module#tab-documentation-resources">u-blox website</a></li>
@@ -163,21 +163,21 @@ Step 1: Check the Interface Description for new keys</h2>
 </ul>
 <p >There are also two new dynamic models, robotic lawn mower (11) and e-scooter model (12), which we need to add to the library.</p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/805aab18b6656513bfee473487a437754cd3965d">this commit</a> for the changes.</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md16"></a>
 Step 2: Update the combined keys file</h2>
 <p >Update <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/blob/main/keys/u-blox_config_keys_sorted.txt">u-blox_config_keys_sorted.txt</a> to include the new keys.</p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/8895764f237ae494dcd0fa1ae942d487d2e1557f">this commit</a> for the changes.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Step 3: Update u-blox_config_keys.h</h2>
 <p >Update <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/blob/main/src/u-blox_config_keys.h">u-blox_config_keys.h</a> to include the new keys. Include the descriptions as defined in the Interface Description.</p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/3609da15f90a7a66b41524e77c6dc3dd76cd362c">this commit</a> for the changes.</p>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Step 4: Add the new message struct to u-blox_struct.h</h2>
 <p >The next step is to add the new struct for UBX-NAV-PVAT to u-blox_struct.h.</p>
 <p >The messages are in ascending class and ID order. So we add UBX-NAV-PVAT (0x01 0x17) after UBX-NAV-HPPOSLLH (0x01 0x14).</p>
 <p >The names and widths of the fields are taken directly from the interface definition.</p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/a4ba440c6240e0974c27f40b976a5ddf0fbdb9b6">this commit</a> for the changes.</p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Step 5: Update GNSS-ZOE-M8B-SOLDERED.h</h2>
 <p >Add the new message ID: <code>const uint8_t UBX_NAV_PVAT = 0x17;</code></p>
 <p >Add the new functions to provide "auto" support for UBX-NAV-PVAT: <code>getNAVPVAT</code>, <code>setAutoNAVPVAT</code>, ..., <code>logNAVPVAT</code></p>
@@ -185,36 +185,36 @@ Step 5: Update GNSS-ZOE-M8B-SOLDERED.h</h2>
 <p >Add the pointer to the struct storage: <code><a class="el" href="struct_u_b_x___n_a_v___p_v_a_t__t.html">UBX_NAV_PVAT_t</a> *packetUBXNAVPVAT = NULL;</code></p>
 <p >Add the private init function: <code>bool initPacketUBXNAVPVAT();</code></p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/423a1e2ccd418dd679257edc6edeec0bd3029052">this commit</a> for the changes.</p>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Step 6: Update SparkFun_u-blox_GNSS_Arduino_Library.cpp</h2>
 <p >Now we need to update <a class="el" href="_spark_fun__u-blox___g_n_s_s___arduino___library_8cpp.html">SparkFun_u-blox_GNSS_Arduino_Library.cpp</a>:</p>
-<h3><a class="anchor" id="autotoc_md30"></a>
+<h3><a class="anchor" id="autotoc_md21"></a>
 Step 6.1: Update end()</h3>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/35d225e3f1abb316eda3becb7f8e2eb04ff1d17c">this commit</a> for the changes.</p>
-<h3><a class="anchor" id="autotoc_md31"></a>
+<h3><a class="anchor" id="autotoc_md22"></a>
 Step 6.2: Update checkAutomatic()</h3>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/b746d8e2742961ede95e2d06d5db3a3a557e571d">this commit</a> for the changes.</p>
-<h3><a class="anchor" id="autotoc_md32"></a>
+<h3><a class="anchor" id="autotoc_md23"></a>
 Step 6.3: Update processUBXpacket()</h3>
 <p >Take time to double-check that you have used the correct data width, signed/unsigned and position for each field.</p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/8eecdd5044f810b0e2b567150ff63a17c219fe8e">this commit</a> for the changes.</p>
-<h3><a class="anchor" id="autotoc_md33"></a>
+<h3><a class="anchor" id="autotoc_md24"></a>
 Step 6.4: Update checkCallbacks()</h3>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/b53bffaa3ae12482cfb268f23796963d0b8519c9">this commit</a> for the changes.</p>
-<h3><a class="anchor" id="autotoc_md34"></a>
+<h3><a class="anchor" id="autotoc_md25"></a>
 Step 6.5: Add the "auto" functions</h3>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/e394ae003ad38117d150598774d0552059416473">this commit</a> for the changes.</p>
-<h3><a class="anchor" id="autotoc_md35"></a>
+<h3><a class="anchor" id="autotoc_md26"></a>
 Step 6.6: Add the helper functions (if any)</h3>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/318e76383e96d6676bbb57294c25e665c0d4a31f">this commit</a> for the changes.</p>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Step 7: Add an example</h2>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/06014dc95f1b9ffae4876fbacfb9390541d7c31d">this commit</a> for the changes.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Step 8: Update keywords.txt</h2>
 <p >Add the new "auto" and helper functions to keywords.txt.</p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/4f0a0ca3c5e6420be9064b91702947c23104bd1b">this commit</a> for the changes.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 Step 9: Update Theory.md</h2>
 <p >Add the new message to the list of "auto" messages.</p>
 <p >See <a href="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library/commit/57f133259245d8071c73797e4be2ff630c2720ab">this commit</a> for the changes.</p>
@@ -227,7 +227,7 @@ Step 9: Update Theory.md</h2>
     <!-- id is needed for treeview function! -->
     <ul>
         <li class="footer">
-            Generated on Tue Feb 15 2022 11:42:06 for 16x2 easyC LCD Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 15 2022 11:54:07 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

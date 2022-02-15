@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>16x2 easyC LCD Library: How I&lt;sup&gt;2&lt;/sup&gt;C (aka DDC) communication works with a u-blox module</title>
+<title>GNSS ZOE M8B Arduino Library: How I&lt;sup&gt;2&lt;/sup&gt;C (aka DDC) communication works with a u-blox module</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,9 +28,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">16x2 easyC LCD Library<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">GNSS ZOE M8B Arduino Library<span id="projectnumber">&#160;1.0.0</span>
    </div>
-   <div id="projectbrief">This is a library for the 16x2 easyC LCD Module</div>
+   <div id="projectbrief">This is a library for the SGNSS ZOE M8B Module</div>
   </td>
  </tr>
  </tbody>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('md_src__spark_fun_u_blox__g_n_s_s__ard
 <li>If checksum is valid, flag frame as complete.</li>
 </ul>
 <p >This library was originally written to use the I<sup>2</sup>C interface but Serial has been implemented as well.</p>
-<h1><a class="anchor" id="autotoc_md64"></a>
+<h1><a class="anchor" id="autotoc_md55"></a>
 How data is processed by this library</h1>
 <p >In Version 1 of this library, we tried to minimize memory usage by being very careful about how much RAM we allocated to UBX packet storage and processing. We used only three buffers or containers to store the incoming data: <b>packetBuf</b> (packetBuffer); <b>packetCfg</b> (packetConfiguration); and <b>packetAck</b> (packetAcknowledge). Incoming packets were stored in <b>packetBuf</b> initially and then diverted into <b>packetAck</b> or <b>packetCfg</b> as necessary. Once data was received and validated, it would be copied out of <b>packetCfg</b> and into 'global' variables with names like <code>gpsSecond</code> or <code>latitude</code>. We also introduced the concept of <em>Polling vs. Auto-Reporting</em> where messages like PVT (Position, Velocity, Time) could be generated and parsed "automatically". This meant that functions like <code>getLatitude</code> could be non-blocking, returning the most recent data and requesting fresh data when necessary. But it also meant that <em>polled</em> messages could be <em>overwritten</em> (in <b>packetCfg</b>) by any <em>auto-reported</em> messages. The library dealt with this successfully, but it was a headache.</p>
 <p >Version 1 had two main drawbacks. As time went on:</p><ul>
@@ -135,7 +135,7 @@ How data is processed by this library</h1>
 </li>
 </ul>
 <p >In terms of RAM, you may find that your total RAM use is lower using v2 compared to v1, but it does of course depend on how many message types are being processed. The downside to this is that it is difficult to know in advance how much RAM is required, since it is only allocated if/when required. If the processor runs out of RAM (i.e. the <em>new</em> fails) then a debug error message is generated.</p>
-<h1><a class="anchor" id="autotoc_md65"></a>
+<h1><a class="anchor" id="autotoc_md56"></a>
 "Auto" messages</h1>
 <p >In v2.0, the full list of messages which can be processed and logged automatically is:</p><ul>
 <li>UBX-NAV-POSECEF (0x01 0x01): Position solution in ECEF</li>
@@ -170,7 +170,7 @@ How data is processed by this library</h1>
 <li>UBX-NAV-POSLLH is not supported as UBX-NAV-PVT contains the same information</li>
 <li>UBX-NAV-TIMEUTC is not supported as UBX-NAV-PVT contains the same information</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md66"></a>
+<h1><a class="anchor" id="autotoc_md57"></a>
 Migrating your code to v2.0</h1>
 <p >Migrating to v2.0 is easy. There are two small changes all users will need to make:</p>
 <ul>
@@ -246,7 +246,7 @@ Migrating your code to v2.0</h1>
     <!-- id is needed for treeview function! -->
     <ul>
         <li class="footer">
-            Generated on Tue Feb 15 2022 11:42:06 for 16x2 easyC LCD Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 15 2022 11:54:07 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
