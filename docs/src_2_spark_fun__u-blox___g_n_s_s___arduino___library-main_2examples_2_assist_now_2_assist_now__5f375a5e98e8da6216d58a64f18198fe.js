@@ -1,0 +1,5 @@
+var src_2_spark_fun__u_blox___g_n_s_s___arduino___library_main_2examples_2_assist_now_2_assist_now__5f375a5e98e8da6216d58a64f18198fe =
+[
+    [ "database", "src_2_spark_fun__u-blox___g_n_s_s___arduino___library-main_2examples_2_assist_now_2_assist_now__5f375a5e98e8da6216d58a64f18198fe.html#a9f64cf9b71cebe395a2ce0759ec1e077", null ],
+    [ "databaseLen", "src_2_spark_fun__u-blox___g_n_s_s___arduino___library-main_2examples_2_assist_now_2_assist_now__5f375a5e98e8da6216d58a64f18198fe.html#a3eadd290c969585f8c51dbb89f97adb6", null ]
+];

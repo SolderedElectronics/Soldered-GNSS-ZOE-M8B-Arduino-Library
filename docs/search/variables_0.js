@@ -1,4 +1,19 @@
 var searchData=
 [
-  ['address_0',['address',['../class_e_a_s_y_c___s_o_l_d_e_r_e_d___l_i_b_s_1_1_easy_c.html#a1dd9b5dd497f94fc119e877216ee51ca',1,'EASYC_SOLDERED_LIBS::EasyC']]]
+  ['_5fcspin_0',['_csPin',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a3c38ceb0302b73710ca6096efbdd4f8c',1,'SFE_UBLOX_GNSS']]],
+  ['_5fdebugserial_1',['_debugSerial',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#ad480c75b0e09346cafd90af19b3f942e',1,'SFE_UBLOX_GNSS']]],
+  ['_5fgpsi2caddress_2',['_gpsI2Caddress',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#accc72d894c7a6021b5ed2ad97f4c2bc6',1,'SFE_UBLOX_GNSS']]],
+  ['_5fi2cport_3',['_i2cPort',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a8350f2dbe22c6399d4b0efce60cdceb0',1,'SFE_UBLOX_GNSS']]],
+  ['_5fi2cstoprestart_4',['_i2cStopRestart',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#aaff75f9e2ad90f468d4cc5d4b2cfd2df',1,'SFE_UBLOX_GNSS']]],
+  ['_5flognmea_5',['_logNMEA',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#afe68e1092b398f2f1ab1849f12e2f13e',1,'SFE_UBLOX_GNSS']]],
+  ['_5fnmeaoutputport_6',['_nmeaOutputPort',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a977ffafecb02cb170f44aececbe073f3',1,'SFE_UBLOX_GNSS']]],
+  ['_5fprintdebug_7',['_printDebug',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a5257f9a291f67f2da8091cd6b65e70a1',1,'SFE_UBLOX_GNSS']]],
+  ['_5fprintlimiteddebug_8',['_printLimitedDebug',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#ae996c0aeb7e247f44fd39516c350e9f8',1,'SFE_UBLOX_GNSS']]],
+  ['_5fprocessnmea_9',['_processNMEA',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#ab2522c0b4e32574034384881af0ec1cf',1,'SFE_UBLOX_GNSS']]],
+  ['_5fpushsinglebyte_10',['_pushSingleByte',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#ae8dff79baa3580c78267ba81eb25bfe6',1,'SFE_UBLOX_GNSS']]],
+  ['_5fpushthissinglebyte_11',['_pushThisSingleByte',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a517d6fa812d00c9efed5b3d40d750d31',1,'SFE_UBLOX_GNSS']]],
+  ['_5fserialport_12',['_serialPort',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a54f114f586dbca504ddc1eff326e9301',1,'SFE_UBLOX_GNSS']]],
+  ['_5fsignsoflife_13',['_signsOfLife',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#ae9ad1f391d6ccad1b33fe9547040d13e',1,'SFE_UBLOX_GNSS']]],
+  ['_5fspiport_14',['_spiPort',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#ae9ed96d1cffd338614fad11881be7bf6',1,'SFE_UBLOX_GNSS']]],
+  ['_5fspispeed_15',['_spiSpeed',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a28b693d5646ee57bcd398e01e68444c6',1,'SFE_UBLOX_GNSS']]]
 ];

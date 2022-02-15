@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sensor_0',['Sensor',['../class_sensor.html',1,'']]]
+  ['moduleswversion_5ft_0',['moduleSWVersion_t',['../structmodule_s_w_version__t.html',1,'']]]
 ];

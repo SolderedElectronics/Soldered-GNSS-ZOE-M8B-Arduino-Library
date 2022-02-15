@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['easyc_0',['EasyC',['../class_e_a_s_y_c___s_o_l_d_e_r_e_d___l_i_b_s_1_1_easy_c.html#aea626d369c76c341ddbb3b3b56ca1466',1,'EASYC_SOLDERED_LIBS::EasyC']]]
+  ['begin_0',['begin',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a572af63751fa0f839548ba73ba194eb1',1,'SFE_UBLOX_GNSS::begin(TwoWire &amp;wirePort=Wire, uint8_t deviceAddress=0x42, uint16_t maxWait=defaultMaxWait, bool assumeSuccess=false)'],['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#aaa64b3813d0e86e68231e5943791767e',1,'SFE_UBLOX_GNSS::begin(Stream &amp;serialPort, uint16_t maxWait=defaultMaxWait, bool assumeSuccess=false)'],['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a28145b5462d4acb2191fedee73c16b56',1,'SFE_UBLOX_GNSS::begin(SPIClass &amp;spiPort, uint8_t csPin, uint32_t spiSpeed, uint16_t maxWait=defaultMaxWait, bool assumeSuccess=false)']]]
 ];
