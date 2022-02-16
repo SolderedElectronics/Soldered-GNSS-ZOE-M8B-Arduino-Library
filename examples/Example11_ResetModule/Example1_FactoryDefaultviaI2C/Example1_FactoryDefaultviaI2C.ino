@@ -1,33 +1,32 @@
 /**
  **************************************************
- *
  * @file        Example1_FactoryDefaultviaI2C.ino
+ * 
+ * @brief        Send command to reset module over I2C
+ *               By: Nathan Seidle
+ *               Date: January 29rd, 2019
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @brief       Send command to reset module over I2C
- * By: Nathan Seidle
- * Date: January 29rd, 2019
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to reset the U-Blox module to factory defaults over I2C.
  *
- * This example shows how to reset the U-Blox module to factory defaults over I2C.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               SAM-M8Q: https://www.sparkfun.com/products/15106
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Hardware Connections:
- * Plug a Qwiic cable into the GNSS and a BlackBoard
- * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <GNSS-ZOE-M8B-SOLDERED.h>

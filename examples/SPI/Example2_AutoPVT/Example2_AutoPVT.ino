@@ -1,36 +1,53 @@
 /**
  **************************************************
- *
  * @file        Example2_AutoPVT.ino
+ * 
+ * @brief        Configuring the GNSS to automatically send position reports over SPI
+ *               Based on code by: Nathan Seidle and Thorsten von Eicken
+ *               SparkFun Electronics
+ *               Date: January 3rd, 2019
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @brief       Configuring the GNSS to automatically send position reports over SPI
- * Based on code by: Nathan Seidle and Thorsten von Eicken
- * SparkFun Electronics
- * Date: January 3rd, 2019
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to configure the U-Blox GNSS the send navigation reports automatically
+ *               and retrieving the latest one via getPVT. This eliminates the blocking in getPVT while the GNSS
+ *               produces a fresh navigation solution at the expense of returning a slighly old solution.
  *
- * This example shows how to configure the U-Blox GNSS the send navigation reports automatically
- * and retrieving the latest one via getPVT. This eliminates the blocking in getPVT while the GNSS
- * produces a fresh navigation solution at the expense of returning a slighly old solution.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               NEO-M8U: https://www.sparkfun.com/products/16329
+ *               NEO-M9N: https://www.sparkfun.com/products/17285
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Hardware Connections:
+ *               You need to connect the SPI pins from your microcontroller to the specific pins on your SparkFun product. 
+ *               Connections will vary based on your microcontroller, but for reference please refer to this tutorial on SPI:
+ *               https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all
+ *               
+ *               Most new boards now use the terms:
+ *               CS - Chip Select
+ *               COPI - Controller Out, Peripheral In
+ *               CIPO - Controller in, Peripheral Out
+ *               SCK - Serial Clock
  *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
+ *               You can choose any pin for Chip Select, but the others are likely either defined by the library you are using
+ *               (see here for the standard Arduino one: https://www.arduino.cc/en/reference/SPI) or the microcontroller. The
+ *               ESP32 has two standard, selectable SPI ports, for example.
  *
+ *               To enable SPI communication, you will need to solder the DSEL/SPI jumper closed on your u-blox board.
  *
- *              product : www.soldered.com/333099
+ *               IMPORTANT: there have been reports that some u-blox devices do not respond to the UBX protocol over SPI
+ *               with the factory settings. You may find you need to connect to the device via USB and u-center and set
+ *               the incoming protocol to UBX only. Make sure you disable all other protocols as inputs if you can't
+ *               get things to work! Hopefully this is just a bug in the u-blox firmware that will be fixed soon ;-)
+ *
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <SPI.h> //Needed for SPI to GNSS

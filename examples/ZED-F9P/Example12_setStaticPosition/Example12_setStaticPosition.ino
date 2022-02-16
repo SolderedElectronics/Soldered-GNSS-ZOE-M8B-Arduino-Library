@@ -1,42 +1,40 @@
 /**
  **************************************************
- *
  * @file        Example12_setStaticPosition.ino
+ * 
+ * @brief        Set the static position of the receiver.
+ *               By: SparkFun Electronics / Nathan Seidle
+ *               Date: September 26th, 2020
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @brief       Set the static position of the receiver.
- * By: SparkFun Electronics / Nathan Seidle
- * Date: September 26th, 2020
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to set the static position of a receiver
+ *               using an Earth-Centered, Earth-Fixed (ECEF) location. This is the
+ *               output from a long (24 hour+) survey-in. Setting the static position
+ *               immediately causes the receiver to begin outputting RTCM data (if
+ *               enabled), perfect for setting up your own RTCM NTRIP caster or CORS.
  *
- * This example shows how to set the static position of a receiver
- * using an Earth-Centered, Earth-Fixed (ECEF) location. This is the
- * output from a long (24 hour+) survey-in. Setting the static position
- * immediately causes the receiver to begin outputting RTCM data (if
- * enabled), perfect for setting up your own RTCM NTRIP caster or CORS.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h>
+#include <GNSS-ZOE-M8B-SOLDERED.h> 
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()

@@ -1,45 +1,45 @@
 /**
  **************************************************
- *
  * @file        Example2_NMEA_GGA_Callbacks.ino
- *
+ * 
  * @brief       Get the latest GPGGA / GNGGA NMEA sentence using callbacks
- * By: Paul Clark
- * SparkFun Electronics
- * Date: January 12th, 2021
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               By: Paul Clark
+ *               SparkFun Electronics
+ *               Date: January 12th, 2021
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * This example shows how to turn on/off the NMEA sentences being output over I2C.
- * It then demonstrates how to get the latest GPGGA or GNGGA message autonomously using callbacks.
+ *               This example shows how to turn on/off the NMEA sentences being output over I2C.
+ *               It then demonstrates how to get the latest GPGGA or GNGGA message autonomously using callbacks.
  *
- * If the module is using multiple GNSS constellations, the GGA message will be prefixed with Talker ID "GN" instead of "GP".
- * This example shows how to change the Talker ID so the GNGGA messages become GPGGA.
- * It also shows how to enable "high precision mode" to include extra decimal places in the GGA messages.
+ *               If the module is using multiple GNSS constellations, the GGA message will be prefixed with Talker ID "GN" instead of "GP".
+ *               This example shows how to change the Talker ID so the GNGGA messages become GPGGA.
+ *               It also shows how to enable "high precision mode" to include extra decimal places in the GGA messages.
  *
- * This example turns off all sentences except for GGA.
+ *               This example turns off all sentences except for GGA.
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               SAM-M8Q: https://www.sparkfun.com/products/15106
  *
- * Hardware Connections:
- * Plug a Qwiic cable into the GNSS and a RedBoard
- * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- * Open the serial monitor at 115200 baud to see the output
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a RedBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
- 
+
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h>
+#include <GNSS-ZOE-M8B-SOLDERED.h> 
 SFE_UBLOX_GNSS myGNSS;
 
 // Callback: printGPGGA will be called when new GPGGA NMEA data arrives

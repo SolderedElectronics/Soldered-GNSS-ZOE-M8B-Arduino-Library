@@ -1,33 +1,32 @@
 /**
  **************************************************
+ * @file        Example2_FactoryDefaultviaSerial.ino
+ * 
+ * @brief        Test baud rate changes on serial, factory reset, and hard reset.
+ *               By: Thorsten von Eicken
+ *               Date: January 29rd, 2019
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @file        Example2_FactoryDefaultsviaSerial.ino
+ *               This example shows how to reset the U-Blox module to factory defaults over serial.
  *
- * @brief       Test baud rate changes on serial, factory reset, and hard reset.
- * By: Thorsten von Eicken
- * Date: January 29rd, 2019
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               SAM-M8Q: https://www.sparkfun.com/products/15106
  *
- * This example shows how to reset the U-Blox module to factory defaults over serial.
+ *               Hardware Connections:
+ *               Connect the U-Blox serial port to Serial1
+ *               If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
- *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <GNSS-ZOE-M8B-SOLDERED.h>

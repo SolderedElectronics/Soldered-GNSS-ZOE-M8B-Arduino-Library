@@ -1,52 +1,52 @@
 /**
  **************************************************
+ * @file        Example3_TIM_TM2.ino
+ * 
+ * @brief       Configuring the GNSS to automatically send TIM TM2 reports over I2C and display the data using a callback
+ *               By: Paul Clark
+ *               SparkFun Electronics
+ *               Date: December 30th, 2020
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @file        CallbackExample3_TIM_TM2.ino
+ *               This example shows how to configure the u-blox GNSS to send TIM TM2 reports automatically
+ *               and display the data via a callback. No more polling!
  *
- * @brief         Configuring the GNSS to automatically send TIM TM2 reports over I2C and display the data using a callback
- * By: Paul Clark
- * SparkFun Electronics
- * Date: December 30th, 2020
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               Connecting the PPS (Pulse Per Second) breakout pin to the INT (Interrupt) pin with a jumper wire
+ *               will cause a TIM TM2 message to be produced once per second. You can then study the timing of the
+ *               pulse edges with nanosecond resolution!
  *
- * This example shows how to configure the u-blox GNSS to send TIM TM2 reports automatically
- * and display the data via a callback. No more polling!
+ *               Note: TIM TM2 can only capture the timing of one rising edge and one falling edge per
+ *               navigation solution. So with setNavigationFrequency set to 1Hz, we can only see the timing
+ *               of one rising and one falling edge per second. If the frequency of the signal on the INT pin
+ *               is higher than 1Hz, we will only be able to see the timing of the most recent edges.
+ *               However, the module can count the number of rising edges too, at rates faster than the navigation rate.
  *
- * Connecting the PPS (Pulse Per Second) breakout pin to the INT (Interrupt) pin with a jumper wire
- * will cause a TIM TM2 message to be produced once per second. You can then study the timing of the
- * pulse edges with nanosecond resolution!
+ *               TIM TM2 messages are only produced when a rising or falling edge is detected on the INT pin.
+ *               If you disconnect your PPS to INT jumper wire, the messages will stop.
  *
- * Note: TIM TM2 can only capture the timing of one rising edge and one falling edge per
- * navigation solution. So with setNavigationFrequency set to 1Hz, we can only see the timing
- * of one rising and one falling edge per second. If the frequency of the signal on the INT pin
- * is higher than 1Hz, we will only be able to see the timing of the most recent edges.
- * However, the module can count the number of rising edges too, at rates faster than the navigation rate.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               NEO-M9N: https://www.sparkfun.com/products/17285
  *
- * TIM TM2 messages are only produced when a rising or falling edge is detected on the INT pin.
- * If you disconnect your PPS to INT jumper wire, the messages will stop.
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GPS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * NEO-M9N: https://www.sparkfun.com/products/17285
- *
- * Hardware Connections:
- * Plug a Qwiic cable into the GPS and a BlackBoard
- * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- * Open the serial monitor at 115200 baud to see the output
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GPS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h>
+#include <GNSS-ZOE-M8B-SOLDERED.h> 
 SFE_UBLOX_GNSS myGNSS;
 
 int dotsPrinted = 0; // Print dots in rows of 50 while waiting for a TIM TM2 message
