@@ -1,35 +1,40 @@
-/*
-  u-blox M8 geofence example
-
-  Written by Paul Clark (PaulZC)
-  10th December 2019
-
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example demonstrates how to use the addGeofence and getGeofenceState functions
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-  NEO-M8P RTK: https://www.sparkfun.com/products/15005
-  SAM-M8Q: https://www.sparkfun.com/products/15210
-  ZOE-M8Q: https://www.sparkfun.com/products/15193
-
-  This example powers up the GNSS and reads the fix.
-  Once a valid 3D fix has been found, the code reads the latitude and longitude.
-  The code then sets four geofences around that position with a radii of 5m, 10m, 15m and 20m with 95% confidence.
-  The code then monitors the geofence status.
-  The LED will be illuminated if you are inside the _combined_ geofence (i.e. within the 20m radius).
-
-  This code has been tested on the ZOE-M8Q.
-*/
+/**
+ **************************************************
+ *
+ * @file        Example17_Geofence.ino
+ *
+ * @brief       This example powers up the GNSS and reads the fix.
+ * Once a valid 3D fix has been found, the code reads the latitude and longitude.
+ * The code then sets four geofences around that position with a radii of 5m, 10m, 15m and 20m with 95% confidence.
+ * The code then monitors the geofence status.
+ * The LED will be illuminated if you are inside the _combined_ geofence (i.e. within the 20m radius).
+ *
+ * This code has been tested on the ZOE-M8Q.
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #define LED LED_BUILTIN // Change this if your LED is on a different pin
 
 #include <Wire.h> // Needed for I2C
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()

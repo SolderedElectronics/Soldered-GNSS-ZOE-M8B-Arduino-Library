@@ -1,35 +1,45 @@
-/*
-  Turn on/off various NMEA sentences.
-  By: Nathan Seidle
-  SparkFun Electronics
-  Date: January 3rd, 2019
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
+/**
+ **************************************************
+ *
+ * @file        Example6_EnableNMEASentences.ino
+ *
+ * @brief       Turn on/off various NMEA sentences.
+ * By: Nathan Seidle
+ * SparkFun Electronics
+ * Date: January 3rd, 2019
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to turn on/off the NMEA sentences being output
+ * over UART1. We use the I2C interface on the u-blox module for configuration
+ * but you won't see any output from this sketch. You'll need to hook up
+ * a Serial Basic or other USB to Serial device to UART1 on your u-blox module
+ * to see the output.
+ *
+ * This example turns off all sentences except for the GPGGA and GPVTG sentences.
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
-  This example shows how to turn on/off the NMEA sentences being output
-  over UART1. We use the I2C interface on the u-blox module for configuration
-  but you won't see any output from this sketch. You'll need to hook up
-  a Serial Basic or other USB to Serial device to UART1 on your u-blox module
-  to see the output.
-
-  This example turns off all sentences except for the GPGGA and GPVTG sentences.
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-  NEO-M8P RTK: https://www.sparkfun.com/products/15005
-  SAM-M8Q: https://www.sparkfun.com/products/15106
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a RedBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-  Hookup a Serial Basic (https://www.sparkfun.com/products/15096) to UART1 on the u-blox module. Open a terminal at 57600bps
-  and see GPGGA and GPVTG sentences.
-*/
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //Click here to get the library: http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 unsigned long lastGNSSsend = 0;

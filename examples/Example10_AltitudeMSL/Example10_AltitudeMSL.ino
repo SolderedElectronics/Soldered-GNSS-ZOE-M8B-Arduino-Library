@@ -1,36 +1,47 @@
-/*
-  Reading two altitudes - Mean Sea Level and Ellipsode
-  By: Nathan Seidle
-  SparkFun Electronics
-  Date: January 3rd, 2019
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example shows how to query a u-blox module for its lat/long/altitude. 
-
-  getAltitude() reports mm above ellipsode model of the globe. There are some
-  instances where altitude above Mean Sea Level is better. This example shows how 
-  to use getAltitudeMSL(). The difference varies but is ~20m.
-  Ellipsoid model: https://www.esri.com/news/arcuser/0703/geoid1of3.html
-  Difference between Ellipsoid Model and Mean Sea Level: https://eos-gnss.com/elevation-for-beginners/
-  
-  Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-  NEO-M8P RTK: https://www.sparkfun.com/products/15005
-  SAM-M8Q: https://www.sparkfun.com/products/15106
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a BlackBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
+/**
+ **************************************************
+ *
+ * @file       Example10_AltitudeMSL.ino
+ *
+ * @brief       Reading two altitudes - Mean Sea Level and Ellipsode
+ * By: Nathan Seidle
+ * SparkFun Electronics
+ * Date: January 3rd, 2019
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to query a u-blox module for its lat/long/altitude. 
+ *
+ * getAltitude() reports mm above ellipsode model of the globe. There are some
+ * instances where altitude above Mean Sea Level is better. This example shows how 
+ * to use getAltitudeMSL(). The difference varies but is ~20m.
+ * Ellipsoid model: https://www.esri.com/news/arcuser/0703/geoid1of3.html
+ * Difference between Ellipsoid Model and Mean Sea Level: https://eos-gnss.com/elevation-for-beginners/
+ *  
+ * Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Plug a Qwiic cable into the GNSS and a BlackBoard
+ * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ * Open the serial monitor at 115200 baud to see the output    
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 long lastTime = 0; //Tracks the passing of 2000ms (2 seconds)
