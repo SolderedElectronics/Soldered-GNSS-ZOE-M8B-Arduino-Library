@@ -37,7 +37,7 @@
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include "GNSS-ZOE-M8B-SOLDERED.h.h"
+#include "GNSS-ZOE-M8B-SOLDERED.h"
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()
