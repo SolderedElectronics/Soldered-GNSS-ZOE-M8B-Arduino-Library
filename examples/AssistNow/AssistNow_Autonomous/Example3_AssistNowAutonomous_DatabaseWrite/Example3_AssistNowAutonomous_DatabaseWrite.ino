@@ -49,8 +49,13 @@
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 #include <WiFi.h>
-#include <HTTPClient.h>
 #include "secrets.h"
+
+#ifndef ARDUINO_ESP8266_GENERIC
+#include <HTTPClient.h>
+#else
+#include <ESP8266HTTPClient.h>	
+#endif
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
