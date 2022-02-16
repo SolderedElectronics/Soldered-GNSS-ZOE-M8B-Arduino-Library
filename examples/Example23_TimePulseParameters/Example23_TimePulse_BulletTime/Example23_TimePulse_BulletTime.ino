@@ -38,7 +38,7 @@
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include "SparkFun_u-blox_GNSS_Arduino_Library.h" 
+#include "GNSS-ZOE-M8B-SOLDERED.h.h" 
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()
