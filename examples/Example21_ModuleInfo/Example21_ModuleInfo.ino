@@ -1,49 +1,48 @@
 /**
  **************************************************
- *
  * @file        Example21_ModuleInfo.ino
+ * 
+ * @brief        Module Info - extracts and prints the full module information from UBX_MON_VER
+ *                           using a custom command.
+ *                           By: @mayopan
+ *                           Date: May 9th, 2020
  *
- * @brief       Module Info - extracts and prints the full module information from UBX_MON_VER
- * using a custom command.
- * By: @mayopan
- * Date: May 9th, 2020
+ *                           Based on:
+ *                           Send Custom Command
+ *                           By: Paul Clark (PaulZC)
+ *                           Date: April 20th, 2020
  *
- * Based on:
- * Send Custom Command
- * By: Paul Clark (PaulZC)
- * Date: April 20th, 2020
+ *                           License: MIT. See license file for more information but you can
+ *                           basically do whatever you want with this code.
  *
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *                           Previously it was possible to create and send a custom packet
+ *                           through the library but it would always appear to timeout as
+ *                           some of the internal functions referred to the internal private
+ *                           struct packetCfg.
+ *                           The most recent version of the library allows sendCommand to
+ *                           use a custom packet as if it were packetCfg and so:
+ *                           - sendCommand will return a sfe_ublox_status_e enum as if
+ *                               it had been called from within the library
+ *                           - the custom packet will be updated with data returned by the module
+ *                               (previously this was not possible from outside the library)
  *
- * Previously it was possible to create and send a custom packet
- * through the library but it would always appear to timeout as
- * some of the internal functions referred to the internal private
- * struct packetCfg.
- * The most recent version of the library allows sendCommand to
- * use a custom packet as if it were packetCfg and so:
- * - sendCommand will return a sfe_ublox_status_e enum as if
- *   it had been called from within the library
- * - the custom packet will be updated with data returned by the module
- *   (previously this was not possible from outside the library)
+ *                           Feel like supporting open source hardware?
+ *                           Buy a board from SparkFun!
+ *                           ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *                           NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *                           SAM-M8Q: https://www.sparkfun.com/products/15106
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *                           Hardware Connections:
+ *                           Plug a Qwiic cable into the GNSS and a BlackBoard
+ *                           If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *                           Open the serial monitor at 115200 baud to see the output
  *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS

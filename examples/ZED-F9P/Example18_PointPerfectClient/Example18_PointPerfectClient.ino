@@ -1,47 +1,50 @@
 /**
  **************************************************
+ * @file        Example18_PointPerfectClient.ino
+ * 
+ * @brief        Use ESP32 WiFi to get SPARTN data from PointPerfect (broker) as a Client
+ *               By: u-blox AG / Michael Ammann
+ *               Date: January 27th, 2022
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @file        Example17_NTRIPClient_With_GGA_Callback.ino
+ *               This example shows how to obtain SPARTN data from a PointPerfect Broker over WiFi
+ *               and push it over I2C to a ZED-F9x.
+ *               It's confusing, but the Arduino is acting as a 'client' to the PointPerfect SSR correction service.
  *
- * @brief       Use ESP32 WiFi to get SPARTN data from PointPerfect (broker) as a Client
- * By: u-blox AG / Michael Ammann
- * Date: January 27th, 2022
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               You will need to have a valid u-blox Thingstream account and have a PointPerfect Thing and payed plan. 
+ *               Thingstream offers SSR corrections to SPARTN cabalble RTK receivers such as the u-blox ZED-F9 series 
+ *               in continental Europ and US. There Network is planned to be expanded to ther regions over next years. 
+ *               To see sign up go to https://portal.thingstream.io/app/location-services/things
  *
- * This example shows how to obtain SPARTN data from a PointPerfect Broker over WiFi
- * and push it over I2C to a ZED-F9x.
- * It's confusing, but the Arduino is acting as a 'client' to the PointPerfect SSR correction service.
+ *               This is a proof of concept to show how to connect via MQTT to get SPARTN SSR correction. 
+ *               Using WiFi for a rover is generally a bad idea because of limited WiFi range in the field. 
+ *               You may use this exmaple in combination with a cell phone with hotspot mode enabled. 
  *
- * You will need to have a valid u-blox Thingstream account and have a PointPerfect Thing and payed plan. 
- * Thingstream offers SSR corrections to SPARTN cabalble RTK receivers such as the u-blox ZED-F9 series 
- * in continental Europ and US. There Network is planned to be expanded to ther regions over next years. 
- * To see sign up go to https://portal.thingstream.io/app/location-services/things
+ *               For more information about MQTT, SPARTN and PointPerfect Correction Services 
+ *               please see: https://www.u-blox.com/en/product/pointperfect
+ *               
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/16481
+ *               RTK Surveyor: https://www.sparkfun.com/products/18443
+ *               RTK Express: https://www.sparkfun.com/products/18442
+ *                 
+ *               Recommended Hardware:
+ *               MicroMod GNSS Carrier Board: https://www.sparkfun.com/products/17722 
+ *               ESP32 Micromod https://www.sparkfun.com/products/16781
  *
- * This is a proof of concept to show how to connect via MQTT to get SPARTN SSR correction. 
- * Using WiFi for a rover is generally a bad idea because of limited WiFi range in the field. 
- * You may use this exmaple in combination with a cell phone with hotspot mode enabled. 
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * For more information about MQTT, SPARTN and PointPerfect Correction Services 
- * please see: https://www.u-blox.com/en/product/pointperfect
- *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
- *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <WiFi.h>

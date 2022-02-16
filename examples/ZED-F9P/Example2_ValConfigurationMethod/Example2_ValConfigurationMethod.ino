@@ -1,41 +1,40 @@
 /**
  **************************************************
- *
  * @file        Example2_ValConfigurationMethod.ino
- *
- * @brief       Configuring u-blox Module using new VALGET / VALSET / VALDEL methods
- *
- * Please see u-blox_config_keys.h for the definitions of _all_ of the configuration keys
  * 
- * By: Nathan Seidle
- * SparkFun Electronics
- * Date: January 3rd, 2019
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ * @brief        Configuring u-blox Module using new VALGET / VALSET / VALDEL methods
  *
- * u-blox deprecated many -CFG messages and replaced them with new
- * VALGET, VALSET, VALDEL methods. This shows the basics of how to use
- * these methods.
+ *               Please see u-blox_config_keys.h for the definitions of _all_ of the configuration keys
+ *               
+ *               By: Nathan Seidle
+ *               SparkFun Electronics
+ *               Date: January 3rd, 2019
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
+ *               u-blox deprecated many -CFG messages and replaced them with new
+ *               VALGET, VALSET, VALDEL methods. This shows the basics of how to use
+ *               these methods.
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
  *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               SAM-M8Q: https://www.sparkfun.com/products/15106
+ * 
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS

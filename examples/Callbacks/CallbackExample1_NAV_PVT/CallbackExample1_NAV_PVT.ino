@@ -1,40 +1,39 @@
 /**
  **************************************************
- *
- * @file        CallbackExample1_NAV_PVT.ino
- *
+ * @file        Example1_NAV_PVT.ino
+ * 
  * @brief       Configuring the GNSS to automatically send position reports over I2C and display them using a callback
- * By: Paul Clark
- * SparkFun Electronics
- * Date: December 30th, 2020
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               By: Paul Clark
+ *               SparkFun Electronics
+ *               Date: December 30th, 2020
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * This example shows how to configure the u-blox GNSS to send navigation reports automatically
- * and access the data via a callback. No more polling!
+ *               This example shows how to configure the u-blox GNSS to send navigation reports automatically
+ *               and access the data via a callback. No more polling!
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               SAM-M8Q: https://www.sparkfun.com/products/15106
  *
- * Hardware Connections:
- * Plug a Qwiic cable into the GPS and a BlackBoard
- * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- * Open the serial monitor at 115200 baud to see the output
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GPS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
-
 
 #include <Wire.h> //Needed for I2C to GPS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h>
+#include <GNSS-ZOE-M8B-SOLDERED.h> 
 SFE_UBLOX_GNSS myGNSS;
 
 // Callback: printPVTdata will be called when new NAV PVT data arrives

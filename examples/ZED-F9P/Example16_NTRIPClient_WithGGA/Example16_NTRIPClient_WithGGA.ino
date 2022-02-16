@@ -1,51 +1,50 @@
 /**
  **************************************************
- *
  * @file        Example16_NTRIPClient_WithGGA.ino
+ * 
+ * @brief        Use ESP32 WiFi to get RTCM data from RTK2Go (caster) as a Client, and transmit GGA (needed for some Casters)
+ *               By: SparkFun Electronics / Nathan Seidle
+ *               Date: November 18th, 2021
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @brief       Use ESP32 WiFi to get RTCM data from RTK2Go (caster) as a Client, and transmit GGA (needed for some Casters)
- * By: SparkFun Electronics / Nathan Seidle
- * Date: November 18th, 2021
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to obtain RTCM data from a NTRIP Caster over WiFi
+ *               and push it over I2C to a ZED-F9x.
+ *               It's confusing, but the Arduino is acting as a 'client' to a 'caster'. In this case we will
+ *               use RTK2Go.com as our caster because it is free. See the NTRIPServer example to see how
+ *               to push RTCM data to the caster.
  *
- * This example shows how to obtain RTCM data from a NTRIP Caster over WiFi
- * and push it over I2C to a ZED-F9x.
- * It's confusing, but the Arduino is acting as a 'client' to a 'caster'. In this case we will
- * use RTK2Go.com as our caster because it is free. See the NTRIPServer example to see how
- * to push RTCM data to the caster.
+ *               The rover's location will be broadcast to the Caster every 10s via GGA setence.
  *
- * The rover's location will be broadcast to the Caster every 10s via GGA setence.
+ *               You will need to have a valid mountpoint available. To see available mountpoints go here: http://rtk2go.com:2101/
  *
- * You will need to have a valid mountpoint available. To see available mountpoints go here: http://rtk2go.com:2101/
+ *               This is a proof of concept to show how to connect to a caster via HTTP.
  *
- * This is a proof of concept to show how to connect to a caster via HTTP.
+ *               For more information about NTRIP Clients and the differences between Rev1 and Rev2 of the protocol
+ *               please see: https://www.use-snip.com/kb/knowledge-base/ntrip-rev1-versus-rev2-formats/ 
  *
- * For more information about NTRIP Clients and the differences between Rev1 and Rev2 of the protocol
- * please see: https://www.use-snip.com/kb/knowledge-base/ntrip-rev1-versus-rev2-formats/
+ *               "In broad protocol terms, the NTRIP client must first connect (get an HTTP “OK” reply) and only then
+ *               should it send the sentence.  NTRIP protocol revision 2 (which does not have very broad industry
+ *               acceptance at this time) does allow sending the sentence in the original header."
+ *               https://www.use-snip.com/kb/knowledge-base/subtle-issues-with-using-ntrip-client-nmea-183-strings/
  *
- * "In broad protocol terms, the NTRIP client must first connect (get an HTTP “OK” reply) and only then
- * should it send the sentence.  NTRIP protocol revision 2 (which does not have very broad industry
- * acceptance at this time) does allow sending the sentence in the original header."
- * https://www.use-snip.com/kb/knowledge-base/subtle-issues-with-using-ntrip-client-nmea-183-strings/
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/16481
+ *               RTK Surveyor: https://www.sparkfun.com/products/18443
+ *               RTK Express: https://www.sparkfun.com/products/18442
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <WiFi.h>

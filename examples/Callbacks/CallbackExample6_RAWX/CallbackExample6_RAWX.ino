@@ -1,32 +1,32 @@
 /**
  **************************************************
+ * @file        Example6_RAWX.ino
+ * 
+ * @brief       Configuring the GNSS to automatically send RXM RZWX reports over I2C and display them using a callback
+ *               By: Paul Clark
+ *               SparkFun Electronics
+ *               Date: March 11th, 2021
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @file        CallbackExample6_RAWX.ino
+ *               This example shows how to configure the u-blox GNSS to send RXM RAWX reports automatically
+ *               and access the data via a callback. No more polling!
  *
- * @brief         Configuring the GNSS to automatically send RXM RZWX reports over I2C and display them using a callback
- * By: Paul Clark
- * SparkFun Electronics
- * Date: March 11th, 2021
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
  *
- * This example shows how to configure the u-blox GNSS to send RXM RAWX reports automatically
- * and access the data via a callback. No more polling!
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GPS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- *
- * Hardware Connections:
- * Plug a Qwiic cable into the GPS and a BlackBoard
- * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- * Open the serial monitor at 115200 baud to see the output
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GPS

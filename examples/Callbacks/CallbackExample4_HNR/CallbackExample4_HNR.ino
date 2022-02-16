@@ -1,43 +1,44 @@
 /**
  **************************************************
+ * @file        Example4_HNR.ino
+ * 
+ * @brief      By: Paul Clark
+ *             SparkFun Electronics
+ *             Date: December, 2020
+ *             License: MIT. See license file for more information but you can
+ *             basically do whatever you want with this code.
  *
- * @file        CallbackExample4_HNR.ino
+ *             This example configures the High Navigation Rate on the NEO-M8U and then
+ *             reads and displays the attitude solution, vehicle dynamics information
+ *             and high rate position, velocity and time.
  *
- * @brief         By: Paul Clark
- * SparkFun Electronics
- * Date: December, 2020
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *             This example uses callbacks to process the HNR data automatically. No more polling!
  *
- * This example configures the High Navigation Rate on the NEO-M8U and then
- * reads and displays the attitude solution, vehicle dynamics information
- * and high rate position, velocity and time.
+ *             Please make sure your NEO-M8U is running UDR firmware >= 1.31. Please update using u-center if necessary:
+ *             https://www.u-blox.com/en/product/neo-m8u-module#tab-documentation-resources
  *
- * This example uses callbacks to process the HNR data automatically. No more polling!
+ *             Feel like supporting open source hardware?
+ *             Buy a board from SparkFun!
+ *             NEO-M8U: https://www.sparkfun.com/products/16329
  *
- * Please make sure your NEO-M8U is running UDR firmware >= 1.31. Please update using u-center if necessary:
- * https://www.u-blox.com/en/product/neo-m8u-module#tab-documentation-resources
+ *             Hardware Connections:
+ *             Plug a Qwiic cable into the GPS and a Redboard Qwiic
+ *             If you don't have a platform with a Qwiic connection use the
+ *             SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *             Open the serial monitor at 115200 baud to see the output
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * NEO-M8U: https://www.sparkfun.com/products/16329
  *
- * Hardware Connections:
- * Plug a Qwiic cable into the GPS and a Redboard Qwiic
- * If you don't have a platform with a Qwiic connection use the
- *	SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- * Open the serial monitor at 115200 baud to see the output
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GPS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h>
+#include <GNSS-ZOE-M8B-SOLDERED.h> 
 SFE_UBLOX_GNSS myGNSS;
 
 // Callback: printHNRATTdata will be called when new HNR ATT data arrives

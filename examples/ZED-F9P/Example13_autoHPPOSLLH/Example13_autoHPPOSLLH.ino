@@ -1,44 +1,42 @@
 /**
  **************************************************
- *
  * @file        Example13_autoHPPOSLLH.ino
+ * 
+ * @brief        Configuring the GNSS to automatically send HPPOSLLH position reports over I2C
+ *               By: Paul Clark
+ *               Date: October 27th 2020
  *
- * @brief       Configuring the GNSS to automatically send HPPOSLLH position reports over I2C
- * By: Paul Clark
- * Date: October 27th 2020
+ *               Based on an earlier example:
+ *               By: Nathan Seidle and Thorsten von Eicken
+ *               SparkFun Electronics
+ *               Date: January 3rd, 2019
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * Based on an earlier example:
- * By: Nathan Seidle and Thorsten von Eicken
- * SparkFun Electronics
- * Date: January 3rd, 2019
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to configure the U-Blox GNSS the send navigation reports automatically
+ *               and retrieving the latest one via getHPPOSLLH. This eliminates the blocking in getHPPOSLLH while the GNSS
+ *               produces a fresh navigation solution at the expense of returning a slighly old solution.
  *
- * This example shows how to configure the U-Blox GNSS the send navigation reports automatically
- * and retrieving the latest one via getHPPOSLLH. This eliminates the blocking in getHPPOSLLH while the GNSS
- * produces a fresh navigation solution at the expense of returning a slighly old solution.
+ *               This can be used over serial or over I2C, this example shows the I2C use. With serial the GNSS
+ *               simply outputs the UBX_NAV_HPPOSLLH packet. With I2C it queues it into its internal I2C buffer (4KB in
+ *               size?) where it can be retrieved in the next I2C poll.
  *
- * This can be used over serial or over I2C, this example shows the I2C use. With serial the GNSS
- * simply outputs the UBX_NAV_HPPOSLLH packet. With I2C it queues it into its internal I2C buffer (4KB in
- * size?) where it can be retrieved in the next I2C poll.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS

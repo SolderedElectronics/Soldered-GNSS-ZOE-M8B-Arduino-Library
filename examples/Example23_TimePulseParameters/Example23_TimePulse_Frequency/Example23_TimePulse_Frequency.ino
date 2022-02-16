@@ -1,44 +1,43 @@
 /**
  **************************************************
- *
  * @file        Example23_TimePulse_Frequency.ino
+ * 
+ * @brief        Time Pulse Parameters - Frequency
+ *               By: Paul Clark (PaulZC)
+ *               Date: January 13th, 2021
  *
- * @brief       Time Pulse Parameters - Frequency
- * By: Paul Clark (PaulZC)
- * Date: January 13th, 2021
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to change the time pulse parameters and configure the TIMEPULSE (PPS)
+ *               pin to produce a 1kHz squarewave
  *
- * This example shows how to change the time pulse parameters and configure the TIMEPULSE (PPS)
- * pin to produce a 1kHz squarewave
+ *               The SparkFun GPS-RTK-SMA Breakout - ZED-F9P (Qwiic) (https://www.sparkfun.com/products/16481)
+ *               has solder pads which will let you connect an SMA connector to the TIMEPULSE signal. Need an
+ *               accurate frequency or clock source for your latest project? This is the product for you!
  *
- * The SparkFun GPS-RTK-SMA Breakout - ZED-F9P (Qwiic) (https://www.sparkfun.com/products/16481)
- * has solder pads which will let you connect an SMA connector to the TIMEPULSE signal. Need an
- * accurate frequency or clock source for your latest project? This is the product for you!
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               SAM-M8Q: https://www.sparkfun.com/products/15106
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include "GNSS-ZOE-M8B-SOLDERED.h"
+#include "SparkFun_u-blox_GNSS_Arduino_Library.h"
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()

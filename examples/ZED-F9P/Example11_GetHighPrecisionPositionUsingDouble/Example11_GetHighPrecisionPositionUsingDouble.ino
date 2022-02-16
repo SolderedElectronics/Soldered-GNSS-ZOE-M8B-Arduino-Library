@@ -1,38 +1,37 @@
 /**
  **************************************************
+ * @file        Example11_GetHighPrecisionUsingDouble.ino
+ * 
+ * @brief        Get the high precision geodetic solution for latitude and longitude using double
+ *               By: Nathan Seidle
+ *               Modified by: Paul Clark (PaulZC)
+ *               SparkFun Electronics
+ *               Date: April 17th, 2020
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @file        Example11_GetHighPrecisionPositionUsingDouble.ino
+ *               This example shows how to inspect the accuracy of the high-precision
+ *               positional solution. Please see below for information about the units.
  *
- * @brief       Get the high precision geodetic solution for latitude and longitude using double
- * By: Nathan Seidle
- * Modified by: Paul Clark (PaulZC)
- * SparkFun Electronics
- * Date: April 17th, 2020
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               ** This example will only work correctly on platforms which support 64-bit double **
  *
- * This example shows how to inspect the accuracy of the high-precision
- * positional solution. Please see below for information about the units.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
  *
- * ** This example will only work correctly on platforms which support 64-bit double **
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and (e.g.) a Redboard Artemis https://www.sparkfun.com/products/15444
+ *               or an Artemis Thing Plus https://www.sparkfun.com/products/15574
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
- *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> // Needed for I2C to GNSS

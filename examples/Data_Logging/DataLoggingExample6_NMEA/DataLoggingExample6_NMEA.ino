@@ -1,57 +1,60 @@
 /**
  **************************************************
- *
  * @file        DataLoggingExample6_NMEA.ino
+ * 
+ * @brief        Demonstrate how to log NMEA and UBX data simultaneously
+ *               By: Paul Clark
+ *               SparkFun Electronics
+ *               Date: October 18th, 2021
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @brief           Demonstrate how to log NMEA and UBX data simultaneously
- * By: Paul Clark
- * SparkFun Electronics
- * Date: October 18th, 2021
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to configure the u-blox GNSS to send PVT reports automatically
+ *               and log those and any incoming NMEA messages to SD card in UBX format
  *
- * This example shows how to configure the u-blox GNSS to send PVT reports automatically
- * and log those and any incoming NMEA messages to SD card in UBX format
+ *               ** Please note: this example will only work on processors like the Artemis which have plenty of RAM available **
  *
- * ** Please note: this example will only work on processors like the Artemis which have plenty of RAM available **
+ *               This code is intended to be run on the MicroMod Data Logging Carrier Board using the Artemis Processor
+ *               but can be adapted by changing the chip select pin and SPI definitions:
+ *               https://www.sparkfun.com/products/16829
+ *               https://www.sparkfun.com/products/16401
  *
- * This code is intended to be run on the MicroMod Data Logging Carrier Board using the Artemis Processor
- * but can be adapted by changing the chip select pin and SPI definitions:
- * https://www.sparkfun.com/products/16829
- * https://www.sparkfun.com/products/16401
+ *               Hardware Connections:
+ *               Please see: https://learn.sparkfun.com/tutorials/micromod-data-logging-carrier-board-hookup-guide
+ *               Insert the Artemis Processor into the MicroMod Data Logging Carrier Board and secure with the screw.
+ *               Connect your GNSS breakout to the Carrier Board using a Qwiic cable.
+ *               Connect an antenna to your GNSS board if required.
+ *               Insert a formatted micro-SD card into the socket on the Carrier Board.
+ *               Connect the Carrier Board to your computer using a USB-C cable.
+ *               Ensure you have the SparkFun Apollo3 boards installed: http://boardsmanager/All#SparkFun_Apollo3
+ *               This code has been tested using version 2.1.0 of the Apollo3 boards on Arduino IDE 1.8.13.
+ *               - Version 2.1.1 of Apollo3 contains a feature which makes I2C communication with u-blox modules problematic
+ *               - We recommend using v2.1.0 of Apollo3 until v2.2.0 is released
+ *               Select "Artemis MicroMod Processor" as the board type.
+ *               Press upload to upload the code onto the Artemis.
+ *               Open the Serial Monitor at 115200 baud to see the output.
  *
- * Hardware Connections:
- * Please see: https://learn.sparkfun.com/tutorials/micromod-data-logging-carrier-board-hookup-guide
- * Insert the Artemis Processor into the MicroMod Data Logging Carrier Board and secure with the screw.
- * Connect your GNSS breakout to the Carrier Board using a Qwiic cable.
- * Connect an antenna to your GNSS board if required.
- * Insert a formatted micro-SD card into the socket on the Carrier Board.
- * Connect the Carrier Board to your computer using a USB-C cable.
- * Ensure you have the SparkFun Apollo3 boards installed: http://boardsmanager/All#SparkFun_Apollo3
- * This code has been tested using version 2.1.0 of the Apollo3 boards on Arduino IDE 1.8.13.
- *  - Version 2.1.1 of Apollo3 contains a feature which makes I2C communication with u-blox modules problematic
- *  - We recommend using v2.1.0 of Apollo3 until v2.2.0 is released
- * Select "Artemis MicroMod Processor" as the board type.
- * Press upload to upload the code onto the Artemis.
- * Open the Serial Monitor at 115200 baud to see the output.
+ *               To minimise I2C bus errors, it is a good idea to open the I2C pull-up split pad links on
+ *               both the MicroMod Data Logging Carrier Board and the u-blox module breakout.
  *
- * To minimise I2C bus errors, it is a good idea to open the I2C pull-up split pad links on
- * both the MicroMod Data Logging Carrier Board and the u-blox module breakout.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               ZOE-M8Q: https://www.sparkfun.com/products/15193
+ *               SAM-M8Q: https://www.sparkfun.com/products/15210
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * ZOE-M8Q: https://www.sparkfun.com/products/15193
- * SAM-M8Q: https://www.sparkfun.com/products/15210
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
+
+/*
+
+*/
 
 #include <SPI.h>
 #include <SD.h>

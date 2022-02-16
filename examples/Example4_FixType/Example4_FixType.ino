@@ -1,46 +1,45 @@
 /**
  **************************************************
- *
  * @file        Example4_FixType.ino
+ * 
+ * @brief        Get fix type and RTK fix type if available
+ *               By: Nathan Seidle
+ *               SparkFun Electronics
+ *               Date: January 3rd, 2019
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @brief       Get fix type and RTK fix type if available
- * By: Nathan Seidle
- * SparkFun Electronics
- * Date: January 3rd, 2019
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to query a u-blox module for fix type and RTK fix type.
+ *               The fix type is as follows:
+ *                 0 = no fix
+ *                 1 = dead reckoning (requires external sensors)
+ *                 2 = 2D (not quite enough satellites in view)
+ *                 3 = 3D (the standard fix)
+ *                 4 = GNSS + dead reckoning (requires external sensors)
+ *                 5 = Time fix only
  *
- * This example shows how to query a u-blox module for fix type and RTK fix type.
- * The fix type is as follows:
- *   0 = no fix
- *   1 = dead reckoning (requires external sensors)
- *   2 = 2D (not quite enough satellites in view)
- *   3 = 3D (the standard fix)
- *   4 = GNSS + dead reckoning (requires external sensors)
- *   5 = Time fix only
+ *               Additionally, if we are doing RTK, we can figure out if we have a floating 
+ *               RTK solution or if we have been able to resolve a fixec solution (better precision).
  *
- * Additionally, if we are doing RTK, we can figure out if we have a floating 
- * RTK solution or if we have been able to resolve a fixec solution (better precision).
+ *               Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
  *
- * Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ *               SAM-M8Q: https://www.sparkfun.com/products/15106
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a BlackBoard
+ *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Hardware Connections:
- * Connect the U-Blox serial port to Serial1
- * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
- * Open the serial monitor at 115200 baud to see the output
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS

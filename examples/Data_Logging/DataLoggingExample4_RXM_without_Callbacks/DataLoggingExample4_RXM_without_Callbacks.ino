@@ -1,65 +1,64 @@
 /**
  **************************************************
- *
  * @file        DataLoggingExample4_RXM_without_Callbacks.ino
+ * 
+ * @brief       Configuring the GNSS to automatically send RXM SFRBX and RAWX reports over I2C and log them to file on SD card
+ *               ** without using callbacks **
+ *               By: Paul Clark
+ *               SparkFun Electronics
+ *               Date: October 18th, 2021
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @brief         Configuring the GNSS to automatically send RXM SFRBX and RAWX reports over I2C and log them to file on SD card
- * ** without using callbacks **
- * By: Paul Clark
- * SparkFun Electronics
- * Date: October 18th, 2021
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               This example shows how to configure the u-blox GNSS to send RXM SFRBX and RAWX reports automatically
+ *               and log the data to SD card in UBX format ** without using callbacks **
  *
- * This example shows how to configure the u-blox GNSS to send RXM SFRBX and RAWX reports automatically
- * and log the data to SD card in UBX format ** without using callbacks **
+ *               ** Please note: this example will only work on u-blox ADR or High Precision GNSS or Time Sync products **
  *
- * ** Please note: this example will only work on u-blox ADR or High Precision GNSS or Time Sync products **
+ *               ** Please note: this example will only work on processors like the Artemis which have plenty of RAM available **
  *
- * ** Please note: this example will only work on processors like the Artemis which have plenty of RAM available **
+ *               Data is logged in u-blox UBX format. Please see the u-blox protocol specification for more details.
+ *               You can replay and analyze the data using u-center:
+ *               https://www.u-blox.com/en/product/u-center
+ *               Or you can use (e.g.) RTKLIB to analyze the data and extract your precise location or produce
+ *               Post-Processed Kinematic data:
+ *               https://rtklibexplorer.wordpress.com/
+ *               http://rtkexplorer.com/downloads/rtklib-code/
  *
- * Data is logged in u-blox UBX format. Please see the u-blox protocol specification for more details.
- * You can replay and analyze the data using u-center:
- * https://www.u-blox.com/en/product/u-center
- * Or you can use (e.g.) RTKLIB to analyze the data and extract your precise location or produce
- * Post-Processed Kinematic data:
- * https://rtklibexplorer.wordpress.com/
- * http://rtkexplorer.com/downloads/rtklib-code/
+ *               This code is intended to be run on the MicroMod Data Logging Carrier Board using the Artemis Processor
+ *               but can be adapted by changing the chip select pin and SPI definitions:
+ *               https://www.sparkfun.com/products/16829
+ *               https://www.sparkfun.com/products/16401
  *
- * This code is intended to be run on the MicroMod Data Logging Carrier Board using the Artemis Processor
- * but can be adapted by changing the chip select pin and SPI definitions:
- * https://www.sparkfun.com/products/16829
- * https://www.sparkfun.com/products/16401
+ *               Hardware Connections:
+ *               Please see: https://learn.sparkfun.com/tutorials/micromod-data-logging-carrier-board-hookup-guide
+ *              Insert the Artemis Processor into the MicroMod Data Logging Carrier Board and secure with the screw.
+ *               Connect your GNSS breakout to the Carrier Board using a Qwiic cable.
+ *               Connect an antenna to your GNSS board if required.
+ *               Insert a formatted micro-SD card into the socket on the Carrier Board.
+ *               Connect the Carrier Board to your computer using a USB-C cable.
+ *               Ensure you have the SparkFun Apollo3 boards installed: http://boardsmanager/All#SparkFun_Apollo3
+ *               This code has been tested using version 2.1.0 of the Apollo3 boards on Arduino IDE 1.8.13.
+ *               - Version 2.1.1 of Apollo3 contains a feature which makes I2C communication with u-blox modules problematic
+ *               - We recommend using v2.1.0 of Apollo3 until v2.2.0 is released
+ *               Select "Artemis MicroMod Processor" as the board type.
+ *               Press upload to upload the code onto the Artemis.
+ *               Open the Serial Monitor at 115200 baud to see the output.
  *
- * Hardware Connections:
- * Please see: https://learn.sparkfun.com/tutorials/micromod-data-logging-carrier-board-hookup-guide
- * Insert the Artemis Processor into the MicroMod Data Logging Carrier Board and secure with the screw.
- * Connect your GNSS breakout to the Carrier Board using a Qwiic cable.
- * Connect an antenna to your GNSS board if required.
- * Insert a formatted micro-SD card into the socket on the Carrier Board.
- * Connect the Carrier Board to your computer using a USB-C cable.
- * Ensure you have the SparkFun Apollo3 boards installed: http://boardsmanager/All#SparkFun_Apollo3
- * This code has been tested using version 2.1.0 of the Apollo3 boards on Arduino IDE 1.8.13.
- *  - Version 2.1.1 of Apollo3 contains a feature which makes I2C communication with u-blox modules problematic
- *  - We recommend using v2.1.0 of Apollo3 until v2.2.0 is released
- * Select "Artemis MicroMod Processor" as the board type.
- * Press upload to upload the code onto the Artemis.
- * Open the Serial Monitor at 115200 baud to see the output.
+ *               To minimise I2C bus errors, it is a good idea to open the I2C pull-up split pad links on
+ *               both the MicroMod Data Logging Carrier Board and the u-blox module breakout.
  *
- * To minimise I2C bus errors, it is a good idea to open the I2C pull-up split pad links on
- * both the MicroMod Data Logging Carrier Board and the u-blox module breakout.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ *               NEO-M8P RTK: https://www.sparkfun.com/products/15005
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
- * NEO-M8P RTK: https://www.sparkfun.com/products/15005
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <SPI.h>

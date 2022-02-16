@@ -1,57 +1,43 @@
-/**
- **************************************************
- *
- * @file        Example1_AssistNowOffline.ino
- *
- * @brief       Use ESP32 WiFi to get AssistNow Offline data from u-blox Thingstream
- * By: SparkFun Electronics / Paul Clark
- * Date: November 26th, 2021
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
- *
- * This example shows how to obtain AssistNow Offline data from u-blox Thingstream over WiFi
- * and push it over I2C to a u-blox module.
- *
- * The module still needs to be given time assistance to achieve a fast fix. This example
- * uses network time to do that. If you don't have a WiFi connection, you may have to use
- * a separate RTC to provide the time.
- *
- * Note: AssistNow Offline is not supported by the ZED-F9P! "The ZED-F9P supports AssistNow Online only."
- *
- * You will need to have a token to be able to access Thingstream. See the AssistNow README for more details.
- *
- * Update secrets.h with your:
- * - WiFi credentials
- * - AssistNow token string
- *
- * Uncomment the "#define USE_MGA_ACKs" below to test the more robust method of using the
- * UBX_MGA_ACK_DATA0 acknowledgements to confirm that each MGA message has been accepted.
- *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
- * SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
- *
- * Hardware Connections:
- * Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
- * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- * Open the serial monitor at 115200 baud to see the output
- *
- *              product : www.soldered.com/333099
- *              
- *              Modified by soldered.com
- * 
- * @authors     SparkFun
- ***************************************************/
+/*
+  Use ESP32 WiFi to get AssistNow Offline data from u-blox Thingstream
+  By: SparkFun Electronics / Paul Clark
+  Date: November 26th, 2021
+  License: MIT. See license file for more information but you can
+  basically do whatever you want with this code.
+
+  This example shows how to obtain AssistNow Offline data from u-blox Thingstream over WiFi
+  and push it over I2C to a u-blox module.
+
+  The module still needs to be given time assistance to achieve a fast fix. This example
+  uses network time to do that. If you don't have a WiFi connection, you may have to use
+  a separate RTC to provide the time.
+
+  Note: AssistNow Offline is not supported by the ZED-F9P! "The ZED-F9P supports AssistNow Online only."
+
+  You will need to have a token to be able to access Thingstream. See the AssistNow README for more details.
+
+  Update secrets.h with your:
+  - WiFi credentials
+  - AssistNow token string
+
+  Uncomment the "#define USE_MGA_ACKs" below to test the more robust method of using the
+  UBX_MGA_ACK_DATA0 acknowledgements to confirm that each MGA message has been accepted.
+
+  Feel like supporting open source hardware?
+  Buy a board from SparkFun!
+  SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
+  SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
+
+  Hardware Connections:
+  Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
+  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+  Open the serial monitor at 115200 baud to see the output
+*/
 
 //#define USE_MGA_ACKs // Uncomment this line to use the UBX_MGA_ACK_DATA0 acknowledgements
 
 #include <WiFi.h>
-#ifdef ARDUINO_ESP8266_GENERIC
-#include "ESP8266HTTPClient.h"
-#else
-#include "HTTPClient.h"
-#endif
+#include <HTTPClient.h>
 #include "secrets.h"
 
 const char assistNowServer[] = "https://offline-live1.services.u-blox.com";
@@ -68,7 +54,7 @@ const char getMgaResolution[] = "resolution=1;"; // Optional. Data resolution: 1
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-#include <GNSS-ZOE-M8B-SOLDERED.h>
+#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
 SFE_UBLOX_GNSS myGNSS;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

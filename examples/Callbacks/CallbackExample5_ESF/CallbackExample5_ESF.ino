@@ -1,40 +1,40 @@
 /**
  **************************************************
+ * @file        Example5_ESF.ino
+ * 
+ * @brief       By: Paul Clark
+ *               SparkFun Electronics
+ *               Date: December, 2020
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @file        CallbackExample5_ESF.ino
+ *               This example configures the External Sensor Fusion messages on the NEO-M8U and
+ *               uses callbacks to process and display the ESF data automatically. No more polling!
  *
- * @brief         By: Paul Clark
- * SparkFun Electronics
- * Date: December, 2020
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               Please make sure your NEO-M8U is running UDR firmware >= 1.31. Please update using u-center if necessary:
+ *               https://www.u-blox.com/en/product/neo-m8u-module#tab-documentation-resources
  *
- * This example configures the External Sensor Fusion messages on the NEO-M8U and
- * uses callbacks to process and display the ESF data automatically. No more polling!
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               NEO-M8U: https://www.sparkfun.com/products/16329
  *
- * Please make sure your NEO-M8U is running UDR firmware >= 1.31. Please update using u-center if necessary:
- * https://www.u-blox.com/en/product/neo-m8u-module#tab-documentation-resources
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GPS and a Redboard Qwiic
+ *               If you don't have a platform with a Qwiic connection use the
+ *               SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * NEO-M8U: https://www.sparkfun.com/products/16329
- *
- * Hardware Connections:
- * Plug a Qwiic cable into the GPS and a Redboard Qwiic
- * If you don't have a platform with a Qwiic connection use the
- *	SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- *  Open the serial monitor at 115200 baud to see the output
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GPS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h>
+#include <GNSS-ZOE-M8B-SOLDERED.h> 
 SFE_UBLOX_GNSS myGNSS;
 
 // Callback: printESFALGdata will be called when new ESF ALG data arrives

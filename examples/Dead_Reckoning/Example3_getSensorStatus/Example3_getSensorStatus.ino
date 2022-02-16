@@ -1,39 +1,38 @@
 /**
  **************************************************
- *
  * @file        Example3_getSensorStatus.ino
+ * 
+ * @brief        By: Elias Santistevan
+ *               SparkFun Electronics
+ *               Date: May, 2020
+ *               License: MIT. See license file for more information but you can
+ *               basically do whatever you want with this code.
  *
- * @brief       By: Elias Santistevan
- * SparkFun Electronics
- * Date: May, 2020
- * License: MIT. See license file for more information but you can
- * basically do whatever you want with this code.
+ *               Feel like supporting open source hardware?
+ *               Buy a board from SparkFun!
+ *               NEO-M8U: https://www.sparkfun.com/products/16329
+ *               ZED-F9R: https://www.sparkfun.com/products/16344  
  *
- * Feel like supporting open source hardware?
- * Buy a board from SparkFun!
- * NEO-M8U: https://www.sparkfun.com/products/16329
- * ZED-F9R: https://www.sparkfun.com/products/16344  
+ *               Hardware Connections:
+ *               Plug a Qwiic cable into the GNSS and a Redboard Qwiic
+ *               If you don't have a platform with a Qwiic connection use the 
+ *               SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ *               Open the serial monitor at 115200 baud to see the output
  *
- * Hardware Connections:
- * Plug a Qwiic cable into the GNSS and a Redboard Qwiic
- * If you don't have a platform with a Qwiic connection use the 
- *	SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- * Open the serial monitor at 115200 baud to see the output
+ *               After calibrating the module, also known as "Fusion Mode", you can get
+ *               data directly from the IMU. This example code walks you through trouble
+ *               shooting or identifying the different states of any individual  
+ *               "external" (which include internal) sensors you've hooked up (vehicle speed
+ *               sensor) or the internal IMU used by the modules. You can see if the sensor is
+ *               being used, if it's calibrated, ready, what data type it returns, the state
+ *               of the measurement etc.
  *
- *	After calibrating the module, also known as "Fusion Mode", you can get
- *	data directly from the IMU. This example code walks you through trouble
- * shooting or identifying the different states of any individual  
- * "external" (which include internal) sensors you've hooked up (vehicle speed
- * sensor) or the internal IMU used by the modules. You can see if the sensor is
- * being used, if it's calibrated, ready, what data type it returns, the state
- * of the measurement etc.    
- *
- *
- *              product : www.soldered.com/333099
  *              
+ * product: www.solde.red/333156
+ * @authors     Sparkfun
+ * 
  *              Modified by soldered.com
  * 
- * @authors     SparkFun
  ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS
