@@ -32,8 +32,13 @@
 //#define USE_SERVER_ASSISTANCE // Uncomment this line to include the position in the AssistNow data request
 
 #include <WiFi.h>
-#include <HTTPClient.h>
 #include "secrets.h"
+
+#ifndef ARDUINO_ESP8266_GENERIC
+#include <HTTPClient.h>
+#else
+#include <ESP8266HTTPClient.h>	
+#endif
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";
 //const char assistNowServer[] = "https://online-live2.services.u-blox.com"; // Alternate server
