@@ -1,29 +1,42 @@
-/*
-  Configuring port settings using the newer getVal/setVal methods
-  By: Nathan Seidle
-  SparkFun Electronics
-  Date: October 23rd, 2020
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example shows how to query a u-blox module for its UART1 settings and
-  then change them if the settings aren't what we want.
-
-  Note: getVal/setVal/delVal are only support in u-blox protocol versions 27 and higher.
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a RedBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
+/**
+ **************************************************
+ *
+ * @file        Example8_GetSetPortSettings.ino
+ *
+ * @brief       Configuring port settings using the newer getVal/setVal methods
+ * By: Nathan Seidle
+ * SparkFun Electronics
+ * Date: October 23rd, 2020
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to query a u-blox module for its UART1 settings and
+ * then change them if the settings aren't what we want.
+ *
+ * Note: getVal/setVal/delVal are only support in u-blox protocol versions 27 and higher.
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()

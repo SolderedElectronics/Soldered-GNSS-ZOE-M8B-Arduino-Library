@@ -1,42 +1,54 @@
-/*
-  Send Custom Command
-  By: Paul Clark (PaulZC)
-  Date: April 20th, 2020
+/**
+ **************************************************
+ *
+ * @file        Example20_SendCustomCommand.ino
+ *
+ * @brief       Send Custom Command
+ * By: Paul Clark (PaulZC)
+ * Date: April 20th, 2020
+ *
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how you can create and send a custom UBX packet
+ * using the SparkFun u-blox library.
+ *
+ * Previously it was possible to create and send a custom packet
+ * through the library but it would always appear to timeout as
+ * some of the internal functions referred to the internal private
+ * struct packetCfg.
+ * The most recent version of the library allows sendCommand to
+ * use a custom packet as if it were packetCfg and so:
+ * - sendCommand will return a sfe_ublox_status_e enum as if
+ *   it had been called from within the library
+ * - the custom packet will be updated with data returned by the module
+ *   (previously this was not possible from outside the library)
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example shows how you can create and send a custom UBX packet
-  using the SparkFun u-blox library.
-
-  Previously it was possible to create and send a custom packet
-  through the library but it would always appear to timeout as
-  some of the internal functions referred to the internal private
-  struct packetCfg.
-  The most recent version of the library allows sendCommand to
-  use a custom packet as if it were packetCfg and so:
-  - sendCommand will return a sfe_ublox_status_e enum as if
-    it had been called from within the library
-  - the custom packet will be updated with data returned by the module
-    (previously this was not possible from outside the library)
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-  NEO-M8P RTK: https://www.sparkfun.com/products/15005
-  SAM-M8Q: https://www.sparkfun.com/products/15106
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a BlackBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
 
 #define NAV_RATE 5 // The new navigation rate in Hz (measurements per second)
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()

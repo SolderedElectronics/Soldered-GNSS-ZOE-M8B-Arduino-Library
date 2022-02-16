@@ -1,40 +1,52 @@
-/*
-  Use ESP32 WiFi to push RTCM data to RTK2Go (Caster) as a Server
-  By: SparkFun Electronics / Nathan Seidle
-  Date: December 14th, 2020
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example shows how to gather RTCM data over I2C and push it to a casting service over WiFi.
-  It's confusing, but the Arduino is acting as a 'server' to a 'caster'. In this case we will
-  use RTK2Go.com as our caster because it is free. A rover (car, surveyor stick, etc) can
-  then connect to RTK2Go as a 'client' and get the RTCM data it needs.
-
-  You will need to register your mountpoint here: http://www.rtk2go.com/new-reservation/
-  (They'll probably block the credentials we include in this example)
-
-  To see if your mountpoint is active go here: http://rtk2go.com:2101/
-
-  This is a proof of concept. Serving RTCM to a caster over WiFi is useful when you need to
-  set up a high-precision base station.
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/16481
-  RTK Surveyor: https://www.sparkfun.com/products/17369
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
+/**
+ **************************************************
+ *
+ * @file        Example14_NTRIPServer.ino
+ *
+ * @brief       Use ESP32 WiFi to push RTCM data to RTK2Go (Caster) as a Server
+ * By: SparkFun Electronics / Nathan Seidle
+ * Date: December 14th, 2020
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to gather RTCM data over I2C and push it to a casting service over WiFi.
+ * It's confusing, but the Arduino is acting as a 'server' to a 'caster'. In this case we will
+ * use RTK2Go.com as our caster because it is free. A rover (car, surveyor stick, etc) can
+ * then connect to RTK2Go as a 'client' and get the RTCM data it needs.
+ *
+ * You will need to register your mountpoint here: http://www.rtk2go.com/new-reservation/
+ * (They'll probably block the credentials we include in this example)
+ *
+ * To see if your mountpoint is active go here: http://rtk2go.com:2101/
+ *
+ * This is a proof of concept. Serving RTCM to a caster over WiFi is useful when you need to
+ * set up a high-precision base station.
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include <WiFi.h>
 #include "secrets.h"
 WiFiClient ntripCaster;
 
 #include <Wire.h>
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 //Global Variables

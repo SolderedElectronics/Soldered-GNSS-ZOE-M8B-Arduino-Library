@@ -1,35 +1,43 @@
-/*
-  Reading lat and long via UBX binary commands using an RX-only UART
-  By: Nathan Seidle, Adapted from Example11 by Felix Jirka
-  SparkFun Electronics
-  Date: July 2nd, 2019
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
+/**
+ **************************************************
+ *
+ * @file        Example4_AssumeAutoPVTviaUart.ino
+ *
+ * @brief       Reading lat and long via UBX binary commands using an RX-only UART
+ * By: Nathan Seidle, Adapted from Example11 by Felix Jirka
+ * SparkFun Electronics
+ * Date: July 2nd, 2019
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to configure the library for serial port use with a single wire connection using the assumeAutoPVT method.
+ * Saving your pins for other stuff :-)
+ *
+ * This example only works correctly if the module has already been configured is sending PVT messages via its UART1 TX pin.
+ * Run the previous example to enable the auto PVT messages if you need to.
+ *
+ * Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
-  This example shows how to configure the library for serial port use with a single wire connection using the assumeAutoPVT method.
-  Saving your pins for other stuff :-)
-
-  This example only works correctly if the module has already been configured is sending PVT messages via its UART1 TX pin.
-  Run the previous example to enable the auto PVT messages if you need to.
-
-  Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-  NEO-M8P RTK: https://www.sparkfun.com/products/15005
-  SAM-M8Q: https://www.sparkfun.com/products/15106
-
-  Preconditions:
-  U-Blox module is configured to send cyclical PVT message
-  
-  Hardware Connections:
-  Connect the U-Blox serial TX pin to Rx of Serial2 (default: GPIO16) on your ESP32
-  Or, switch to SoftwareSerial
-  Open the serial monitor at 115200 baud to see the output
-*/
-
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 #include <SoftwareSerial.h>

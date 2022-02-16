@@ -1,29 +1,40 @@
-/*
-  Send UBX binary commands to enable RTCM sentences on u-blox ZED-F9P module
-  By: Nathan Seidle
-  SparkFun Electronics
-  Date: January 9th, 2019
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example shows how to query the module for RELPOS information in the NED frame.
-  It assumes you already have RTCM correction data being fed to the receiver.
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-  NEO-M8P RTK: https://www.sparkfun.com/products/15005
-  SAM-M8Q: https://www.sparkfun.com/products/15106
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a RedBoard Qwiic or BlackBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
+/**
+ **************************************************
+ *
+ * @file        Example5_RelativePositioningInformation.ino
+ *
+ * @brief       Send UBX binary commands to enable RTCM sentences on u-blox ZED-F9P module
+ * By: Nathan Seidle
+ * SparkFun Electronics
+ * Date: January 9th, 2019
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to query the module for RELPOS information in the NED frame.
+ * It assumes you already have RTCM correction data being fed to the receiver.
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h> 
 SFE_UBLOX_GNSS myGNSS;
 
 //#define USE_SERIAL1 // Uncomment this line to push the RTCM data from Serial1 to the module via I2C

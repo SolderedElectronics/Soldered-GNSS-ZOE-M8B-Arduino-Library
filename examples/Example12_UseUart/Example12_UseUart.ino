@@ -1,33 +1,44 @@
-/*
-  Reading lat and long via UBX binary commands using UART @38400 baud - free from I2C
-  By: Nathan Seidle, Adapted from Example3_GetPosition by Thorsten von Eicken
-  SparkFun Electronics
-  Date: January 28rd, 2019
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
+/**
+ **************************************************
+ *
+ * @file        Example12_UseUart.ino
+ *
+ * @brief       Reading lat and long via UBX binary commands using UART @38400 baud - free from I2C
+ * By: Nathan Seidle, Adapted from Example3_GetPosition by Thorsten von Eicken
+ * SparkFun Electronics
+ * Date: January 28rd, 2019
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to configure the library and U-Blox for serial port use as well as
+ * switching the module from the default 9600 baud to 38400.
+ *
+ * Note: Long/lat are large numbers because they are * 10^7. To convert lat/long
+ * to something google maps understands simply divide the numbers by 10,000,000. We 
+ * do this so that we don't have to use floating point numbers.
+ *
+ * Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
-  This example shows how to configure the library and U-Blox for serial port use as well as
-  switching the module from the default 9600 baud to 38400.
-
-  Note: Long/lat are large numbers because they are * 10^7. To convert lat/long
-  to something google maps understands simply divide the numbers by 10,000,000. We 
-  do this so that we don't have to use floating point numbers.
-
-  Leave NMEA parsing behind. Now you can simply ask the module for the datums you want!
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-  NEO-M8P RTK: https://www.sparkfun.com/products/15005
-  SAM-M8Q: https://www.sparkfun.com/products/15106
-
-  Hardware Connections:
-  Connect the U-Blox serial TX pin to Uno pin 10
-  Connect the U-Blox serial RX pin to Uno pin 11
-  Open the serial monitor at 115200 baud to see the output
-*/
-
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 #include <SoftwareSerial.h>

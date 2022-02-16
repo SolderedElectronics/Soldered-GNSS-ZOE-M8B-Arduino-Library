@@ -1,37 +1,47 @@
-/*
-  Use ESP32 WiFi to get AssistNow Online data from u-blox Thingstream
-  By: SparkFun Electronics / Paul Clark
-  Date: November 24th, 2021
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example shows how to obtain AssistNow Online data from u-blox Thingstream over WiFi
-  and push it over I2C to a u-blox module.
-
-  The AssistNow Online data is valid for 2-4 hours, so it can be re-used.
-  BUT you need to provide the time assistance separately.
-  This example shows how to do that.
-  The ESP32's RTC is set from network time.
-  The RTC time is pushed to the module using setUTCTimeAssistance,
-  followed by the AssistNow data (without time).
-
-  You will need to have a token to be able to access Thingstream. See the AssistNow README for more details.
-
-  Update secrets.h with your:
-  - WiFi credentials
-  - AssistNow token string
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
-  ZED-F9P RTK2:                             https://www.sparkfun.com/products/16481
-  SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
+/**
+ **************************************************
+ *
+ * @file        Example2_AssistNowOnline_TimeDelay.ino
+ *
+ * @brief       Use ESP32 WiFi to get AssistNow Online data from u-blox Thingstream
+ * By: SparkFun Electronics / Paul Clark
+ * Date: November 24th, 2021
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to obtain AssistNow Online data from u-blox Thingstream over WiFi
+ * and push it over I2C to a u-blox module.
+ *
+ * The AssistNow Online data is valid for 2-4 hours, so it can be re-used.
+ * BUT you need to provide the time assistance separately.
+ * This example shows how to do that.
+ * The ESP32's RTC is set from network time.
+ * The RTC time is pushed to the module using setUTCTimeAssistance,
+ * followed by the AssistNow data (without time).
+ *
+ * You will need to have a token to be able to access Thingstream. See the AssistNow README for more details.
+ *
+ * Update secrets.h with your:
+ * - WiFi credentials
+ * - AssistNow token string
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
+ * ZED-F9P RTK2:                             https://www.sparkfun.com/products/16481
+ * SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
+ *
+ * Hardware Connections:
+ * Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
+ * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include <WiFi.h>
 #ifdef ARDUINO_ESP8266_GENERIC
@@ -52,7 +62,7 @@ const char getDataType[] = "datatype=eph,alm,aux;"; // Data type can be: eph,alm
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

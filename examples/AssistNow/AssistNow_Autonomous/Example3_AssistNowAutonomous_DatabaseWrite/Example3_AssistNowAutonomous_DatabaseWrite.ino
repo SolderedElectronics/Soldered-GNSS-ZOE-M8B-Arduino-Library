@@ -1,38 +1,48 @@
-/*
-  Write the AssistNow Autonomous database data to the module
-  By: SparkFun Electronics / Paul Clark
-  Date: December 1st, 2021
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example shows how to write the AssistNow Autonomous database date back to the module.
-
-  This example is written for the ESP32. A WiFi connection is used to get network time to pass to the module.
-  (You could use an RTC instead.)
-
-  Copy and paste the database data from the previous example into database.h.
-
-  Update secrets.h with your:
-  - WiFi credentials
-
-  Note: this example will not work on the ZED-F9P. "The ZED-F9P supports AssistNow Online only."
-
-  Note: this example works best if you have the GNSS RAM battery-backup disabled.
-  All SparkFun boards have battery-backup for the RAM which will means the database is retained if you disconnect the power.
-  The module will use the database data from the battery-backed RAM when you turn the power back on.
-  You will only see the improvement in the time-to-first-fix if you disable the battery first - or you are using a non-SparkFun
-  board that does not have the backup battery.
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
-  SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
+/**
+ **************************************************
+ *
+ * @file        Example3_AssistNowAutonomous_DatabaseWrite.ino
+ *
+ * @brief       Write the AssistNow Autonomous database data to the module
+ * By: SparkFun Electronics / Paul Clark
+ * Date: December 1st, 2021
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to write the AssistNow Autonomous database date back to the module.
+ *
+ * This example is written for the ESP32. A WiFi connection is used to get network time to pass to the module.
+ * (You could use an RTC instead.)
+ *
+ * Copy and paste the database data from the previous example into database.h.
+ *
+ * Update secrets.h with your:
+ * - WiFi credentials
+ *
+ * Note: this example will not work on the ZED-F9P. "The ZED-F9P supports AssistNow Online only."
+ *
+ * Note: this example works best if you have the GNSS RAM battery-backup disabled.
+ * All SparkFun boards have battery-backup for the RAM which will means the database is retained if you disconnect the power.
+ * The module will use the database data from the battery-backed RAM when you turn the power back on.
+ * You will only see the improvement in the time-to-first-fix if you disable the battery first - or you are using a non-SparkFun
+ * board that does not have the backup battery.
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
+ * SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
+ *
+ * Hardware Connections:
+ * Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
+ * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include "database.h" // <- Copy and paste the database data from the previous example into database.h
 
@@ -48,7 +58,7 @@
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

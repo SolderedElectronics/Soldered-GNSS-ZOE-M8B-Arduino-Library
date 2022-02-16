@@ -1,36 +1,46 @@
-/*
-  Monitor AssistNow Autonomous data collection
-  By: SparkFun Electronics / Paul Clark
-  Date: November 29th, 2021
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
+/**
+ **************************************************
+ *
+ * @file        Example1_AssistNowAutonomous.ino
+ *
+ * @brief       Monitor AssistNow Autonomous data collection
+ * By: SparkFun Electronics / Paul Clark
+ * Date: November 29th, 2021
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example shows how to enable and monitor AssistNow Autonomous data collection by the module.
+ * A callback is used to monitor AssistNow Autonomous data availability for each satellite.
+ * A second callback is used to print the AOPSTATUS status.
+ *
+ * If your GNSS board has battery-backup for the RAM - and all SparkFun boards do! - then you can:
+ *   wait until the module has AssistNow Autonomous data for a few satellites;
+ *   power-cycle the board;
+ *   watch how fast it gets its first fix!
+ *
+ * Note: this example will only work on boards which have plenty of RAM available.
+ *       The UBX-NAV-SAT information occupies several kBytes.
+ *
+ * Note: this example will not work on the ZED-F9P. "The ZED-F9P supports AssistNow Online only."
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
+ * SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
+ *
+ * Hardware Connections:
+ * Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
+ * If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
-  This example shows how to enable and monitor AssistNow Autonomous data collection by the module.
-  A callback is used to monitor AssistNow Autonomous data availability for each satellite.
-  A second callback is used to print the AOPSTATUS status.
-
-  If your GNSS board has battery-backup for the RAM - and all SparkFun boards do! - then you can:
-    wait until the module has AssistNow Autonomous data for a few satellites;
-    power-cycle the board;
-    watch how fast it gets its first fix!
-
-  Note: this example will only work on boards which have plenty of RAM available.
-        The UBX-NAV-SAT information occupies several kBytes.
-
-  Note: this example will not work on the ZED-F9P. "The ZED-F9P supports AssistNow Online only."
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
-  SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
-
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

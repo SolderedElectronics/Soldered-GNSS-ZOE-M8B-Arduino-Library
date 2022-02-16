@@ -1,32 +1,43 @@
-/*
-  By: Elias Santistevan
-  SparkFun Electronics
-  Date: May, 2020
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  NEO-M8U: https://www.sparkfun.com/products/16329
-  ZED-F9R: https://www.sparkfun.com/products/16344  
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a Redboard Qwiic
-  If you don't have a platform with a Qwiic connection use the 
-	SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-
-	After calibrating the module and securing it to your vehicle such that it's
-  stable within 2 degrees, and the board is oriented correctly with regards to
-  the vehicle's frame, you can now read the vehicle's "attitude". The attitude
-  includes the vehicle's heading, pitch, and roll. You can also check the
-  accuracy of those readings. 
-
-*/
+/**
+ **************************************************
+ *
+ * @file        Example3_getSensorStatus.ino
+ *
+ * @brief       By: Elias Santistevan
+ * SparkFun Electronics
+ * Date: May, 2020
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * NEO-M8U: https://www.sparkfun.com/products/16329
+ * ZED-F9R: https://www.sparkfun.com/products/16344  
+ *
+ * Hardware Connections:
+ * Plug a Qwiic cable into the GNSS and a Redboard Qwiic
+ * If you don't have a platform with a Qwiic connection use the 
+ *	SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *	After calibrating the module and securing it to your vehicle such that it's
+ * stable within 2 degrees, and the board is oriented correctly with regards to
+ * the vehicle's frame, you can now read the vehicle's "attitude". The attitude
+ * includes the vehicle's heading, pitch, and roll. You can also check the
+ * accuracy of those readings. 
+ *
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()

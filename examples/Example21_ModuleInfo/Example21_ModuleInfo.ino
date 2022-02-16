@@ -1,45 +1,56 @@
-/*
-  Module Info - extracts and prints the full module information from UBX_MON_VER
-  using a custom command.
-  By: @mayopan
-  Date: May 9th, 2020
-
-  Based on:
-  Send Custom Command
-  By: Paul Clark (PaulZC)
-  Date: April 20th, 2020
-
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  Previously it was possible to create and send a custom packet
-  through the library but it would always appear to timeout as
-  some of the internal functions referred to the internal private
-  struct packetCfg.
-  The most recent version of the library allows sendCommand to
-  use a custom packet as if it were packetCfg and so:
-  - sendCommand will return a sfe_ublox_status_e enum as if
-    it had been called from within the library
-  - the custom packet will be updated with data returned by the module
-    (previously this was not possible from outside the library)
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9P RTK2: https://www.sparkfun.com/products/15136
-  NEO-M8P RTK: https://www.sparkfun.com/products/15005
-  SAM-M8Q: https://www.sparkfun.com/products/15106
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GNSS and a BlackBoard
-  If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 115200 baud to see the output
-*/
+/**
+ **************************************************
+ *
+ * @file        Example21_ModuleInfo.ino
+ *
+ * @brief       Module Info - extracts and prints the full module information from UBX_MON_VER
+ * using a custom command.
+ * By: @mayopan
+ * Date: May 9th, 2020
+ *
+ * Based on:
+ * Send Custom Command
+ * By: Paul Clark (PaulZC)
+ * Date: April 20th, 2020
+ *
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * Previously it was possible to create and send a custom packet
+ * through the library but it would always appear to timeout as
+ * some of the internal functions referred to the internal private
+ * struct packetCfg.
+ * The most recent version of the library allows sendCommand to
+ * use a custom packet as if it were packetCfg and so:
+ * - sendCommand will return a sfe_ublox_status_e enum as if
+ *   it had been called from within the library
+ * - the custom packet will be updated with data returned by the module
+ *   (previously this was not possible from outside the library)
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9P RTK2: https://www.sparkfun.com/products/15136
+ * NEO-M8P RTK: https://www.sparkfun.com/products/15005
+ * SAM-M8Q: https://www.sparkfun.com/products/15106
+ *
+ * Hardware Connections:
+ * Connect the U-Blox serial port to Serial1
+ * If you're using a Uno or don't have a 2nd serial port (Serial1), use SoftwareSerial instead (see below)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GNSS
 
 #define MAX_PAYLOAD_SIZE 384 // Override MAX_PAYLOAD_SIZE for getModuleInfo which can return up to 348 bytes
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 
 // Extend the class for getModuleInfo
 class SFE_UBLOX_GPS_ADD : public SFE_UBLOX_GNSS

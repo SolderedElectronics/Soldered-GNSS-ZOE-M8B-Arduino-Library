@@ -1,37 +1,48 @@
-/*
-  By: Nathan Seidle
-  SparkFun Electronics
-  Date: August, 2021
-  License: MIT. See license file for more information but you can
-  basically do whatever you want with this code.
-
-  This example configures the AutoAlignment option for the IMU.
-  The ZED-F9R Integration guide recommends enabling Auto Alignment once
-  the device has been attached to the vehicle's frame.
-  Enabling auto-alignment will cause the the sensor fusion status
-  to begin initialization. After driving around a few turns, the sensors
-  should enter 'Calibrated' state. See example 1 for fusion state or
-  monitor UBX-ESF-STATUS.
-
-  As of writing the ZED-F9R is using HPS v1.2 firmware. Please update using u-center if necessary.
-
-  Feel like supporting open source hardware?
-  Buy a board from SparkFun!
-  ZED-F9R: https://www.sparkfun.com/products/16344
-  ZED-F9R pHat: https://www.sparkfun.com/products/16475
-  NEO-M8U: https://www.sparkfun.com/products/16329
-
-  Hardware Connections:
-  Plug a Qwiic cable into the GPS and a Redboard Qwiic
-  If you don't have a platform with a Qwiic connection use the
-  SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/17912)
-  Open the serial monitor at 115200 baud to see the output
-
-*/
+/**
+ **************************************************
+ *
+ * @file        Example7_setESFAutoAlignment.ino
+ *
+ * @brief       By: Nathan Seidle
+ * SparkFun Electronics
+ * Date: August, 2021
+ * License: MIT. See license file for more information but you can
+ * basically do whatever you want with this code.
+ *
+ * This example configures the AutoAlignment option for the IMU.
+ * The ZED-F9R Integration guide recommends enabling Auto Alignment once
+ * the device has been attached to the vehicle's frame.
+ * Enabling auto-alignment will cause the the sensor fusion status
+ * to begin initialization. After driving around a few turns, the sensors
+ * should enter 'Calibrated' state. See example 1 for fusion state or
+ * monitor UBX-ESF-STATUS.
+ *
+ * As of writing the ZED-F9R is using HPS v1.2 firmware. Please update using u-center if necessary.
+ *
+ * Feel like supporting open source hardware?
+ * Buy a board from SparkFun!
+ * ZED-F9R: https://www.sparkfun.com/products/16344
+ * ZED-F9R pHat: https://www.sparkfun.com/products/16475
+ * NEO-M8U: https://www.sparkfun.com/products/16329
+ *
+ * Hardware Connections:
+ * Plug a Qwiic cable into the GPS and a Redboard Qwiic
+ * If you don't have a platform with a Qwiic connection use the
+ * SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/17912)
+ * Open the serial monitor at 115200 baud to see the output
+ *
+ *
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     SparkFun
+ ***************************************************/
 
 #include <Wire.h> //Needed for I2C to GPS
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 void setup()
