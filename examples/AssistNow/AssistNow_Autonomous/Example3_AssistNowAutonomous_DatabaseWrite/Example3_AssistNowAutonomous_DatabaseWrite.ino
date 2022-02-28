@@ -55,6 +55,7 @@
 #else
 #include <ESP8266HTTPClient.h>	
 #include <ESP8266WiFi.h>
+WiFiClient client;
 #endif
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -67,6 +68,9 @@ SFE_UBLOX_GNSS myGNSS;
 #include "time.h"
 
 const char* ntpServer = "pool.ntp.org"; // The Network Time Protocol Server
+
+#define timeZone +1 //your timezone offset
+#define offset 1  //You should enter ofsset hours to cover things like Daylight saving time
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -118,15 +122,15 @@ void setup()
   // Request the time from the NTP server and use it to set the ESP32's RTC.
   configTime(0, 0, ntpServer); // Set the GMT and daylight offsets to zero. We need UTC, not local time.
 
+  time_t nowSecs = time(nullptr) + (long)timeZone * 3600L + offSet;
+
+  // Used to store time
   struct tm timeinfo;
-  if(!getLocalTime(&timeinfo))
-  {
-    Serial.println("Failed to obtain time");
-  }
-  else
-  {
-    Serial.println(&timeinfo, "Time is: %A, %B %d %Y %H:%M:%S");
-  }
+  gmtime_r(&nowSecs, &timeinfo);
+  char timeStr[20];
+  strcpy(timeStr, asctime(&timeinfo));
+  Serial.println("Time is: ");
+  Serial.println(timeStr);
 
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Push the RTC time to the module
@@ -134,17 +138,10 @@ void setup()
   // Uncomment the next line to enable the 'major' debug messages on Serial so you can see what AssistNow data is being sent
   //myGNSS.enableDebugging(Serial, true);
 
-  if(getLocalTime(&timeinfo))
-  {
-    // setUTCTimeAssistance uses a default time accuracy of 2 seconds which should be OK here.
-    // Have a look at the library source code for more details.
-    myGNSS.setUTCTimeAssistance(timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday,
+  // setUTCTimeAssistance uses a default time accuracy of 2 seconds which should be OK here.
+  // Have a look at the library source code for more details.
+  myGNSS.setUTCTimeAssistance(timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday,
                                 timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
-  }
-  else
-  {
-    Serial.println("Failed to obtain time. This will not work well. The GNSS needs accurate time to start up quickly.");
-  }
 
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Push the AssistNow Autonomous data to the module

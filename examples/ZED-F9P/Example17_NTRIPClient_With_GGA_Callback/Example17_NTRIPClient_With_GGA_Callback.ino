@@ -355,7 +355,7 @@ bool beginClient()
       strEncodedCredentials.toCharArray(encodedCredentials, sizeof(encodedCredentials)); //Convert String to char array
 #else
       //Encode with nfriendly library
-      int encodedLen = base64_enc_len(strlen(userCredentials));
+      int encodedLen = (strlen(userCredentials) + 2)/3*4;
       char encodedCredentials[encodedLen];                                         //Create array large enough to house encoded data
       base64_encode(encodedCredentials, userCredentials, strlen(userCredentials)); //Note: Input array is consumed
 #endif
