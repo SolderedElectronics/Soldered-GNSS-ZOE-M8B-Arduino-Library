@@ -14,7 +14,6 @@ jobs:
           - fqbn: Dasduino_Boards:esp32:lora32
           - fqbn: Dasduino_Boards:avr:core
           - fqbn: Dasduino_Boards:avr:LoRa
-          - fqbn: Dasduino_Boards:stm32:swiftf1
           - fqbn: Dasduino_Boards:avr:coreplus
       fail-fast: false
       
@@ -53,7 +52,7 @@ jobs:
             - name: EspSoftwareSerial
             - name: SparkFun SerLCD Arduino Library
             - name: ArduinoMqttClient
-            - name: base64
+            - name: Base64
             - name: MicroNMEA
           sketch-paths: |
             - ./examples/
