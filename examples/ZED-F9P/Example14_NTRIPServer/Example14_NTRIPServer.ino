@@ -39,7 +39,12 @@
  * 
  ***************************************************/
 
+#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
 #include <WiFi.h>
+#else
+#include <ESP8266WiFi.h>
+#endif
+
 #include "secrets.h"
 WiFiClient ntripCaster;
 
