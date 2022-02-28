@@ -129,8 +129,7 @@ var menudata={children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
-{text:"a",url:"globals.html#index_a"},
-{text:"c",url:"globals_c.html#index_c"},
+{text:"c",url:"globals.html#index_c"},
 {text:"d",url:"globals_d.html#index_d"},
 {text:"m",url:"globals_m.html#index_m"},
 {text:"n",url:"globals_n.html#index_n"},
@@ -139,8 +138,7 @@ var menudata={children:[
 {text:"u",url:"globals_u.html#index_u"},
 {text:"v",url:"globals_v.html#index_v"}]},
 {text:"Variables",url:"globals_vars.html",children:[
-{text:"a",url:"globals_vars.html#index_a"},
-{text:"c",url:"globals_vars_c.html#index_c"},
+{text:"c",url:"globals_vars.html#index_c"},
 {text:"d",url:"globals_vars_d.html#index_d"},
 {text:"m",url:"globals_vars_m.html#index_m"},
 {text:"n",url:"globals_vars_n.html#index_n"},
