@@ -52,7 +52,7 @@ jobs:
             - name: EspSoftwareSerial
             - name: SparkFun SerLCD Arduino Library
             - name: ArduinoMqttClient
-            - name: Base64
+            - name: base64
             - name: MicroNMEA
           sketch-paths: |
             - ./examples/
