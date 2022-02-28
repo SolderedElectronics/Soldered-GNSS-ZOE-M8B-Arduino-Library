@@ -33,7 +33,7 @@
 
 #include "secrets.h"
 
-#ifndef ARDUINO_GENERIC_ESP8266 //If we use ESP8266, we need to use includes for that MCU
+#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
 #include <HTTPClient.h>
 #include <WiFi.h>
 #else
@@ -169,7 +169,7 @@ void setup()
 
   HTTPClient http;
 
-#ifdef ARDUINO_GENERIC_ESP8266
+#ifdef ARDUINO_ESP8266_GENERIC
   http.begin(client, theURL);
 #else
   http.begin(theURL);

@@ -45,7 +45,7 @@
  * 
  ***************************************************/
 
-#ifndef ARDUINO_GENERIC_ESP8266 //If we use ESP8266, we need to use includes for that MCU
+#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
 #include <WiFi.h>
 #else	
 #include <ESP8266WiFi.h>
@@ -58,7 +58,7 @@ SFE_UBLOX_GNSS myGNSS;
 
 //The ESP32 core has a built in base64 library but not every platform does
 //We'll use an external lib if necessary.
-#if defined(ARDUINO_DEV_ESP32)
+#if defined(ARDUINO_ESP32_DEV)
 #include "base64.h" //Built-in ESP32 library
 #else
 #include "Base64.h" //nfriendly library from https://github.com/adamvr/arduino-base64, will work with any platform
@@ -347,7 +347,7 @@ bool beginClient()
       Serial.print(F("Sending credentials: "));
       Serial.println(userCredentials);
 
-#if defined(ARDUINO_DEV_ESP32)
+#if defined(ARDUINO_ESP32_DEV)
       //Encode with ESP32 built-in library
       base64 b;
       String strEncodedCredentials = b.encode(userCredentials);
