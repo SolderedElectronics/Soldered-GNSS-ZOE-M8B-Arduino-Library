@@ -41,6 +41,7 @@
 #else
 #include <ESP8266HTTPClient.h>	
 #include <ESP8266WiFi.h>
+WiFiClient client;
 #endif
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";
@@ -62,6 +63,8 @@ SFE_UBLOX_GNSS myGNSS;
 #include "time.h"
 
 const char* ntpServer = "pool.ntp.org"; // The Network Time Protocol Server
+#define timeZone +1 //your timezone offset
+#define offset 1  //You should enter ofsset hours to cover things like Daylight saving time
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -111,15 +114,15 @@ void setup()
   // Request the time from the NTP server and use it to set the ESP32's RTC.
   configTime(0, 0, ntpServer); // Set the GMT and daylight offsets to zero. We need UTC, not local time.
 
+  time_t nowSecs = time(nullptr) + (long)timeZone * 3600L + offSet;
+
+  // Used to store time
   struct tm timeinfo;
-  if(!getLocalTime(&timeinfo))
-  {
-    Serial.println("Failed to obtain time");
-  }
-  else
-  {
-    Serial.println(&timeinfo, "Time is: %A, %B %d %Y %H:%M:%S");
-  }
+  gmtime_r(&nowSecs, &timeinfo);
+  char timeStr[20];
+  strcpy(timeStr, asctime(&timeinfo));
+  Serial.println("Time is: ");
+  Serial.println(timeStr);
 
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Use HTTP GET to receive the AssistNow_Online data
@@ -145,7 +148,11 @@ void setup()
 
   HTTPClient http;
 
+#ifdef ARDUINO_GENERIC_ESP8266
+  http.begin(client, theURL);
+#else
   http.begin(theURL);
+#endif
 
   int httpCode = http.GET(); // HTTP GET
 

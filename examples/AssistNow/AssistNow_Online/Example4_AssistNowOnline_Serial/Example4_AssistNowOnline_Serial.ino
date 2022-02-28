@@ -39,6 +39,7 @@
 #else
 #include <ESP8266HTTPClient.h>	
 #include <ESP8266WiFi.h>
+WiFiClient client;
 #endif
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";
@@ -122,7 +123,11 @@ void setup()
 
   HTTPClient http;
 
+#ifdef ARDUINO_GENERIC_ESP8266
+  http.begin(client, theURL);
+#else
   http.begin(theURL);
+#endif
 
   int httpCode = http.GET(); // HTTP GET
 
