@@ -174,7 +174,7 @@ void beginClient()
           snprintf(credentials, sizeof(credentials), "Authorization: Basic %s\r\n", encodedCredentials);
 #else
           //Encode with nfriendly library
-          int encodedLen = (strlen(userCredentials) + 2)/3*4;
+          int encodedLen = base64_enc_len(strlen(userCredentials));
           char encodedCredentials[encodedLen]; //Create array large enough to house encoded data
           base64_encode(encodedCredentials, userCredentials, strlen(userCredentials)); //Note: Input array is consumed
 #endif

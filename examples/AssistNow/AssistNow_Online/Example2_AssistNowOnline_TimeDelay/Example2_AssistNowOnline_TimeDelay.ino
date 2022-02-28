@@ -64,7 +64,7 @@ SFE_UBLOX_GNSS myGNSS;
 
 const char* ntpServer = "pool.ntp.org"; // The Network Time Protocol Server
 #define timeZone +1 //your timezone offset
-#define offset 1  //You should enter ofsset hours to cover things like Daylight saving time
+#define offSet 1  //You should enter ofsset hours to cover things like Daylight saving time
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
