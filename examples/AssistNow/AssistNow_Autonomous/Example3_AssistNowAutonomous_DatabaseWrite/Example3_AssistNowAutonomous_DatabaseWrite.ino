@@ -45,16 +45,16 @@
  ***************************************************/
 
 #include "database.h" // <- Copy and paste the database data from the previous example into database.h
+#include "secrets.h"
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-#include <WiFi.h>
-#include "secrets.h"
-
-#ifndef ARDUINO_ESP8266_GENERIC
+#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
 #include <HTTPClient.h>
+#include <WiFi.h>
 #else
 #include <ESP8266HTTPClient.h>	
+#include <ESP8266WiFi.h>
 #endif
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

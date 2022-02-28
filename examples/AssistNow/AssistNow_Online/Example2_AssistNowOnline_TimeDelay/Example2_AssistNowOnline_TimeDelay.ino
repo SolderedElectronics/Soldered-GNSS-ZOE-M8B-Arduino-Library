@@ -33,13 +33,14 @@
   Open the serial monitor at 115200 baud to see the output
 */
 
-#include <WiFi.h>
 #include "secrets.h"
 
-#ifndef ARDUINO_ESP8266_GENERIC
+#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
 #include <HTTPClient.h>
+#include <WiFi.h>
 #else
 #include <ESP8266HTTPClient.h>	
+#include <ESP8266WiFi.h>
 #endif
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";
