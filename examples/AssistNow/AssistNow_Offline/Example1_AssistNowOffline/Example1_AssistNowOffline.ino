@@ -38,7 +38,7 @@
 
 #include "secrets.h"
 
-#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
+#ifndef ARDUINO_GENERIC_ESP8266 //If we use ESP8266, we need to use includes for that MCU
 #include <HTTPClient.h>
 #include <WiFi.h>
 #else
@@ -214,7 +214,7 @@ void setup()
 
   if (payloadSize > 0)
   {
-    if(getLocalTime(&timeinfo))
+    if(timeinfo.tm_year > 2016 - 1900)
     {
       // Find the start of today's data
       todayStart = myGNSS.findMGAANOForDate(payload, (size_t)payloadSize, timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday);

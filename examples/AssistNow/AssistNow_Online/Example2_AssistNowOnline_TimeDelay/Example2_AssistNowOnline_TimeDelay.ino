@@ -35,7 +35,7 @@
 
 #include "secrets.h"
 
-#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
+#ifndef ARDUINO_GENERIC_ESP8266 //If we use ESP8266, we need to use includes for that MCU
 #include <HTTPClient.h>
 #include <WiFi.h>
 #else
@@ -200,7 +200,7 @@ void setup()
   // Uncomment the next line to enable the 'major' debug messages on Serial so you can see what AssistNow data is being sent
   //myGNSS.enableDebugging(Serial, true);
 
-  if(getLocalTime(&timeinfo))
+  if(timeinfo.tm_year > 2016- 1900)
   {
     // setUTCTimeAssistance uses a default time accuracy of 2 seconds which should be OK here.
     // Have a look at the library source code for more details.

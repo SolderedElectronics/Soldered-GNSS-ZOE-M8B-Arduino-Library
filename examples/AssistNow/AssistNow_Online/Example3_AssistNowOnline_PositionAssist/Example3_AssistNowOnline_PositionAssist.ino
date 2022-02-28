@@ -33,7 +33,7 @@
 
 #include "secrets.h"
 
-#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
+#ifndef ARDUINO_GENERIC_ESP8266 //If we use ESP8266, we need to use includes for that MCU
 #include <HTTPClient.h>
 #include <WiFi.h>
 #else
@@ -229,7 +229,7 @@ void setup()
   // Uncomment the next line to enable the 'major' debug messages on Serial so you can see what AssistNow data is being sent
   //myGNSS.enableDebugging(Serial, true);
 
-  if(getLocalTime(&timeinfo))
+  if(timeinfo.tm_year > 2016 - 1900)
   {
     // Provide time assistance. Use the UBX_MGA_ACK_DATA0 acknowledgements. Set tAccS to 2 seconds.
     myGNSS.setUTCTimeAssistance(timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday,
