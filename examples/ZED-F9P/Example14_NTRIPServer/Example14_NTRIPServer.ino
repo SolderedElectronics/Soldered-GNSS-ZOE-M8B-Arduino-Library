@@ -180,11 +180,15 @@ void beginServing()
     //Connect if we are not already
     if (ntripCaster.connected() == false)
     {
-      Serial.printf("Opening socket to %s\n", casterHost);
+      Serial.print("Opening socket to ");
+      Serial.println(casterHost);
 
       if (ntripCaster.connect(casterHost, casterPort) == true) //Attempt connection
       {
-        Serial.printf("Connected to %s:%d\n", casterHost, casterPort);
+        Serial.print("Connected to ");
+        Serial.print(casterHost);
+        Serial.print(':');
+        Serial.println(casterPort);
 
         const int SERVER_BUFFER_SIZE = 512;
         char serverRequest[SERVER_BUFFER_SIZE];
@@ -227,7 +231,8 @@ void beginServing()
 
         if (connectionSuccess == false)
         {
-          Serial.printf("Failed to connect to Caster: %s", response);
+          Serial.print("Failed to connect to Caster: ");
+          Serial.println(response);
           return;
         }
       } //End attempt to connect
@@ -271,7 +276,8 @@ void beginServing()
         if (millis() - lastReport_ms > 250)
         {
           lastReport_ms += 250;
-          Serial.printf("Total sent: %d\n", serverBytesSent);
+          Serial.print("Total sent: ");
+          Serial.println(serverBytesSent);
         }
       }
     }
