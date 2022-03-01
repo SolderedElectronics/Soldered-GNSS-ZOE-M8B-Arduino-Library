@@ -364,8 +364,8 @@ bool beginClient()
             // Encode with  library
             int encodedLen = encode_base64_length(strlen(userCredentials));
             char encodedCredentials[encodedLen]; // Create array large enough to house encoded data
-            encode_base64(encodedCredentials, userCredentials, strlen(userCredentials)); // Note: Input array is
-                                                                                         // consumed
+            encode_base64((unsigned char*)encodedCredentials, strlen(userCredentials), 
+                    (unsigned char*)userCredentials);
 #endif
 
             snprintf(credentials, sizeof(credentials), "Authorization: Basic %s\r\n", encodedCredentials);
