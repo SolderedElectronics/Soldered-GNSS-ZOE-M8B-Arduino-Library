@@ -38,13 +38,13 @@
 #ifdef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
 #include <ESP8266HTTPClient.h>	
 #include <ESP8266WiFi.h>
+WiFiClient client;
 #elif ARDUINO_AVR_MEGA2560
 #include <HttpClient.h>
 #include <WiFi.h>
 #else
 #include <HTTPClient.h>
 #include <WiFi.h>
-WiFiClient client;
 #endif
 
 const char assistNowServer[] = "https://online-live1.services.u-blox.com";

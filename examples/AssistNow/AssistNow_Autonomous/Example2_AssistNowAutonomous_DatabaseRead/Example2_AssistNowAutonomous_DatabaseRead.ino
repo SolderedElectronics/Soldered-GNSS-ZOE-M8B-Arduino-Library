@@ -166,8 +166,11 @@ void setup()
 
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Read the AssistNow Autonomous database from the module and pretty-print it (so it can be copied and pasted into the next example)
-
+#if defined(ARDUINO_ESP8266_GENERIC) | defined(ARDUINO_ESP32_DEV)
   #define MAX_DATABASE_LENGTH 32768 // Allocate 32kBytes to store the navigation database
+#else
+  #define MAX_DATABASE_LENGTH 6120 // Allocate 32kBytes to store the navigation database
+#endif
   size_t maxDatabaseLen = MAX_DATABASE_LENGTH;
   uint8_t *database = new uint8_t[MAX_DATABASE_LENGTH]; // The database will be stored here
 
