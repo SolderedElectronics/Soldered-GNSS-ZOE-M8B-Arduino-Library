@@ -274,7 +274,7 @@ void setup()
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Disconnect the WiFi as it's no longer needed
 
-  WiFi.disconnect(true);
+  WiFi.disconnect();
   WiFi.mode(WIFI_OFF);
   Serial.println(F("WiFi disconnected"));
 
