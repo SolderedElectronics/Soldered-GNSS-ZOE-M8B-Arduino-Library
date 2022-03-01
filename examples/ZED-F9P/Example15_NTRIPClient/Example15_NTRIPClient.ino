@@ -185,8 +185,8 @@ void beginClient()
                     // Encode with  library
                     int encodedLen = encode_base64_length(strlen(userCredentials));
                     char encodedCredentials[encodedLen]; // Create array large enough to house encoded data
-                    encode_base64(encodedCredentials, userCredentials,
-                                  strlen(userCredentials)); // Note: Input array is consumed
+                    encode_base64((unsigned char*)encodedCredentials, strlen(userCredentials), 
+                    (unsigned char*)userCredentials); // Note: Input array is consumed
 #endif
                 }
                 strncat(serverRequest, credentials, SERVER_BUFFER_SIZE);
