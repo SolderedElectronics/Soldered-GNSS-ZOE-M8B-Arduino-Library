@@ -170,7 +170,11 @@ void setup()
   Serial.print(F("HTTP URL is: "));
   Serial.println(theURL);
 
+  #if defined(ARDUINO_ESP8266_GENERIC) | defined(ARDUINO_ESP32_DEV)
   HTTPClient http;
+#else
+  HttpClient http;
+#endif 
 
 #ifdef ARDUINO_ESP8266_GENERIC
   http.begin(client, theURL);
@@ -188,7 +192,7 @@ void setup()
     Serial.println(httpCode);
   
     // If the GET was successful, read the data
-    if(httpCode == HTTP_CODE_OK) // Check for code 200
+    if(httpCode == 200) // Check for code 200
     {
       payloadSize = http.getSize();
       Serial.print("Server returned ");
@@ -275,7 +279,7 @@ void setup()
   // Disconnect the WiFi as it's no longer needed
 
   WiFi.disconnect();
-  WiFi.mode(WIFI_OFF);
+
   Serial.println(F("WiFi disconnected"));
 
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

@@ -228,7 +228,7 @@ void setup()
         else
         {
             WiFi.disconnect();
-            WiFi.mode(WIFI_OFF);
+          
         }
     }
 
