@@ -249,7 +249,7 @@ void setup()
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Push the RTC time to the module
 
-  if(getLocalTime(&timeinfo)) // Get the local time again, just to make sure we are using the most accurate time
+  if(timeinfo.tm_year > 2016 - 1900) // Get the local time again, just to make sure we are using the most accurate time
   {
     // setUTCTimeAssistance uses a default time accuracy of 2 seconds which should be OK here.
     // Have a look at the library source code for more details.
