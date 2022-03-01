@@ -55,5 +55,6 @@ jobs:
             - name: base64
             - name: MicroNMEA
             - name: HttpClient
+            - name: SD
           sketch-paths: |
             - ./examples/
