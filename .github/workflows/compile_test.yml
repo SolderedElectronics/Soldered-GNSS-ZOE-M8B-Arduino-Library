@@ -54,5 +54,6 @@ jobs:
             - name: ArduinoMqttClient
             - name: base64
             - name: MicroNMEA
+            - name: HttpClient
           sketch-paths: |
             - ./examples/
