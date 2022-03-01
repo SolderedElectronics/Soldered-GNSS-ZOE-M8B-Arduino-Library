@@ -227,7 +227,7 @@ void setup()
             keepTrying = false; // Connected!
         else
         {
-            WiFi.disconnect(true);
+            WiFi.disconnect();
             WiFi.mode(WIFI_OFF);
         }
     }
