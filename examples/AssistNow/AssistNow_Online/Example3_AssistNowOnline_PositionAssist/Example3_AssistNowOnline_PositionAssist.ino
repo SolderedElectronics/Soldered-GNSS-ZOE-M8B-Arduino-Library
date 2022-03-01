@@ -33,12 +33,15 @@
 
 #include "secrets.h"
 
-#ifndef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
-#include <HTTPClient.h>
-#include <WiFi.h>
-#else
+#ifdef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
 #include <ESP8266HTTPClient.h>	
 #include <ESP8266WiFi.h>
+#elif ARDUINO_AVR_MEGA2560
+#include <HttpClient.h>
+#include <WiFi.h>
+#else
+#include <HTTPClient.h>
+#include <WiFi.h>
 WiFiClient client;
 #endif
 
@@ -181,13 +184,16 @@ void setup()
   if(httpCode > 0)
   {
     // HTTP header has been sent and Server response header has been handled
-    Serial.printf("[HTTP] GET... code: %d\r\n", httpCode);
+    Serial.print("[HTTP] GET... code: ");
+    Serial.println(httpCode);
   
     // If the GET was successful, read the data
     if(httpCode == HTTP_CODE_OK) // Check for code 200
     {
       payloadSize = http.getSize();
-      Serial.printf("Server returned %d bytes\r\n", payloadSize);
+      Serial.print("Server returned ");
+      Serial.print(payloadSize);
+      Serial.println(" bytes.");
       
       payload = http.getString(); // Get the payload
 
@@ -210,7 +216,8 @@ void setup()
   }
   else
   {
-    Serial.printf("[HTTP] GET... failed, error: %s\r\n", http.errorToString(httpCode).c_str());
+    Serial.print("[HTTP] GET... failed, error: ");
+    Serial.println(http.errorToString(httpCode).c_str());
   }
   
   http.end();  
