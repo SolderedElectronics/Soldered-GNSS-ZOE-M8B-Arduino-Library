@@ -1,8 +1,8 @@
 var struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t =
 [
     [ "all", "struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t.html#a8840414a1e40635eb736317078844177", null ],
-    [ "bits", "struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t.html#adcd2feb68552aee1bbccb7ac7d11bfac", null ],
-    [ "flags", "struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t.html#af13cc21e41105e74e2f1a3b64a093246", null ],
+    [ "bits", "struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t.html#a259ad60b69dca8fb082805cd5812c074", null ],
+    [ "flags", "struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t.html#a92e78e060d169f88fd23cd93616fbe09", null ],
     [ "hAcc", "struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t.html#a204efb54d4846abf18d9c46f8ce9f9ce", null ],
     [ "height", "struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t.html#a2af5d1bd5b9a76aa47b103108afac141", null ],
     [ "heightHp", "struct_u_b_x___n_a_v___h_p_p_o_s_l_l_h__data__t.html#a2cfa1ed09715143a2062782c83947b45", null ],

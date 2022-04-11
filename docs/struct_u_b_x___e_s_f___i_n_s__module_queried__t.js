@@ -1,9 +1,9 @@
 var struct_u_b_x___e_s_f___i_n_s__module_queried__t =
 [
     [ "all", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#a41feab531737b68dd67b34d23a044a31", null ],
-    [ "bits", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#a08e08c4c1914257b91ca7a68260181b0", null ],
+    [ "bits", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#a09a17e34fed73d56445d16244c9eee7f", null ],
     [ "iTOW", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#a8e4c6eca5aea1eeaa5c3aa84b70327ae", null ],
-    [ "moduleQueried", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#aee832bc37b02d6cf2157afa5e228bdcd", null ],
+    [ "moduleQueried", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#aa4837b7e975beff54c30afac26a5ef20", null ],
     [ "version", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#a0519f02cb6d6c36049c116213b2daa27", null ],
     [ "xAccel", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#adfbdaa7996e37c833a3bcd27567ce2bb", null ],
     [ "xAccelValid", "struct_u_b_x___e_s_f___i_n_s__module_queried__t.html#ae240f59ed7ef7401b2147194fa819690", null ],

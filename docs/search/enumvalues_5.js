@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rtcm_0',['RTCM',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a370ebbc3fa03fe002818dccbaad9be41a8a8b60f4905c434bb9ea24aa3b11f679',1,'SFE_UBLOX_GNSS']]]
+  ['ubx_0',['UBX',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a370ebbc3fa03fe002818dccbaad9be41acd4eb2eb9d04e6872b1e5c4fa01dc660',1,'SFE_UBLOX_GNSS']]]
 ];

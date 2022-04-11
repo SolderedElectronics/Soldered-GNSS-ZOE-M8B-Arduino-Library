@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['ios_2eh_0',['ios.h',['../ios_8h.html',1,'']]],
-  ['iostream_2eh_1',['iostream.h',['../iostream_8h.html',1,'']]],
-  ['istream_2ecpp_2',['istream.cpp',['../istream_8cpp.html',1,'']]],
-  ['istream_2eh_3',['istream.h',['../istream_8h.html',1,'']]]
+  ['secrets_2eh_0',['secrets.h',['../_z_e_d-_f9_p_2_example14___n_t_r_i_p_server_2secrets_8h.html',1,'(Global Namespace)'],['../_z_e_d-_f9_p_2_example15___n_t_r_i_p_client_2secrets_8h.html',1,'(Global Namespace)'],['../_z_e_d-_f9_p_2_example16___n_t_r_i_p_client___with_g_g_a_2secrets_8h.html',1,'(Global Namespace)'],['../_z_e_d-_f9_p_2_example17___n_t_r_i_p_client___with___g_g_a___callback_2secrets_8h.html',1,'(Global Namespace)']]]
 ];

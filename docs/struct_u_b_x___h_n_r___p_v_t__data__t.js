@@ -1,11 +1,11 @@
 var struct_u_b_x___h_n_r___p_v_t__data__t =
 [
     [ "all", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a41355a0acc039b3544125f3b1878282a", null ],
-    [ "bits", "struct_u_b_x___h_n_r___p_v_t__data__t.html#acc4845be0893af70aecec27ea684a956", null ],
-    [ "bits", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a192d4961013c9a8ff0cbcd9146a65dcd", null ],
+    [ "bits", "struct_u_b_x___h_n_r___p_v_t__data__t.html#aea6e89be41e9976d9b934d17d041e513", null ],
+    [ "bits", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a88a3222c528a457ed8e6cedb7f236486", null ],
     [ "day", "struct_u_b_x___h_n_r___p_v_t__data__t.html#aee9c8cfd78f60d71cbe12ec4310a0967", null ],
     [ "diffSoln", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a0a3d6719f3c9e80b12247e3554535481", null ],
-    [ "flags", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a5a4d720718205ad267c97eb0895174a2", null ],
+    [ "flags", "struct_u_b_x___h_n_r___p_v_t__data__t.html#ae682bb7bc71ae012ec5f97cde5febe9a", null ],
     [ "fullyResolved", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a943bf1d663a0e92d2c1985a47a8abf8c", null ],
     [ "gpsFix", "struct_u_b_x___h_n_r___p_v_t__data__t.html#af9af02419706beb46daba853eb918403", null ],
     [ "gpsFixOK", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a5f858fe1b54dadba10329e6bc4cf9e1c", null ],
@@ -31,7 +31,7 @@ var struct_u_b_x___h_n_r___p_v_t__data__t =
     [ "speed", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a88e78b4c70faae6573acef30456bb01f", null ],
     [ "TOWSET", "struct_u_b_x___h_n_r___p_v_t__data__t.html#abe7dbc0df6a256048650e3ebee237a61", null ],
     [ "vAcc", "struct_u_b_x___h_n_r___p_v_t__data__t.html#aa09c9d9ec8e32ad80dfb1b22c14b55a4", null ],
-    [ "valid", "struct_u_b_x___h_n_r___p_v_t__data__t.html#afa9b65732d329e495648ca1803dc6ad5", null ],
+    [ "valid", "struct_u_b_x___h_n_r___p_v_t__data__t.html#ae68bc4a7afd1d7293369ada3de60b034", null ],
     [ "validDate", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a572ae98464e3675d3f1dceec2f43d2d9", null ],
     [ "validTime", "struct_u_b_x___h_n_r___p_v_t__data__t.html#ae2425e7fc9afe442203ba8273f40ebb3", null ],
     [ "WKNSET", "struct_u_b_x___h_n_r___p_v_t__data__t.html#a407d22b07a5f362548fa7daedcb5acfa", null ],

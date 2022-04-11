@@ -1,8 +1,8 @@
 var struct_u_b_x___h_n_r___i_n_s__data__t =
 [
     [ "all", "struct_u_b_x___h_n_r___i_n_s__data__t.html#ae3003e6a4db1d149e17e95c2c2a687c4", null ],
-    [ "bitfield0", "struct_u_b_x___h_n_r___i_n_s__data__t.html#a928982ea5eb5c6b4cc1eeeb6eab96704", null ],
-    [ "bits", "struct_u_b_x___h_n_r___i_n_s__data__t.html#a7eeb6f2bd53f6058db9b02f95c15341b", null ],
+    [ "bitfield0", "struct_u_b_x___h_n_r___i_n_s__data__t.html#aa97e2e73e4eae101df32c55a0fc2dec4", null ],
+    [ "bits", "struct_u_b_x___h_n_r___i_n_s__data__t.html#ad508a8279530509f346500cc9e5c10b1", null ],
     [ "iTOW", "struct_u_b_x___h_n_r___i_n_s__data__t.html#a8ee13ac4a0988d443ecb8575ff475373", null ],
     [ "reserved1", "struct_u_b_x___h_n_r___i_n_s__data__t.html#a2f4880a9b8ddd5365101a2b0e848eb89", null ],
     [ "version", "struct_u_b_x___h_n_r___i_n_s__data__t.html#a6493ab330d3ad93daacd04a57bcba903", null ],

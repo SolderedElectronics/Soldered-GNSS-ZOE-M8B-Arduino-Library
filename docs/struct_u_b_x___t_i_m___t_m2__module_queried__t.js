@@ -2,11 +2,11 @@ var struct_u_b_x___t_i_m___t_m2__module_queried__t =
 [
     [ "accEst", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#a624bf24b50cbe2f3da2fa37510ff5419", null ],
     [ "all", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#af14618ccf511496b1157892bb2f03063", null ],
-    [ "bits", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#ac236ba9ac338b7e5fd2c538496a7cead", null ],
+    [ "bits", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#a4f10dc1cdc5fa736444eac66c8874487", null ],
     [ "ch", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#a18b900c3f7a9061a1e3a1a59281012ad", null ],
     [ "count", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#af023743c63bafc1a0fde075c94e25479", null ],
     [ "mode", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#abc96a68ef4c315a21ecc3f8ca6f4d3ea", null ],
-    [ "moduleQueried", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#a7b878562cd25d657b962b4c2fa1183c5", null ],
+    [ "moduleQueried", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#a073e50cf847f4a428349560439e7f542", null ],
     [ "newFallingEdge", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#a5f92ee977868f4c83dc24b09363b55e7", null ],
     [ "newRisingEdge", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#ac9e6768603b75d85afcd6a1398bb963a", null ],
     [ "run", "struct_u_b_x___t_i_m___t_m2__module_queried__t.html#ab1b1c3840fbd58e824ba1ae64dedebd2", null ],
