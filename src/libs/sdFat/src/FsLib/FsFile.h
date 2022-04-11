@@ -30,7 +30,7 @@
  */
 #include "FsNew.h"
 #include "libs/sdFat/src/FatLib/FatLib.h"
-#include "libs/sdFat/src/ExFatLibEx/FatLib.h"
+#include "libs/sdFat/src/ExFatLib/ExFatLib.h"
 /**
  * \class FsBaseFile
  * \brief FsBaseFile class.
