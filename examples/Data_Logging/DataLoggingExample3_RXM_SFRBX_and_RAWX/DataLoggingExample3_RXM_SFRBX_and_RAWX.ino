@@ -61,7 +61,7 @@
  ***************************************************/
 
 #include <SPI.h>
-#include <libs/sdFat/src/SdFat.h>
+#include "libs/sdFat/src/SdFat.h"
 #include <Wire.h> //Needed for I2C to GNSS
 
 #include <GNSS-ZOE-M8B-SOLDERED.h> 
