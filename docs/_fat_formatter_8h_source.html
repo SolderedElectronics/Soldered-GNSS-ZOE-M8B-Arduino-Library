@@ -93,9 +93,9 @@ $(document).ready(function(){initNavTree('_fat_formatter_8h_source.html',''); in
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#ifndef FatFormatter_h</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define FatFormatter_h</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="_fat_file_8h.html">FatFile.h</a>&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;../common/SysCall.h&quot;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;../common/BlockDevice.h&quot;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;../common/FsStructs.h&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="_sys_call_8h.html">/../common/SysCall.h</a>&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="_block_device_8h.html">/../common/BlockDevice.h</a>&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="_fs_structs_8h.html">/../common/FsStructs.h</a>&quot;</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_fat_formatter.html">   35</a></span><span class="keyword">class </span><a class="code hl_class" href="class_fat_formatter.html">FatFormatter</a> {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_fat_formatter.html#afb039f9d29e120979804d92cc38fd977">format</a>(<a class="code hl_class" href="class_block_device_interface.html">BlockDevice</a>* dev, uint8_t* secBuffer, <a class="code hl_typedef" href="_sys_call_8h.html#ab4f210a7e2149c6c531486f1713c647b">print_t</a>* pr = <span class="keyword">nullptr</span>);</div>
@@ -121,7 +121,10 @@ $(document).ready(function(){initNavTree('_fat_formatter_8h_source.html',''); in
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_fat_formatter.html#af728c3e549143dc20988495490dd12d2">   66</a></span>  uint8_t <a class="code hl_variable" href="class_fat_formatter.html#af728c3e549143dc20988495490dd12d2">m_sectorsPerCluster</a>;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif  </span><span class="comment">// FatFormatter_h</span></div>
+<div class="ttc" id="a_block_device_8h_html"><div class="ttname"><a href="_block_device_8h.html">BlockDevice.h</a></div></div>
 <div class="ttc" id="a_fat_file_8h_html"><div class="ttname"><a href="_fat_file_8h.html">FatFile.h</a></div><div class="ttdoc">FatFile class.</div></div>
+<div class="ttc" id="a_fs_structs_8h_html"><div class="ttname"><a href="_fs_structs_8h.html">FsStructs.h</a></div></div>
+<div class="ttc" id="a_sys_call_8h_html"><div class="ttname"><a href="_sys_call_8h.html">SysCall.h</a></div><div class="ttdoc">SysCall class.</div></div>
 <div class="ttc" id="a_sys_call_8h_html_ab4f210a7e2149c6c531486f1713c647b"><div class="ttname"><a href="_sys_call_8h.html#ab4f210a7e2149c6c531486f1713c647b">print_t</a></div><div class="ttdeci">Print print_t</div><div class="ttdef"><b>Definition:</b> SysCall.h:63</div></div>
 <div class="ttc" id="aclass_block_device_interface_html"><div class="ttname"><a href="class_block_device_interface.html">BlockDeviceInterface</a></div><div class="ttdoc">BlockDeviceInterface class.</div><div class="ttdef"><b>Definition:</b> BlockDeviceInterface.h:38</div></div>
 <div class="ttc" id="aclass_fat_formatter_html"><div class="ttname"><a href="class_fat_formatter.html">FatFormatter</a></div><div class="ttdoc">Format a FAT volume.</div><div class="ttdef"><b>Definition:</b> FatFormatter.h:35</div></div>
@@ -152,7 +155,7 @@ $(document).ready(function(){initNavTree('_fat_formatter_8h_source.html',''); in
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_87a455bccb09a92130c26a11a880c98a.html">libs</a></li><li class="navelem"><a class="el" href="dir_4553bb6e3048d0460a4a837f1662cd74.html">sdFat</a></li><li class="navelem"><a class="el" href="dir_6320893ca504c1fc8c598a0e7e8f89da.html">src</a></li><li class="navelem"><a class="el" href="dir_389d5b3cb2d9bc9c0e9af5638c22bbbf.html">FatLib</a></li><li class="navelem"><a class="el" href="_fat_formatter_8h.html">FatFormatter.h</a></li>
         <li class="footer">
-            Generated on Mon Apr 11 2022 12:04:56 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Mon Apr 11 2022 12:08:47 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
