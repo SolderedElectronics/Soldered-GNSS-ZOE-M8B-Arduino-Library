@@ -31,10 +31,10 @@
 #include <limits.h>
 #include <string.h>
 #include "ExFatConfig.h"
-#include "../common/FsDateTime.h"
-#include "../common/FsStructs.h"
-#include "../common/FsApiConstants.h"
-#include "../common/FmtNumber.h"
+#include "/../common/FsDateTime.h"
+#include "/../common/FsStructs.h"
+#include "/../common/FsApiConstants.h"
+#include "/../common/FmtNumber.h"
 #include "ExFatTypes.h"
 #include "ExFatPartition.h"
 
@@ -794,7 +794,7 @@ class ExFatFile {
   uint8_t       m_flags = 0;
 };
 
-#include "../common/ArduinoFiles.h"
+#include "/../common/ArduinoFiles.h"
 /**
  * \class ExFile
  * \brief exFAT file with Arduino Stream.

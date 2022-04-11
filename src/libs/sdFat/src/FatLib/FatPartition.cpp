@@ -24,8 +24,8 @@
  */
 #include <string.h>
 #define DBG_FILE "FatPartition.cpp"
-#include "../common/DebugMacros.h"
-#include "../common/FsStructs.h"
+#include "/../common/DebugMacros.h"
+#include "/../common/FsStructs.h"
 #include "FatPartition.h"
 //------------------------------------------------------------------------------
 bool FatPartition::allocateCluster(uint32_t current, uint32_t* next) {

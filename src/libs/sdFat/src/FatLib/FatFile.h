@@ -32,10 +32,10 @@
 #include <stddef.h>
 #include <limits.h>
 #include "FatLibConfig.h"
-#include "../common/FmtNumber.h"
-#include "../common/FsApiConstants.h"
-#include "../common/FsDateTime.h"
-#include "../common/FsStructs.h"
+#include "/../common/FmtNumber.h"
+#include "/../common/FsApiConstants.h"
+#include "/../common/FsDateTime.h"
+#include "/../common/FsStructs.h"
 #include "FatPartition.h"
 class FatVolume;
 //------------------------------------------------------------------------------
@@ -991,7 +991,7 @@ class FatFile {
   uint32_t   m_firstCluster;     // first cluster of file
 };
 
-#include "../common/ArduinoFiles.h"
+#include "/../common/ArduinoFiles.h"
 /**
  * \class File32
  * \brief FAT16/FAT32 file with Arduino Stream.
