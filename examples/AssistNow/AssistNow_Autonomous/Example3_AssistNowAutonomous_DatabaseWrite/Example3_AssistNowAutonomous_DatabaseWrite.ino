@@ -197,7 +197,10 @@ void loop()
 
   Serial.println();
 }
-#else 
+#else
+  // AVR based microcontrolers (Dasduino CORE, COREPLUS, etc..) does not support this example because
+  // it is not compactible with this HTTPClient library, so we need this kind of definition to 
+  // pass Compile test on GitHub for other examples
   void setup()
   {
     
