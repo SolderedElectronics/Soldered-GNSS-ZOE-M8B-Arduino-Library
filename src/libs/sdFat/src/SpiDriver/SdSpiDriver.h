@@ -28,7 +28,7 @@
  */
 #ifndef SdSpiDriver_h
 #define SdSpiDriver_h
-#include "/../common/SysCall.h"
+#include "libs/sdFat/src/common/SysCall.h"
 /**
  * Initialize SD chip select pin.
  *

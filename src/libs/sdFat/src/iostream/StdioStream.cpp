@@ -23,7 +23,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #include "StdioStream.h"
-#include "/../common/FmtNumber.h"
+#include "libs/sdFat/src/common/FmtNumber.h"
 //------------------------------------------------------------------------------
 int StdioStream::fclose() {
   int rtn = 0;
