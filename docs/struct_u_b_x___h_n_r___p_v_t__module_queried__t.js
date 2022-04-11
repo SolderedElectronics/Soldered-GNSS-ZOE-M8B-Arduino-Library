@@ -1,7 +1,7 @@
 var struct_u_b_x___h_n_r___p_v_t__module_queried__t =
 [
     [ "all", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#aa6bac172d53a0cc300b318a6267185a7", null ],
-    [ "bits", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#ab84d1212e88b23aeca86dacbfc60b6b3", null ],
+    [ "bits", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a461875c46ac3f282f0eee5649793367a", null ],
     [ "day", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#ab7d301c1bc1d4473984709a424cba234", null ],
     [ "diffSoln", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a1a63471f1e820e610242354a2fb67c90", null ],
     [ "fullyResolved", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a09ae5c8cf51db81774c81858a488aa9c", null ],
@@ -20,7 +20,7 @@ var struct_u_b_x___h_n_r___p_v_t__module_queried__t =
     [ "lat", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a823deb4c5256f11f857fe9c19395693a", null ],
     [ "lon", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a764e3785341565f0ee1d9cb62bf795d2", null ],
     [ "min", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a273c2a1e4e6844d7e5541bbbae02b632", null ],
-    [ "moduleQueried", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a6e438a739c252936e1beec04195e66dd", null ],
+    [ "moduleQueried", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a78b8aa6f231603ec80117feaa912d604", null ],
     [ "month", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a265503fd60866eac41f301140cd9324a", null ],
     [ "nano", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a1f0d80c5024240d98b64cb56b84e5128", null ],
     [ "sAcc", "struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a05cc55947d84f15eb3a27f96c8c47e65", null ],

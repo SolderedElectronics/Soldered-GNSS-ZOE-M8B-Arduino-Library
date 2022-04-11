@@ -48,6 +48,7 @@ var NAVTREE =
       [ "\"Auto\" messages", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md56", null ],
       [ "Migrating your code to v2.0", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md57", null ]
     ] ],
+    [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -59,19 +60,24 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", "functions_vars" ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
-        [ "Enumerator", "functions_eval.html", null ]
+        [ "Enumerator", "functions_eval.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", "globals_func" ],
         [ "Variables", "globals_vars.html", "globals_vars" ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", null ]
       ] ]
@@ -81,21 +87,31 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_assist_now_2_assist_now___autonomous_2_example3___assist_now_autonomous___database_write_2secrets_8h.html",
-"_spark_fun__u-blox___g_n_s_s___arduino___library_8h.html#ad07514134b85c8d1e2419a7bcdb5dde9",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a0b77472b112b10944ece52697576abb5",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a6a6c62f3876de48041c74d9a489a0447",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#ad4214aa6e18697c10303b55eb6294450",
-"md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md56",
-"struct_u_b_x___e_s_f___r_a_w__module_queried__t.html#a8643af46d1f8c6e24ba0e8ad667ec80a",
-"struct_u_b_x___n_a_v___a_t_t__data__t.html#a3c067a364554993c644fc1f005396f6c",
-"struct_u_b_x___n_a_v___p_v_a_t__data__t.html#a8587a176ccc739d681fc59eca1662257",
-"struct_u_b_x___n_a_v___r_e_l_p_o_s_n_e_d__module_queried__t.html#ac8bd51b4e7fa6ba9f52940156e988c19",
-"struct_u_b_x___n_a_v___v_e_l_n_e_d__data__t.html#a595c4205abf20ffe8a4d2375d1fd7d37",
-"u-blox__config__keys_8h.html#a08d3246594a47f999304dd6a8dfcf06a",
-"u-blox__config__keys_8h.html#a4ab78b5bfb289c5458ebbca49e3b9cf8",
-"u-blox__config__keys_8h.html#a8ddb0da2d351410a6e4b20275a9c3aec",
-"u-blox__config__keys_8h.html#ad28813629068d11e12a210b22846500e"
+"_arduino_files_8h.html",
+"_fs_date_time_8h.html#ac4bdd25449f7977dd55126e7ea1c253a",
+"_sd_spi_bare_uno_driver_8h.html#ae5b9fccefe396ed911ec41fdd1a9e260",
+"_spark_fun__u-blox___g_n_s_s___arduino___library_8h.html#a69d8db638006b9d76592e6a821b8a070",
+"_stdio_stream_8h.html#ad9a6150ef11e2616c1a99bc777df17d3",
+"class_ex_fat_file.html#abe72cc1886e2d32e783eb307d6fa7213",
+"class_fat_file.html#aa0585bf2885f8366cea7c5b145ab4c58",
+"class_fs_base_file.html#ade9f9a9ac4d3e0a392a6cc45c9551767",
+"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a33ea76c720e167144625789e3aac043c",
+"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a9b86b8a12db5c53030e52bab5de7386a",
+"class_s_f_e___u_b_l_o_x___g_n_s_s.html#afad7442f09a59c19bb2acc6d2650a72f",
+"class_stdio_stream.html#ac6c389eebc07a4d03031cbace51829c5",
+"dir_4132a18e6d6140d8480f922be9bf4821.html",
+"md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md55",
+"struct_dir_stream__t.html#abc50a43fe2e24daea859492d267e2ade",
+"struct_u_b_x___e_s_f___s_t_a_t_u_s__data__t.html#a7f12b4db9df0d9f238b19aabc8fae177",
+"struct_u_b_x___n_a_v___a_t_t__t.html",
+"struct_u_b_x___n_a_v___p_v_a_t__data__t.html#adf1899347709499c46683e037edc0161",
+"struct_u_b_x___n_a_v___s_a_t__block__t.html#a3948acc534f2854380b9b90d89b18543",
+"struct_u_b_x___n_a_v___v_e_l_n_e_d__t.html#a12c2235dc3f0bbe94942ca7084cc26f6",
+"structpartition_boot_sector_fat.html#a70c99213478d6bddee79fb525ee20bcf",
+"u-blox__config__keys_8h.html#a315a6c54ade118d49dfb47932ee85320",
+"u-blox__config__keys_8h.html#a73e30e8c424da73e8fcb1064602be1e9",
+"u-blox__config__keys_8h.html#ab88b5c6dc58756c6704a11b5c59715ab",
+"u-blox__config__keys_8h.html#afdbf6b37e1b39424952fb972582a18dd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,7 +1,7 @@
 var structsfe__ublox__nmea__filtering__t =
 [
     [ "all", "structsfe__ublox__nmea__filtering__t.html#a0f605ebbce924721bd918ab62eee327a", null ],
-    [ "bits", "structsfe__ublox__nmea__filtering__t.html#a6e59664c89729113b2ca44cd8f4589a9", null ],
+    [ "bits", "structsfe__ublox__nmea__filtering__t.html#af98377973b63ee6ff254856c2f7024a3", null ],
     [ "UBX_NMEA_DTM", "structsfe__ublox__nmea__filtering__t.html#ad48c302ae5e65b7813f1aea31e641d93", null ],
     [ "UBX_NMEA_GAQ", "structsfe__ublox__nmea__filtering__t.html#a187826ebd28e1a1cde35691bcbe89386", null ],
     [ "UBX_NMEA_GBQ", "structsfe__ublox__nmea__filtering__t.html#a5106fdf0b60184f54ca8b38abc55e8b7", null ],

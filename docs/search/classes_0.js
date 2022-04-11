@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['geofenceparams_5ft_0',['geofenceParams_t',['../structgeofence_params__t.html',1,'']]],
-  ['geofencestate_1',['geofenceState',['../structgeofence_state.html',1,'']]]
+  ['arduinoinstream_0',['ArduinoInStream',['../class_arduino_in_stream.html',1,'']]],
+  ['arduinooutstream_1',['ArduinoOutStream',['../class_arduino_out_stream.html',1,'']]]
 ];

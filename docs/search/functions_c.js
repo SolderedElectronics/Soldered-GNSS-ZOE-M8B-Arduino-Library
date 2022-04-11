@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['readnavigationdatabase_0',['readNavigationDatabase',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a089a9732f5e74d7328282e9f484dfb5f',1,'SFE_UBLOX_GNSS']]],
-  ['resetimualignment_1',['resetIMUalignment',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a23b31c85aed97b6fc2921bba0ea39392',1,'SFE_UBLOX_GNSS']]],
-  ['resetodometer_2',['resetOdometer',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#a20c3950a548d865b2ab9921440951d52',1,'SFE_UBLOX_GNSS']]]
+  ['makefat16_0',['makeFat16',['../class_fat_formatter.html#a24d2c65f32499933ade3fe1dd0addce4',1,'FatFormatter']]],
+  ['makefat32_1',['makeFat32',['../class_fat_formatter.html#a60d2c3809e3abbcfa6b4bed82bada8f1',1,'FatFormatter']]],
+  ['memcpybuf_2',['memcpyBuf',['../_ring_buf_8h.html#a8112ba67de4780dcde4812be345dd6bb',1,'RingBuf.h']]],
+  ['memcpyin_3',['memcpyIn',['../class_ring_buf.html#a07398e3e35c726583550c15c8485d643',1,'RingBuf']]],
+  ['memcpyout_4',['memcpyOut',['../class_ring_buf.html#ab37dd9f3cec4713e561f6f9057a73770',1,'RingBuf']]],
+  ['minsize_5',['minSize',['../class_ring_buf.html#a65239300614a9f6eedde389de2801e99',1,'RingBuf']]],
+  ['mkdir_6',['mkdir',['../class_ex_fat_file.html#a3a393624d52854e74bf385c9e513a86d',1,'ExFatFile::mkdir(ExFatFile *parent, const ExChar_t *path, bool pFlag=true)'],['../class_ex_fat_file.html#ad9ca8c5ba1de8965e65b9f25f31baeff',1,'ExFatFile::mkdir(ExFatFile *parent, const char *path, bool pFlag=true)'],['../class_ex_fat_file.html#aa6b349f3c48566b9a43cdbcd5912a1ec',1,'ExFatFile::mkdir(ExFatFile *parent, ExName_t *fname)'],['../class_ex_fat_volume.html#a407b93b16554b26ff52f7b762a9217aa',1,'ExFatVolume::mkdir(const ExChar_t *path, bool pFlag=true)'],['../class_ex_fat_volume.html#a0f4cf7e2853225380574724314327597',1,'ExFatVolume::mkdir(const String &amp;path, bool pFlag=true)'],['../class_ex_fat_volume.html#abb00cfff7943fe637a99b292798865e0',1,'ExFatVolume::mkdir(const char *path, bool pFlag=true)'],['../class_fat_file.html#abab5b9f72cc796388dd4eed01d13d90d',1,'FatFile::mkdir(FatFile *dir, const char *path, bool pFlag=true)'],['../class_fat_file.html#a5669c1a6d8c83939270ecfcfc772bea5',1,'FatFile::mkdir(FatFile *parent, fname_t *fname)'],['../class_fat_volume.html#ad80bccf8f24ff001a7b9277effc2cc52',1,'FatVolume::mkdir(const char *path, bool pFlag=true)'],['../class_fat_volume.html#ab423ec4f7e5b58a6d454f328f61fd864',1,'FatVolume::mkdir(const String &amp;path, bool pFlag=true)'],['../class_fs_base_file.html#a8b7aa7f2c63882e483336dfe12ef6800',1,'FsBaseFile::mkdir()'],['../class_fs_volume.html#a9d38c297dccceeb5f48dceb17232368d',1,'FsVolume::mkdir(const char *path, bool pFlag=true)'],['../class_fs_volume.html#a5d07b87552368dc66e08aab2e7be14af',1,'FsVolume::mkdir(const String &amp;path, bool pFlag=true)']]]
 ];
