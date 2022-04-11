@@ -31,6 +31,7 @@
 
 //#define USE_SERVER_ASSISTANCE // Uncomment this line to include the position in the AssistNow data request
 
+#ifdef ARDUINO_ESP8266_GENERIC || ARDUINO_ESP32_DEV
 #include "secrets.h"
 
 #ifdef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
@@ -322,3 +323,17 @@ void loop()
 
   Serial.println();
 }
+#else
+  // AVR based microcontrolers (Dasduino CORE, COREPLUS, etc..) does not support this example because
+  // it is not compactible with this HTTPClient library, so we need this kind of definition to 
+  // pass Compile test on GitHub for other examples
+  void setup()
+  {
+    
+  }
+
+  void loop()
+  {
+    
+  }
+#endif

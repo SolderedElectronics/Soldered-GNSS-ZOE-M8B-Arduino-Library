@@ -32,7 +32,7 @@
   If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
   Open the serial monitor at 115200 baud to see the output
 */
-
+#ifdef ARDUINO_ESP8266_GENERIC || ARDUINO_ESP32_DEV
 #include "secrets.h"
 
 #ifdef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
@@ -149,7 +149,7 @@ void setup()
   Serial.print(F("HTTP URL is: "));
   Serial.println(theURL);
 
-  #if defined(ARDUINO_ESP8266_GENERIC) | defined(ARDUINO_ESP32_DEV)
+#if defined(ARDUINO_ESP8266_GENERIC) | defined(ARDUINO_ESP32_DEV)
   HTTPClient http;
 #else
   HttpClient http;
@@ -276,3 +276,17 @@ void loop()
 
   Serial.println();
 }
+#else
+  // AVR based microcontrolers (Dasduino CORE, COREPLUS, etc..) does not support this example because
+  // it is not compactible with this HTTPClient library, so we need this kind of definition to 
+  // pass Compile test on GitHub for other examples
+  void setup()
+  {
+    
+  }
+
+  void loop()
+  {
+    
+  }
+#endif

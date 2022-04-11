@@ -34,6 +34,7 @@
   Open the serial monitor at 115200 baud to see the output
 */
 
+#ifdef ARDUINO_ESP8266_GENERIC || ARDUINO_ESP32_DEV
 //#define USE_MGA_ACKs // Uncomment this line to use the UBX_MGA_ACK_DATA0 acknowledgements
 
 #include "secrets.h"
@@ -348,3 +349,17 @@ void loop()
 
   Serial.println();
 }
+#else
+  // AVR based microcontrolers (Dasduino CORE, COREPLUS, etc..) does not support this example because
+  // it is not compactible with this HTTPClient library, so we need this kind of definition to 
+  // pass Compile test on GitHub for other examples
+  void setup()
+  {
+    
+  }
+
+  void loop()
+  {
+    
+  }
+#endif

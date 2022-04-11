@@ -1,61 +1,58 @@
 /**
  **************************************************
- * @file        Example3_AssistNowAutonomous_DatabaseWrite.ino
- * 
- * @brief       Write the AssistNow Autonomous database data to the module
- *             By: SparkFun Electronics / Paul Clark
- *             Date: December 1st, 2021
- *               License: MIT. See license file for more information but you can
- *               basically do whatever you want with this code.
- *
- *               This example shows how to write the AssistNow Autonomous database date back to the module.
- *
- *               This example is written for the ESP32. A WiFi connection is used to get network time to pass to the module.
- *               (You could use an RTC instead.)
- *
- *               Copy and paste the database data from the previous example into database.h.
- *
- *               Update secrets.h with your:
- *               - WiFi credentials
- *
- *               Note: this example will not work on the ZED-F9P. "The ZED-F9P supports AssistNow Online only."
- *
- *               Note: this example works best if you have the GNSS RAM battery-backup disabled.
- *               All SparkFun boards have battery-backup for the RAM which will means the database is retained if you disconnect the power.
- *               The module will use the database data from the battery-backed RAM when you turn the power back on.
- *               You will only see the improvement in the time-to-first-fix if you disable the battery first - or you are using a non-SparkFun
- *               board that does not have the backup battery.
- *
- *               Feel like supporting open source hardware?
- *               Buy a board from SparkFun!
- *               SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
- *              SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
+   @file        Example3_AssistNowAutonomous_DatabaseWrite.ino
 
- *               Hardware Connections:
- *               Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
- *               If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
- *               Open the serial monitor at 115200 baud to see the output
- *
- *              
- * product: www.solde.red/333156
- * @authors     Sparkfun
- * 
- *              Modified by soldered.com
- * 
+   @brief       Write the AssistNow Autonomous database data to the module
+               By: SparkFun Electronics / Paul Clark
+               Date: December 1st, 2021
+                 License: MIT. See license file for more information but you can
+                 basically do whatever you want with this code.
+
+                 This example shows how to write the AssistNow Autonomous database date back to the module.
+
+                 This example is written for the ESP32. A WiFi connection is used to get network time to pass to the module.
+                 (You could use an RTC instead.)
+
+                 Copy and paste the database data from the previous example into database.h.
+
+                 Update secrets.h with your:
+                 - WiFi credentials
+
+                 Note: this example will not work on the ZED-F9P. "The ZED-F9P supports AssistNow Online only."
+
+                 Note: this example works best if you have the GNSS RAM battery-backup disabled.
+                 All SparkFun boards have battery-backup for the RAM which will means the database is retained if you disconnect the power.
+                 The module will use the database data from the battery-backed RAM when you turn the power back on.
+                 You will only see the improvement in the time-to-first-fix if you disable the battery first - or you are using a non-SparkFun
+                 board that does not have the backup battery.
+
+                 Feel like supporting open source hardware?
+                 Buy a board from SparkFun!
+                 SparkFun Thing Plus - ESP32 WROOM:        https://www.sparkfun.com/products/15663
+                SparkFun GPS Breakout - ZOE-M8Q (Qwiic):  https://www.sparkfun.com/products/15193
+
+                 Hardware Connections:
+                 Plug a Qwiic cable into the GNSS and a ESP32 Thing Plus
+                 If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
+                 Open the serial monitor at 115200 baud to see the output
+
+
+   product: www.solde.red/333156
+   @authors     Sparkfun
+
+                Modified by soldered.com
+
  ***************************************************/
-
+#ifdef ARDUINO_ESP8266_GENERIC || ARDUINO_ESP32_DEV
 #include "database.h" // <- Copy and paste the database data from the previous example into database.h
 #include "secrets.h"
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 #ifdef ARDUINO_ESP8266_GENERIC //If we use ESP8266, we need to use includes for that MCU
-#include <ESP8266HTTPClient.h>	
+#include <ESP8266HTTPClient.h>
 #include <ESP8266WiFi.h>
 WiFiClient client;
-#elif ARDUINO_AVR_MEGA2560
-#include <HttpClient.h>
-#include <WiFi.h>
 #else
 #include <HTTPClient.h>
 #include <WiFi.h>
@@ -63,7 +60,7 @@ WiFiClient client;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-#include <GNSS-ZOE-M8B-SOLDERED.h> 
+#include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -144,7 +141,7 @@ void setup()
   // setUTCTimeAssistance uses a default time accuracy of 2 seconds which should be OK here.
   // Have a look at the library source code for more details.
   myGNSS.setUTCTimeAssistance(timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday,
-                                timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+                              timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 
   //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Push the AssistNow Autonomous data to the module
@@ -170,7 +167,7 @@ void setup()
 void loop()
 {
   // Print the UBX-NAV-PVT data so we can see how quickly the fixType goes to 3D
-  
+
   long latitude = myGNSS.getLatitude();
   Serial.print(F("Lat: "));
   Serial.print(latitude);
@@ -191,12 +188,23 @@ void loop()
 
   byte fixType = myGNSS.getFixType();
   Serial.print(F(" Fix: "));
-  if(fixType == 0) Serial.print(F("No fix"));
-  else if(fixType == 1) Serial.print(F("Dead reckoning"));
-  else if(fixType == 2) Serial.print(F("2D"));
-  else if(fixType == 3) Serial.print(F("3D"));
-  else if(fixType == 4) Serial.print(F("GNSS + Dead reckoning"));
-  else if(fixType == 5) Serial.print(F("Time only"));
+  if (fixType == 0) Serial.print(F("No fix"));
+  else if (fixType == 1) Serial.print(F("Dead reckoning"));
+  else if (fixType == 2) Serial.print(F("2D"));
+  else if (fixType == 3) Serial.print(F("3D"));
+  else if (fixType == 4) Serial.print(F("GNSS + Dead reckoning"));
+  else if (fixType == 5) Serial.print(F("Time only"));
 
   Serial.println();
 }
+#else 
+  void setup()
+  {
+    
+  }
+
+  void loop()
+  {
+    
+  }
+#endif
