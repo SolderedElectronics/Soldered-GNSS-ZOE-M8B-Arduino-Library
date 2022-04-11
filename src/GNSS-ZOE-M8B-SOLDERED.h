@@ -17,4 +17,4 @@
 #define LED_BUILTIN 0
 #endif
 
-#include <SparkFun_u-blox_GNSS_Arduino_Library-main/src/SparkFun_u-blox_GNSS_Arduino_Library.h>
+#include <SparkFun_u-blox_GNSS_Arduino_Library.h>
