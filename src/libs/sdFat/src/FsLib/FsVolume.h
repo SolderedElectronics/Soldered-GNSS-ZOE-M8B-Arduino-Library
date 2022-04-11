@@ -29,8 +29,8 @@
  * \brief FsVolume include file.
  */
 #include "FsNew.h"
-#include "/../FatLib/FatLib.h"
-#include "/../ExFatLib/ExFatLib.h"
+#include "libs/sdFat/src/FatLib/FatLib.h"
+#include "libs/sdFat/src/"libs/sdFat/src/ExFatLibExFatLib.h"
 
 class FsFile;
 /**

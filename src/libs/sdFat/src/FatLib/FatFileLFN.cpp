@@ -23,7 +23,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #define DBG_FILE "FatFileLFN.cpp"
-#include "/../common/DebugMacros.h"
+#include "libs/sdFat/src/common/DebugMacros.h"
 #include "FatFile.h"
 #include "FatVolume.h"
 //------------------------------------------------------------------------------

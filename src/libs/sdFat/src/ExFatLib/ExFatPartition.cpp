@@ -23,9 +23,9 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #define DBG_FILE "ExFatPartition.cpp"
-#include "/../common/DebugMacros.h"
+#include "libs/sdFat/src/common/DebugMacros.h"
 #include "ExFatVolume.h"
-#include "/../common/FsStructs.h"
+#include "libs/sdFat/src/common/FsStructs.h"
 //------------------------------------------------------------------------------
 // return 0 if error, 1 if no space, else start cluster.
 uint32_t ExFatPartition::bitmapFind(uint32_t cluster, uint32_t count) {

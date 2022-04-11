@@ -25,8 +25,8 @@
 #ifndef ExFatFormatter_h
 #define ExFatFormatter_h
 #include "ExFatConfig.h"
-#include "/../common/SysCall.h"
-#include "/../common/BlockDevice.h"
+#include "libs/sdFat/src/common/SysCall.h"
+#include "libs/sdFat/src/common/BlockDevice.h"
 #include "upcase.h"
 /**
  * \class ExFatFormatter

@@ -24,7 +24,7 @@
  */
 #ifndef BlockDevice_h
 #define  BlockDevice_h
-#include "SdCard/SdCard.h"
+#include "libs/sdFat/src/SdCard/SdCard.h"
 #if HAS_SDIO_CLASS || USE_BLOCK_DEVICE_INTERFACE
 typedef BlockDeviceInterface BlockDevice;
 #else
