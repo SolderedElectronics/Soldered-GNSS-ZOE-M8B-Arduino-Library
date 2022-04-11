@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('_buffered_print_8h_source.html',''); i
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_variable" href="class_buffered_print.html#a1c6621a394258b5fda72c31b139f28b8">m_in</a> = 0;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  }</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_buffered_print.html#a3fcb4970129a6fbfbd125ed8f2869d9b">   52</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_buffered_print.html#a3fcb4970129a6fbfbd125ed8f2869d9b">flush</a>() {<a class="code hl_function" href="class_buffered_print.html#a2253d1e7f231b94b18eab1281c123a49">sync</a>();}</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_buffered_print.html#a69ea9541fb854448b9fe3aff44583975">   58</a></span>  <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_buffered_print.html#a69ea9541fb854448b9fe3aff44583975">printField</a>(<span class="keywordtype">char</span> <a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a>, <span class="keywordtype">char</span> term) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_buffered_print.html#a69ea9541fb854448b9fe3aff44583975">   58</a></span>  <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_buffered_print.html#a69ea9541fb854448b9fe3aff44583975">printField</a>(<span class="keywordtype">char</span> c, <span class="keywordtype">char</span> term) {</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">char</span> buf[3];</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">char</span>* str = buf + <span class="keyword">sizeof</span>(buf);</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">if</span> (term) {</div>
@@ -112,16 +112,16 @@ $(document).ready(function(){initNavTree('_buffered_print_8h_source.html',''); i
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        *--str = <span class="charliteral">&#39;\r&#39;</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    *--str = <a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    *--str = c;</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_buffered_print.html#ab41de6eca77a04a49a6fc965b1950fc5">write</a>(str, buf + <span class="keyword">sizeof</span>(buf) - str);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  }</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_buffered_print.html#ac18cc8c86b73b073a28db85075215f4f">   75</a></span>  <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_buffered_print.html#ac18cc8c86b73b073a28db85075215f4f">printField</a>(<span class="keyword">const</span> __FlashStringHelper *fsh, <span class="keywordtype">char</span> term) {</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#ifdef __AVR__</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">size_t</span> rtn = 0;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    PGM_P <a class="code hl_variable" href="_fmt_number_8cpp.html#ac843958ce40ec1284ed41291c76c46b2">p</a> = <span class="keyword">reinterpret_cast&lt;</span>PGM_P<span class="keyword">&gt;</span>(fsh);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">while</span> ((<a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a> = pgm_read_byte(<a class="code hl_variable" href="_fmt_number_8cpp.html#ac843958ce40ec1284ed41291c76c46b2">p</a>++))) {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_buffered_print.html#ab41de6eca77a04a49a6fc965b1950fc5">write</a>(&amp;<a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a>, 1)) {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">char</span> c;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">while</span> ((c = pgm_read_byte(<a class="code hl_variable" href="_fmt_number_8cpp.html#ac843958ce40ec1284ed41291c76c46b2">p</a>++))) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_buffered_print.html#ab41de6eca77a04a49a6fc965b1950fc5">write</a>(&amp;c, 1)) {</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      }</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      rtn++;</div>
@@ -273,7 +273,6 @@ $(document).ready(function(){initNavTree('_buffered_print_8h_source.html',''); i
 <div class="ttc" id="aclass_buffered_print_html_af680cf36170347287d20ed92ae5f6c9b"><div class="ttname"><a href="class_buffered_print.html#af680cf36170347287d20ed92ae5f6c9b">BufferedPrint::printField</a></div><div class="ttdeci">size_t printField(Type n, char term)</div><div class="ttdef"><b>Definition:</b> BufferedPrint.h:151</div></div>
 <div class="ttc" id="aclass_buffered_print_html_af879eab3e69cfd9d15768451e091c6a2"><div class="ttname"><a href="class_buffered_print.html#af879eab3e69cfd9d15768451e091c6a2">BufferedPrint::BufferedPrint</a></div><div class="ttdeci">BufferedPrint(WriteClass *wr)</div><div class="ttdef"><b>Definition:</b> BufferedPrint.h:43</div></div>
 <div class="ttc" id="aclass_buffered_print_html_afc449966c5c7357fde925c6888669698"><div class="ttname"><a href="class_buffered_print.html#afc449966c5c7357fde925c6888669698">BufferedPrint::println</a></div><div class="ttdeci">size_t println(float f, uint8_t prec)</div><div class="ttdef"><b>Definition:</b> BufferedPrint.h:211</div></div>
-<div class="ttc" id="anamespace_u_b_x___integrity___checker_html_a4cb2911311fe5e22410c4e3255fc6119"><div class="ttname"><a href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">UBX_Integrity_Checker.c</a></div><div class="ttdeci">c</div><div class="ttdef"><b>Definition:</b> UBX_Integrity_Checker.py:172</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
@@ -282,7 +281,7 @@ $(document).ready(function(){initNavTree('_buffered_print_8h_source.html',''); i
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_87a455bccb09a92130c26a11a880c98a.html">libs</a></li><li class="navelem"><a class="el" href="dir_4553bb6e3048d0460a4a837f1662cd74.html">sdFat</a></li><li class="navelem"><a class="el" href="dir_6320893ca504c1fc8c598a0e7e8f89da.html">src</a></li><li class="navelem"><a class="el" href="_buffered_print_8h.html">BufferedPrint.h</a></li>
         <li class="footer">
-            Generated on Mon Apr 11 2022 11:41:44 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Mon Apr 11 2022 11:43:53 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

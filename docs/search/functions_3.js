@@ -60,9 +60,8 @@ var searchData=
   ['createcontiguous_57',['createContiguous',['../class_fat_file.html#a0afc2a1cffa238d1cb2049bfa2d8d199',1,'FatFile::createContiguous(FatFile *dirFile, const char *path, uint32_t size)'],['../class_fat_file.html#a0853fbd44aee2798d14d8e3aed78f8bf',1,'FatFile::createContiguous(const char *path, uint32_t size)']]],
   ['createfilebuffer_58',['createFileBuffer',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#aca5562f6973bb20bdfc9fbc5e8c22156',1,'SFE_UBLOX_GNSS']]],
   ['createkey_59',['createKey',['../class_s_f_e___u_b_l_o_x___g_n_s_s.html#af0e0537d3c388a380aab8377a8942a6a',1,'SFE_UBLOX_GNSS']]],
-  ['csum_60',['csum',['../namespace_u_b_x___integrity___checker.html#aa31bcf559d88694daf239b55799cc742',1,'UBX_Integrity_Checker']]],
-  ['curcluster_61',['curCluster',['../class_ex_fat_file.html#a2b43d98cc3c98c1024371a423d19dda3',1,'ExFatFile::curCluster()'],['../class_fat_file.html#a526f3dd56ce205690e45ffc86ef6f891',1,'FatFile::curCluster()']]],
-  ['curposition_62',['curPosition',['../class_ex_fat_file.html#ab49396aad3f6500aa19f75490dc26719',1,'ExFatFile::curPosition()'],['../class_fat_file.html#a97e0620949f97e9b9c91ed1094d728aa',1,'FatFile::curPosition()'],['../class_fs_base_file.html#a549a187423ffdb05be03bb7d059068a0',1,'FsBaseFile::curPosition()']]],
-  ['curtimems_63',['curTimeMS',['../class_sys_call.html#aa508a9a3066020fc94765e4099490372',1,'SysCall']]],
-  ['cwv_64',['cwv',['../class_fs_volume.html#a3ba288e0cfb1833165b4758e7e7ca338',1,'FsVolume::cwv()'],['../class_fat_volume.html#a7eaafa3e988859e9166eeaa7cd0f42e3',1,'FatVolume::cwv()'],['../class_ex_fat_volume.html#ac7176d78d0b69a430086e9f59f8232ca',1,'ExFatVolume::cwv()']]]
+  ['curcluster_60',['curCluster',['../class_ex_fat_file.html#a2b43d98cc3c98c1024371a423d19dda3',1,'ExFatFile::curCluster()'],['../class_fat_file.html#a526f3dd56ce205690e45ffc86ef6f891',1,'FatFile::curCluster()']]],
+  ['curposition_61',['curPosition',['../class_ex_fat_file.html#ab49396aad3f6500aa19f75490dc26719',1,'ExFatFile::curPosition()'],['../class_fat_file.html#a97e0620949f97e9b9c91ed1094d728aa',1,'FatFile::curPosition()'],['../class_fs_base_file.html#a549a187423ffdb05be03bb7d059068a0',1,'FsBaseFile::curPosition()']]],
+  ['curtimems_62',['curTimeMS',['../class_sys_call.html#aa508a9a3066020fc94765e4099490372',1,'SysCall']]],
+  ['cwv_63',['cwv',['../class_fs_volume.html#a3ba288e0cfb1833165b4758e7e7ca338',1,'FsVolume::cwv()'],['../class_fat_volume.html#a7eaafa3e988859e9166eeaa7cd0f42e3',1,'FatVolume::cwv()'],['../class_ex_fat_volume.html#ac7176d78d0b69a430086e9f59f8232ca',1,'ExFatVolume::cwv()']]]
 ];

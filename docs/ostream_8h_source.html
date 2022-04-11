@@ -226,7 +226,7 @@ $(document).ready(function(){initNavTree('ostream_8h_source.html',''); initResiz
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>  <span class="keywordtype">void</span> do_fill(<span class="keywordtype">unsigned</span> len);</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>  <span class="keywordtype">void</span> fill_not_left(<span class="keywordtype">unsigned</span> len);</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>  <span class="keywordtype">void</span> putBool(<span class="keywordtype">bool</span> b);</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>  <span class="keywordtype">void</span> putChar(<span class="keywordtype">char</span> <a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a>);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>  <span class="keywordtype">void</span> putChar(<span class="keywordtype">char</span> c);</div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  <span class="keywordtype">void</span> putDouble(<span class="keywordtype">double</span> n);</div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  <span class="keywordtype">void</span> putNum(int32_t n);</div>
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>  <span class="keywordtype">void</span> putNum(int64_t n);</div>
@@ -241,8 +241,8 @@ $(document).ready(function(){initNavTree('ostream_8h_source.html',''); initResiz
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keywordflow">do</span> {</div>
 <div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>      T <a class="code hl_variable" href="_fmt_number_8cpp.html#a51e2380ea0ddf09e95010936d26eaf5b">m</a> = n;</div>
 <div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>      n /= base;</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      <span class="keywordtype">char</span> <a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a> = <a class="code hl_variable" href="_fmt_number_8cpp.html#a51e2380ea0ddf09e95010936d26eaf5b">m</a> - base * n;</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>      *--ptr = <a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a> &lt; 10 ? <a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a> + <span class="charliteral">&#39;0&#39;</span> : <a class="code hl_variable" href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">c</a> + a;</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      <span class="keywordtype">char</span> c = <a class="code hl_variable" href="_fmt_number_8cpp.html#a51e2380ea0ddf09e95010936d26eaf5b">m</a> - base * n;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>      *--ptr = c &lt; 10 ? c + <span class="charliteral">&#39;0&#39;</span> : c + a;</div>
 <div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    } <span class="keywordflow">while</span> (n);</div>
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <span class="keywordflow">return</span> ptr;</div>
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>  }</div>
@@ -313,7 +313,6 @@ $(document).ready(function(){initNavTree('ostream_8h_source.html',''); initResiz
 <div class="ttc" id="aios_8h_html_ac6a97e9c79afda291dd46380ca7d437e"><div class="ttname"><a href="ios_8h.html#ac6a97e9c79afda291dd46380ca7d437e">uppercase</a></div><div class="ttdeci">ios_base &amp; uppercase(ios_base &amp;str)</div><div class="ttdef"><b>Definition:</b> ios.h:380</div></div>
 <div class="ttc" id="aios_8h_html_ac9f0758e8d1b42225180393e05098638"><div class="ttname"><a href="ios_8h.html#ac9f0758e8d1b42225180393e05098638">showpos</a></div><div class="ttdeci">ios_base &amp; showpos(ios_base &amp;str)</div><div class="ttdef"><b>Definition:</b> ios.h:356</div></div>
 <div class="ttc" id="aiostream_8h_html_aa9a08fc8dcbbe15b2c0ec661cd19eb81"><div class="ttname"><a href="iostream_8h.html#aa9a08fc8dcbbe15b2c0ec661cd19eb81">operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;os, const setfill &amp;arg)</div><div class="ttdef"><b>Definition:</b> iostream.h:78</div></div>
-<div class="ttc" id="anamespace_u_b_x___integrity___checker_html_a4cb2911311fe5e22410c4e3255fc6119"><div class="ttname"><a href="namespace_u_b_x___integrity___checker.html#a4cb2911311fe5e22410c4e3255fc6119">UBX_Integrity_Checker.c</a></div><div class="ttdeci">c</div><div class="ttdef"><b>Definition:</b> UBX_Integrity_Checker.py:172</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
@@ -322,7 +321,7 @@ $(document).ready(function(){initNavTree('ostream_8h_source.html',''); initResiz
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_87a455bccb09a92130c26a11a880c98a.html">libs</a></li><li class="navelem"><a class="el" href="dir_4553bb6e3048d0460a4a837f1662cd74.html">sdFat</a></li><li class="navelem"><a class="el" href="dir_6320893ca504c1fc8c598a0e7e8f89da.html">src</a></li><li class="navelem"><a class="el" href="dir_916f29c38dd038a94d4befe1d98e6d21.html">iostream</a></li><li class="navelem"><a class="el" href="ostream_8h.html">ostream.h</a></li>
         <li class="footer">
-            Generated on Mon Apr 11 2022 11:41:44 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Mon Apr 11 2022 11:43:53 for GNSS ZOE M8B Arduino Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

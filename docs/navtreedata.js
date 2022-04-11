@@ -34,20 +34,6 @@ var NAVTREE =
       [ "Support for AssistNow", "index.html#autotoc_md6", null ],
       [ "Support for AssistNow Autonomous", "index.html#autotoc_md7", null ]
     ] ],
-    [ "How to add new messages to the SparkFun u-blox GNSS Arduino Library", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__adding__new__messages.html", null ],
-    [ "How to Contribute", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "Style guide", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md31", null ]
-    ] ],
-    [ "Subject of the issue", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__i_s_s_u_e__t_e_m_p_l_a_t_e.html", null ],
-    [ "SparkFun License Information", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html", [
-      [ "Hardware", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md37", null ],
-      [ "Code", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__l_i_c_e_n_s_e.html#autotoc_md38", null ]
-    ] ],
-    [ "How I<sup>2</sup>C (aka DDC) communication works with a u-blox module", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html", [
-      [ "How data is processed by this library", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md55", null ],
-      [ "\"Auto\" messages", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md56", null ],
-      [ "Migrating your code to v2.0", "md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md57", null ]
-    ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -92,26 +78,25 @@ var NAVTREEINDEX =
 "_sd_spi_bare_uno_driver_8h.html#ae5b9fccefe396ed911ec41fdd1a9e260",
 "_spark_fun__u-blox___g_n_s_s___arduino___library_8h.html#a69d8db638006b9d76592e6a821b8a070",
 "_stdio_stream_8h.html#ad9a6150ef11e2616c1a99bc777df17d3",
-"class_ex_fat_file.html#abe72cc1886e2d32e783eb307d6fa7213",
-"class_fat_file.html#aa0585bf2885f8366cea7c5b145ab4c58",
-"class_fs_base_file.html#ade9f9a9ac4d3e0a392a6cc45c9551767",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a33ea76c720e167144625789e3aac043c",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a9b86b8a12db5c53030e52bab5de7386a",
-"class_s_f_e___u_b_l_o_x___g_n_s_s.html#afad7442f09a59c19bb2acc6d2650a72f",
-"class_stdio_stream.html#ac6c389eebc07a4d03031cbace51829c5",
-"dir_4132a18e6d6140d8480f922be9bf4821.html",
-"md_src__spark_fun_u_blox__g_n_s_s__arduino__library_main__theory.html#autotoc_md55",
-"struct_dir_stream__t.html#abc50a43fe2e24daea859492d267e2ade",
-"struct_u_b_x___e_s_f___s_t_a_t_u_s__data__t.html#a7f12b4db9df0d9f238b19aabc8fae177",
-"struct_u_b_x___n_a_v___a_t_t__t.html",
-"struct_u_b_x___n_a_v___p_v_a_t__data__t.html#adf1899347709499c46683e037edc0161",
-"struct_u_b_x___n_a_v___s_a_t__block__t.html#a3948acc534f2854380b9b90d89b18543",
-"struct_u_b_x___n_a_v___v_e_l_n_e_d__t.html#a12c2235dc3f0bbe94942ca7084cc26f6",
-"structpartition_boot_sector_fat.html#a70c99213478d6bddee79fb525ee20bcf",
-"u-blox__config__keys_8h.html#a315a6c54ade118d49dfb47932ee85320",
-"u-blox__config__keys_8h.html#a73e30e8c424da73e8fcb1064602be1e9",
-"u-blox__config__keys_8h.html#ab88b5c6dc58756c6704a11b5c59715ab",
-"u-blox__config__keys_8h.html#afdbf6b37e1b39424952fb972582a18dd"
+"class_ex_fat_partition.html#a3a482983dedbbb054941d678f7be69d2",
+"class_fat_formatter.html#afb039f9d29e120979804d92cc38fd977",
+"class_fs_volume.html#a9bece771399c97b136868f684c2b4496",
+"class_s_f_e___u_b_l_o_x___g_n_s_s.html#a4aaa8fca9e6c44901325db66dc438509",
+"class_s_f_e___u_b_l_o_x___g_n_s_s.html#ab71fa59e648cbe017b6639de9545e5c2",
+"class_sd_card_interface.html#abf04f87ec5c49fe6d9e23c8ac4cf482d",
+"classifstream.html#a169694d6535fd551fd6db48a2867590e",
+"functions_l.html",
+"struct_c_s_d_v2.html#a09c942079f7d4e1a26d26d4cfe9d15c5",
+"struct_u_b_x___e_s_f___i_n_s__data__t.html",
+"struct_u_b_x___h_n_r___p_v_t__module_queried__t.html#a01b404601d1667dc546f92cdecbe368c",
+"struct_u_b_x___n_a_v___o_d_o__module_queried__t.html#afe016ea6bbdf8683d8e8a719ba867e8b",
+"struct_u_b_x___n_a_v___p_v_t__module_queried__t.html#a69d7d83e3ccba935a4cdd76772ca5cb9",
+"struct_u_b_x___n_a_v___t_i_m_e_l_s__module_queried__t.html#a1ab17337ee85c9d5f87cc8937d7a89c5",
+"structbios_parameter_block_fat16.html",
+"u-blox__config__keys_8h.html#a15a69ba8982ad14df6bd466a03dfc8bc",
+"u-blox__config__keys_8h.html#a572e41d6b674dfd1737f560f3e00f391",
+"u-blox__config__keys_8h.html#a9c06e840c238fa257f226c002d3b9295",
+"u-blox__config__keys_8h.html#adf0d2ce79a48c403f4fe4410eb11a270"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
