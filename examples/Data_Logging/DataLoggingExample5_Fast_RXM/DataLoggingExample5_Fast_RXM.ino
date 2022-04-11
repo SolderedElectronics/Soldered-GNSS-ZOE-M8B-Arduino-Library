@@ -62,11 +62,13 @@
  ***************************************************/
 
 #include <SPI.h>
-#include <SD.h>
+#include <SdFat.h>
 #include <Wire.h> //Needed for I2C to GNSS
 
 #include <GNSS-ZOE-M8B-SOLDERED.h>
 SFE_UBLOX_GNSS myGNSS;
+
+SdFat SD;
 
 File myFile; //File that all GNSS data is written to
 
