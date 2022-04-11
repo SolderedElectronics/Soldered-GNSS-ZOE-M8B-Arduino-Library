@@ -25,9 +25,9 @@
 #ifndef FatFormatter_h
 #define FatFormatter_h
 #include "FatFile.h"
-#include "../common/SysCall.h"
-#include "../common/BlockDevice.h"
-#include "../common/FsStructs.h"
+#include "/../common/SysCall.h"
+#include "/../common/BlockDevice.h"
+#include "/../common/FsStructs.h"
 /**
  * \class FatFormatter
  * \brief Format a FAT volume.

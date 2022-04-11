@@ -24,7 +24,7 @@
  */
 #include <math.h>
 #define DBG_FILE "FatFilePrint.cpp"
-#include "../common/DebugMacros.h"
+#include "/../common/DebugMacros.h"
 #include "FatFile.h"
 //------------------------------------------------------------------------------
 static void printHex(print_t* pr, uint8_t w, uint16_t h) {
