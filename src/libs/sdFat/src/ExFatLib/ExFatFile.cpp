@@ -23,7 +23,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 #define DBG_FILE "ExFatFile.cpp"
-#include "/../common/DebugMacros.h"
+#include "libs/sdFat/src/common/DebugMacros.h"
 #include "ExFatFile.h"
 #include "ExFatVolume.h"
 #include "upcase.h"

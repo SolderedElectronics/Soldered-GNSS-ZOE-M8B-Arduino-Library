@@ -30,7 +30,7 @@
 #define BlockDeviceInterface_h
 #include <stdint.h>
 #include <stddef.h>
-#include "/../SdFatConfig.h"
+#include "libs/sdFat/src/SdFatConfig.h"
 /**
  * \class BlockDeviceInterface
  * \brief BlockDeviceInterface class.

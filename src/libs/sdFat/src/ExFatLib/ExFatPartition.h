@@ -28,9 +28,9 @@
  * \file
  * \brief ExFatPartition include file.
  */
-#include "/../common/SysCall.h"
-#include "/../common/BlockDevice.h"
-#include "/../common/FsCache.h"
+#include "libs/sdFat/src/common/SysCall.h"
+#include "libs/sdFat/src/common/BlockDevice.h"
+#include "libs/sdFat/src/common/FsCache.h"
 #include "ExFatConfig.h"
 #include "ExFatTypes.h"
 /** Type for exFAT partition */

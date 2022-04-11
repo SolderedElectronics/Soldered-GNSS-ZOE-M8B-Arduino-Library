@@ -30,10 +30,10 @@
  */
 #include <stddef.h>
 #include "FatLibConfig.h"
-#include "/../common/SysCall.h"
-#include "/../common/BlockDevice.h"
-#include "/../common/FsCache.h"
-#include "/../common/FsStructs.h"
+#include "libs/sdFat/src/common/SysCall.h"
+#include "libs/sdFat/src/common/BlockDevice.h"
+#include "libs/sdFat/src/common/FsCache.h"
+#include "libs/sdFat/src/common/FsStructs.h"
 
 /** Type for FAT12 partition */
 const uint8_t FAT_TYPE_FAT12 = 12;

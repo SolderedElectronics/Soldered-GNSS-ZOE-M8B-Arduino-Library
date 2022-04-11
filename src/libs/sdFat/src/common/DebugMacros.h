@@ -24,7 +24,7 @@
  */
 #ifndef DebugMacros_h
 #define DebugMacros_h
-#include "/../SdFatConfig.h"
+#include "libs/sdFat/src/SdFatConfig.h"
 #define USE_DBG_MACROS 0
 
 #if USE_DBG_MACROS

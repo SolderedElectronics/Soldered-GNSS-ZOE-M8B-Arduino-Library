@@ -29,10 +29,10 @@
 #ifndef SdSpiCard_h
 #define SdSpiCard_h
 #include <stddef.h>
-#include "/../common/SysCall.h"
+#include "libs/sdFat/src/common/SysCall.h"
 #include "SdCardInfo.h"
 #include "SdCardInterface.h"
-#include "/../SpiDriver/SdSpiDriver.h"
+#include "libs/sdFat/src/SpiDriver/SdSpiDriver.h"
 //==============================================================================
 /**
  * \class SdSpiCard
