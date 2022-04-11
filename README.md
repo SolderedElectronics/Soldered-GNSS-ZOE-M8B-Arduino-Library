@@ -34,6 +34,10 @@ At Soldered, we design and manufacture a wide selection of electronic products t
 - [Community & technical support](https://community.soldered.com)
 - [Custom PCBs](https://pcb.soldered.com)
 
+### Original source
+​
+This library is possible thanks to original [SparkFun u-blox ZOE-M8Q](https://github.com/sparkfun/SparkFun_u-blox_ZOE-M8Q) library. Thank you, Sparkfun Electronics. 
+
 ### Open-source license
 Soldered invests vast amounts of time into hardware & software for these products, which are all open-source. Please support future development by buying one of our products. 
 
