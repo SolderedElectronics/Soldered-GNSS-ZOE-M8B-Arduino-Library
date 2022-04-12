@@ -67,7 +67,11 @@
  ***************************************************/
 
 #include <SPI.h>
+#ifdef ARDUINO_ESP32_GENERIC
+#include <SdFat.h>
+#else
 #include "SdFat.h"
+#endif
 #include <Wire.h> //Needed for I2C to GNSS
 
 #include <GNSS-ZOE-M8B-SOLDERED.h> 
