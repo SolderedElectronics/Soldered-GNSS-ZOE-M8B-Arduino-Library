@@ -62,7 +62,7 @@
  ***************************************************/
 
 #include <SPI.h>
-#ifdef ARDUINO_ESP32_GENERIC
+#ifdef ARDUINO_ESP8266_GENERIC
 #include <SdFat.h>
 #else
 #include "SdFat.h"
