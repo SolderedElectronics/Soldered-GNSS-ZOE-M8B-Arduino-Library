@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "GNSS ZOE M8B Arduino Library", "index.html", [
+  [ "Soldered GNSS ZOE-M8B Arduino Library", "index.html", [
     [ "SparkFun u-blox Arduino GNSS Library - AssistNow<sup>TM</sup>", "index.html", [
       [ "AssistNow<sup>TM</sup> Online", "index.html#autotoc_md1", null ],
       [ "AssistNow<sup>TM</sup> Offline", "index.html#autotoc_md2", null ],
